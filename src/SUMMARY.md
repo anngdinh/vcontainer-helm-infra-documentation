@@ -11,3 +11,6 @@
     - [Block volume](helm-charts/vcontainer-storage-interface/example/block-volume.md)
     - [Volume resizing](helm-charts/vcontainer-storage-interface/example/volume-resizing.md)
     - [NFS server](helm-charts/vcontainer-storage-interface/example/nfs-server.md)
+- [VNGCLOUD Ingress Controller](helm-charts/vngcloud-ingress-controller/README.md)
+  - [Overview](helm-charts/vngcloud-ingress-controller/overview.md)
+  - [Installation](helm-charts/vngcloud-ingress-controller/installation.md)
