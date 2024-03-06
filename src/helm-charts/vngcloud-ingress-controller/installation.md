@@ -40,7 +40,7 @@ The **Vngcloud Ingress Controllers** plugin necessitates a **Service Account** f
 * First, add this repo:
 
   ```bash
-  helm repo add anngdinh https://anngdinh.github.io/helm-charts
+  helm repo add vks-helm-charts https://vngcloud.github.io/vks-helm-charts
   helm repo update
   ```
 
@@ -49,10 +49,10 @@ The **Vngcloud Ingress Controllers** plugin necessitates a **Service Account** f
 * Install
 
   ```bash=
-  helm install vngcloud-ingress-controller anngdinh/vngcloud-ingress-controller \
-    --set cloudConfig.global.clientID=_______________________ \
-    --set cloudConfig.global.clientSecret=_______________________\
-    --set cloudConfig.clusterID=_______________________
+  helm install vngcloud-ingress-controller vks-helm-charts/vngcloud-ingress-controller \
+    --set cloudConfig.global.clientID=__________________________ \
+    --set cloudConfig.global.clientSecret=__________________________ \
+    --set cloudConfig.clusterID=__________________________
   ```
 
 ## Verify the installation
