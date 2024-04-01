@@ -8,7 +8,8 @@
 
 ## The plugin's annotations
 
-Compare with [AWS Ingress Annoration](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.7/guide/ingress/annotations/).
+Compare with [AWS Ingress Annotation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.7/guide/ingress/annotations/).
+
 | AWS                                                                         | VNGCLOUD                                                                                                                                              | Type                       | Default                               | Location        | MergeBehavior |
 |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------------------------------------|-----------------|---------------|
 | [/load-balancer-name](#load-balancer-name)                                   | [load-balancer-name](#)                                                                                                                               | string                     | N/A                                   | Ingress         | Exclusive     |
