@@ -4,6 +4,7 @@
 # VNG Cloud Controller Manager Chart
 - [Overview](overview.md)
 - [Installation](installation.md)
+- [Annotations](annotations.md)
 - [For usage](example.md)
   - [Internal LoadBalancer](example/internal-loadbalancer.md)
   - [External LoadBalancer](example/external-loadbalancer.md)
