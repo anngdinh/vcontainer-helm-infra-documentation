@@ -1,52 +1,56 @@
 # Annotations
 
-| VNGCLOUD                                                            | Type                                        | Default                                  | Location        | MergeBehavior |
-| -------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------- | --------------- | ------------- |
-| [/load-balancer-id](#load-balancer-id)                         | string                                      |                                          | Ingress         |               |
-| [/load-balancer-name](#load-balancer-name)                     | string                                      | auto generate with rule                  | Ingress         | Exclusive     |
-| [/tags](#tags)                                                 | stringMap                                   | N/A                                      | Ingress,Service | Merge         |
-| [/scheme](#scheme)                                             | internal / internet-facing                  | internal                                 | Ingress         | Exclusive     |
-| [/security-groups](#security-groups)                           | stringList                                  | N/A                                      | Ingress         | Exclusive     |
-| [/inbound-cidrs](#inbound-cidrs)                               | stringList                                  | 0.0.0.0/0                                | Ingress         | Exclusive     |
-| [/healthcheck-protocol](#healthcheck-protocol)                 | HTTP / HTTPS                                | HTTP                                     | Ingress,Service | N/A           |
-| [/healthcheck-path](#healthcheck-path)                         | string                                      | / / /AWS.ALB/healthcheck                 | Ingress,Service | N/A           |
-| [/healthcheck-interval-seconds](#healthcheck-interval-seconds) | integer                                     | '15'                                     | Ingress,Service | N/A           |
-| [/healthcheck-timeout-seconds](#healthcheck-timeout-seconds)   | integer                                     | '5'                                      | Ingress,Service | N/A           |
-| [/healthy-threshold-count](#healthy-threshold-count)           | integer                                     | '2'                                      | Ingress,Service | N/A           |
-| [/unhealthy-threshold-count](#unhealthy-threshold-count)       | integer                                     | '2'                                      | Ingress,Service | N/A           |
-| [/success-codes](#success-codes)                               | string                                      | '200' / '12'                             | Ingress,Service | N/A           |
-| [/package-id](#package-id)                                     | string                                      | lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86 |                 |               |
-| [/idle-timeout-client](#idle-timeout-client)                   | integer                                     | 50                                       |                 |               |
-| [/idle-timeout-member](#idle-timeout-member)                   | integer                                     | 50                                       |                 |               |
-| [/idle-timeout-connection](#idle-timeout-connection)           | integer                                     | 5                                        |                 |               |
-| [/pool-algorithm](#pool-algorithm)                             | ROUND_ROBIN / LEAST_CONNECTIONS / SOURCE_IP | ROUND_ROBIN                              |                 |               |
-| [/healthcheck-http-method](#healthcheck-http-method)           | GET / POST / PUT                            | GET                                      |                 |               |
-| [/healthcheck-http-version](#healthcheck-http-version)         | 1.0 / 1.1                                   | 1.0                                      |                 |               |
-| [/healthcheck-http-domain-name](#healthcheck-http-domain-name) | string                                      | ""                                       |                 |               |
-| [/enable-sticky-session](#enable-sticky-session)               | boolean                                     | false                                    |                 |               |
-| [/enable-tls-encryption](#enable-tls-encryption)               | boolean                                     | false                                    |                 |               |
+| VNGCLOUD                                                       | Type                                        | Default                                  |
+| -------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------- |
+| [/load-balancer-id](#load-balancer-id)                         | string                                      |                                          |
+| [/load-balancer-name](#load-balancer-name)                     | string                                      | auto generate with rule                  |
+| [/tags](#tags)                                                 | stringMap                                   | N/A                                      |
+| [/scheme](#scheme)                                             | internal / internet-facing                  | internal                                 |
+| [/security-groups](#security-groups)                           | stringList                                  | N/A                                      |
+| [/inbound-cidrs](#inbound-cidrs)                               | stringList                                  | 0.0.0.0/0                                |
+| [/healthcheck-protocol](#healthcheck-protocol)                 | HTTP / HTTPS                                | HTTP                                     |
+| [/healthcheck-path](#healthcheck-path)                         | string                                      | "/"                                      |
+| [/healthcheck-interval-seconds](#healthcheck-interval-seconds) | integer                                     | '15'                                     |
+| [/healthcheck-timeout-seconds](#healthcheck-timeout-seconds)   | integer                                     | '5'                                      |
+| [/healthy-threshold-count](#healthy-threshold-count)           | integer                                     | '2'                                      |
+| [/unhealthy-threshold-count](#unhealthy-threshold-count)       | integer                                     | '2'                                      |
+| [/success-codes](#success-codes)                               | string                                      | '200' / '12'                             |
+| [/package-id](#package-id)                                     | string                                      | lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86 |
+| [/idle-timeout-client](#idle-timeout-client)                   | integer                                     | 50                                       |
+| [/idle-timeout-member](#idle-timeout-member)                   | integer                                     | 50                                       |
+| [/idle-timeout-connection](#idle-timeout-connection)           | integer                                     | 5                                        |
+| [/pool-algorithm](#pool-algorithm)                             | ROUND_ROBIN / LEAST_CONNECTIONS / SOURCE_IP | ROUND_ROBIN                              |
+| [/healthcheck-http-method](#healthcheck-http-method)           | GET / POST / PUT                            | GET                                      |
+| [/healthcheck-http-version](#healthcheck-http-version)         | 1.0 / 1.1                                   | 1.0                                      |
+| [/healthcheck-http-domain-name](#healthcheck-http-domain-name) | string                                      | ""                                       |
+| [/enable-sticky-session](#enable-sticky-session)               | boolean                                     | false                                    |
+| [/enable-tls-encryption](#enable-tls-encryption)               | boolean                                     | false                                    |
+| [/healthcheck-port](#healthcheck-port)                         | integer                                     | traffic port                             |
+| [/target-node-labels](#target-node-labels)                     | stringMap                                   | N/A                                      |
 
 Compare with [AWS Ingress Annotation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.7/guide/ingress/annotations/).
 
 | AWS                                                                          | VNGCLOUD                                                                                                                                             | Type                    | Default                               | Location        | MergeBehavior |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------- | --------------- | ------------- |
-| [/ip-address-type](#ip-address-type)                                         | ❌❌ ipv4 / dualstack                                                                                                                                | ipv4 / dualstack        | ipv4                                  | Ingress         | Exclusive     |
 | [/subnets](#subnets)                                                         | ❌ only subnet of worker node                                                                                                                        | stringList              | N/A                                   | Ingress         | Exclusive     |
+| [/mutual-authentication](#mutual-authentication)                             | ❌ mutual authentication configuration                                                                                                               | json                    | '[{"port": 443, "mode": "off"}]'      | Ingress         | Exclusive     |
+| [/certificate-arn](#certificate-arn)                                         | ❌ The first certificate in the list will be added as default certificate. And remaining certificate will be added to the optional certificate list  | stringList              | N/A                                   | Ingress         | Merge         |
+| [/listen-ports](#listen-ports)                                               | ❌ set default                                                                                                                                       | json                    | '[{"HTTP": 80}]' / '[{"HTTPS": 443}]' | Ingress         | Merge         |
+| [/group.name](#group.name)                                                   | ❌ IngressGroup resource                                                                                                                             | string                  | N/A                                   | Ingress         | N/A           |
+| [/group.order](#group.order)                                                 | ❌ order across all Ingresses within IngressGroup. The smaller the order, the rule will be evaluated first                                           | integer                 | 0                                     | Ingress         | N/A           |
+| [/load-balancer-attributes](#load-balancer-attributes)                       | ❌ access_logs.s3.enabled=true,...                                                                                                                   | stringMap               | N/A                                   | Ingress         | Exclusive     |
+| [/ssl-redirect](#ssl-redirect)                                               | ❌ every HTTP listener will be configured with a default action which redirects to HTTPS                                                             | integer                 | N/A                                   | Ingress         | Exclusive     |
+| [/target-type](#target-type)                                                 | ❌ specifies how to route traffic to pods (instance mode will route traffic to all ec2 instances, ip mode will route traffic directly to the pod IP) | instance / ip           | instance                              | Ingress,Service | N/A           |
+| [/backend-protocol](#backend-protocol)                                       | ❌ Only support HTTP                                                                                                                                 | HTTP / HTTPS            | HTTP                                  | Ingress,Service | N/A           |
+| [/target-group-attributes](#target-group-attributes)                         | ❌ specifies Target Group Attributes which should be applied to Target Groups                                                                        | stringMap               | N/A                                   | Ingress,Service | N/A           |
+| [/ip-address-type](#ip-address-type)                                         | ❌❌ ipv4 / dualstack                                                                                                                                | ipv4 / dualstack        | ipv4                                  | Ingress         | Exclusive     |
 | [/manage-backend-security-group-rules](#manage-backend-security-group-rules) | ❌❌ auto configure security group rules on Node/Pod                                                                                                 | boolean                 | N/A                                   | Ingress         | Exclusive     |
 | [/customer-owned-ipv4-pool](#customer-owned-ipv4-pool)                       | ❌❌ specifies the customer-owned IPv4 address                                                                                                       | string                  | N/A                                   | Ingress         | Exclusive     |
-| [/load-balancer-attributes](#load-balancer-attributes)                       | ❌ access_logs.s3.enabled=true,...                                                                                                                   | stringMap               | N/A                                   | Ingress         | Exclusive     |
 | [/wafv2-acl-arn](#wafv2-acl-arn)                                             | ❌❌ specifies ARN for the Amazon WAFv2 web ACL                                                                                                      | string                  | N/A                                   | Ingress         | Exclusive     |
 | [/waf-acl-id](#waf-acl-id)                                                   | ❌❌ specifies the identifier for the Amazon WAF web ACL                                                                                             | string                  | N/A                                   | Ingress         | Exclusive     |
 | [/shield-advanced-protection](#shield-advanced-protection)                   | ❌❌ turns on / off the AWS Shield Advanced protection                                                                                               | boolean                 | N/A                                   | Ingress         | Exclusive     |
-| [/listen-ports](#listen-ports)                                               | ❌ set default                                                                                                                                       | json                    | '[{"HTTP": 80}]' / '[{"HTTPS": 443}]' | Ingress         | Merge         |
-| [/ssl-redirect](#ssl-redirect)                                               | ❌ every HTTP listener will be configured with a default action which redirects to HTTPS                                                             | integer                 | N/A                                   | Ingress         | Exclusive     |
-| [/certificate-arn](#certificate-arn)                                         | ❌ The first certificate in the list will be added as default certificate. And remaining certificate will be added to the optional certificate list  | stringList              | N/A                                   | Ingress         | Merge         |
 | [/ssl-policy](#ssl-policy)                                                   | ❌❌ specifies the Security Policy that should be assigned to the ALB                                                                                | string                  | ELBSecurityPolicy-2016-08             | Ingress         | Exclusive     |
-| [/target-type](#target-type)                                                 | ❌ specifies how to route traffic to pods (instance mode will route traffic to all ec2 instances, ip mode will route traffic directly to the pod IP) | instance / ip           | instance                              | Ingress,Service | N/A           |
-| [/backend-protocol](#backend-protocol)                                       | ❌ Only support HTTP                                                                                                                                 | HTTP / HTTPS            | HTTP                                  | Ingress,Service | N/A           |
 | [/backend-protocol-version](#backend-protocol-version)                       | ❌❌ No options                                                                                                                                      | string                  | HTTP1                                 | Ingress,Service | N/A           |
-| [/target-group-attributes](#target-group-attributes)                         | ❌ specifies Target Group Attributes which should be applied to Target Groups                                                                        | stringMap               | N/A                                   | Ingress,Service | N/A           |
-| [/healthcheck-port](#healthcheck-port)                                       | ❌ Equal with protocol port                                                                                                                          | integer / traffic-port  | traffic-port                          | Ingress,Service | N/A           |
 | [/auth-type](#auth-type)                                                     | ❌❌ specifies the authentication type on targets                                                                                                    | none/oidc/cognito       | none                                  | Ingress,Service | N/A           |
 | [/auth-idp-cognito](#auth-idp-cognito)                                       | ❌❌ specifies the cognito idp configuration                                                                                                         | json                    | N/A                                   | Ingress,Service | N/A           |
 | [/auth-idp-oidc](#auth-idp-oidc)                                             | ❌❌ specifies the oidc idp configuration                                                                                                            | json                    | N/A                                   | Ingress,Service | N/A           |
@@ -56,10 +60,6 @@ Compare with [AWS Ingress Annotation](https://kubernetes-sigs.github.io/aws-load
 | [/auth-session-timeout](#auth-session-timeout)                               | ❌❌                                                                                                                                                 | integer                 | '604800'                              | Ingress,Service | N/A           |
 | [/actions.${action-name}](#actions)                                          | ❌❌                                                                                                                                                 | json                    | N/A                                   | Ingress         | N/A           |
 | [/conditions.${conditions-name}](#conditions)                                | ❌❌                                                                                                                                                 | json                    | N/A                                   | Ingress         | N/A           |
-| [/target-node-labels](#target-node-labels)                                   | ❌ specifies which nodes to include in the target group registration for instance target type                                                        | stringMap               | N/A                                   | Ingress,Service | N/A           |
-| [/mutual-authentication](#mutual-authentication)                             | ❌ mutual authentication configuration                                                                                                               | json                    | '[{"port": 443, "mode": "off"}]'      | Ingress         | Exclusive     |
-| [/group.name](#group.name)                                                   | ❌ IngressGroup resource                                                                                                                             | string                  | N/A                                   | Ingress         | N/A           |
-| [/group.order](#group.order)                                                 | ❌ order across all Ingresses within IngressGroup. The smaller the order, the rule will be evaluated first                                           | integer                 | 0                                     | Ingress         | N/A           |
 
 ## Traffic Routing
 
@@ -68,6 +68,8 @@ Traffic Routing can be controlled with following annotations:
 - <a name="load-balancer-id">`vks.vngcloud.vn/load-balancer-id`</a> specifies the id of the load balancer.
 
   > **⚠️ Warnings**: If you specify this annotation, load-balancer will not auto recreate when delete.
+  >
+  > **⚠️ Warnings**: If you want many ingress use a same load-balancer, we highly recommended use annotation [vks.vngcloud.vn/load-balancer-name](#load-balancer-name).
 
   ```yaml
   vks.vngcloud.vn/load-balancer-id: "lb-xxxxxxxxxxxxxx"
@@ -75,7 +77,7 @@ Traffic Routing can be controlled with following annotations:
 
 - <a name="load-balancer-name">`vks.vngcloud.vn/load-balancer-name`</a> specifies the custom name to use for the load balancer.
 
-  > **ℹ️ Info**: Rule auto genearte load balancer name: ______________________________
+  > **ℹ️ Info**: Rule auto genearte load balancer name: **\*\***\*\***\*\***\_\_**\*\***\*\***\*\***
   >
   > **⚠️ Warnings**: Name longer than 50 characters will be treated as an error.
   >
@@ -95,15 +97,22 @@ Traffic Routing can be controlled with following annotations:
   vks.vngcloud.vn/package-id: lbp-c531bc55-27d7-4a3e-be0b-eac265658a50
   ```
 
+- <a name="target-node-labels">`vks.vngcloud.vn/target-node-labels`</a> specifies which nodes to include in the target group registration.
+
+  ```yaml
+  vks.vngcloud.vn/target-node-labels: "worker=vmonitor,kubernetes.io/os=linux"
+  vks.vngcloud.vn/target-node-labels: "key=v1,key=v2" # => "key=v2"
+  ```
+
 ## Resource Tags
 
-The AWS Load Balancer Controller automatically applies following tags to the Load Balancer resources, it creates:
+The VNGCLOUD Ingress Controller automatically applies following tags to the Load Balancer resources, it creates:
 
 - `vks-cluster: ${clusterName}`
 
 In addition, you can use annotations to specify additional tags
 
-- <a name="tags">`vks.vngcloud.vn/tags`</a> specifies additional tags that will be applied to AWS resources created.
+- <a name="tags">`vks.vngcloud.vn/tags`</a> specifies additional tags that will be applied to vLB resources created.
 
   > **⚠️ Warnings**: When user update tags manual in portal, our agent will not sync the change (load balancer not update `updateAt` when update tags)
   >
@@ -160,6 +169,10 @@ Access control for LoadBalancer can be controlled with following annotations:
 ## Health Check
 
 Health check on target groups can be controlled with following annotations:
+
+- <a name="healthcheck-port">`vks.vngcloud.vn/healthcheck-port`</a> specifies the port used when performing health check on targets.
+
+  > **⚠️ Warnings**: The healthcheck port can automatically point to the protocol port.
 
 - <a name="healthcheck-protocol">`vks.vngcloud.vn/healthcheck-protocol`</a> specifies the protocol used when performing health check on targets.
 
