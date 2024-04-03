@@ -86,7 +86,7 @@ Traffic Routing can be controlled with following annotations:
   > **⚠️ Warnings**: Update this field will cause create/update another load-balancer and redundant resource (old load-balabncer).
 
   ```yaml
-  vks.vngcloud.vn/load-balancer-name: custom-name
+  vks.vngcloud.vn/load-balancer-name: "custom-name"
   ```
 
 - <a name="package-id">`vks.vngcloud.vn/package-id`</a> The ID of the network load-balancer package to be used for the service. If this annotation is not specified, the default package will be used.
@@ -94,7 +94,7 @@ Traffic Routing can be controlled with following annotations:
   > **⚠️ Warnings**: Update this field after apply success will not effect.
 
   ```yaml
-  vks.vngcloud.vn/package-id: lbp-c531bc55-27d7-4a3e-be0b-eac265658a50
+  vks.vngcloud.vn/package-id: "lbp-c531bc55-27d7-4a3e-be0b-eac265658a50"
   ```
 
 - <a name="target-node-labels">`vks.vngcloud.vn/target-node-labels`</a> specifies which nodes to include in the target group registration.
@@ -129,13 +129,13 @@ Access control for LoadBalancer can be controlled with following annotations:
 - <a name="scheme">`vks.vngcloud.vn/scheme`</a> specifies whether your LoadBalancer will be internet facing.
 
   ```yaml
-  vks.vngcloud.vn/scheme: internal
+  vks.vngcloud.vn/scheme: "internal"
   ```
 
 - <a name="inbound-cidrs">`vks.vngcloud.vn/inbound-cidrs`</a> specifies the CIDRs that are allowed to access LoadBalancer.
 
   ```yaml
-  vks.vngcloud.vn/inbound-cidrs: 10.0.0.0/24
+  vks.vngcloud.vn/inbound-cidrs: "10.0.0.0/24"
   ```
 
 - <a name="security-groups">`vks.vngcloud.vn/security-groups`</a> specifies the securityGroups you want to attach to Node.
@@ -145,25 +145,25 @@ Access control for LoadBalancer can be controlled with following annotations:
   > **⚠️ Warnings**: If you specify this annotation, it'll configure only security group only include in this annotation. Ensure include them all here.
 
   ```yaml
-  vks.vngcloud.vn/security-groups: sg-xxxx, sg-yyyyy
+  vks.vngcloud.vn/security-groups: "sg-xxxx,sg-yyyyy"
   ```
 
 - <a name="idle-timeout-client">`vks.vngcloud.vn/idle-timeout-client`</a> Connection idle timeout is the maximum time a connection can remain open without any data transfer, after which the load balancer will close the connection. Range: (1-3600).
 
   ```yaml
-  vks.vngcloud.vn/idle-timeout-client: 51
+  vks.vngcloud.vn/idle-timeout-client: "51"
   ```
 
 - <a name="idle-timeout-member">`vks.vngcloud.vn/idle-timeout-member`</a> Backend member inactivity timeout in seconds. Range: (1-3600).
 
   ```yaml
-  vks.vngcloud.vn/idle-timeout-member: 51
+  vks.vngcloud.vn/idle-timeout-member: "51"
   ```
 
 - <a name="idle-timeout-connection">`vks.vngcloud.vn/idle-timeout-connection`</a> Backend member connection timeout in seconds.
 
   ```yaml
-  vks.vngcloud.vn/idle-timeout-connection: 5
+  vks.vngcloud.vn/idle-timeout-connection: "5"
   ```
 
 ## Health Check
@@ -177,13 +177,13 @@ Health check on target groups can be controlled with following annotations:
 - <a name="healthcheck-protocol">`vks.vngcloud.vn/healthcheck-protocol`</a> specifies the protocol used when performing health check on targets.
 
   ```yaml
-  vks.vngcloud.vn/healthcheck-protocol: HTTP
+  vks.vngcloud.vn/healthcheck-protocol: "HTTP"
   ```
 
 - <a name="healthcheck-path">`vks.vngcloud.vn/healthcheck-path`</a> specifies the HTTP path when performing health check on targets.
 
   ```yaml
-  vks.vngcloud.vn/healthcheck-path: /ping
+  vks.vngcloud.vn/healthcheck-path: "/ping"
   ```
 
 - <a name="healthcheck-interval-seconds">`vks.vngcloud.vn/healthcheck-interval-seconds`</a> specifies the interval(in seconds) between health check of an individual target.
@@ -221,7 +221,7 @@ Health check on target groups can be controlled with following annotations:
   > **⚠️ Warnings**: This option is applicable only when the [vks.vngcloud.vn/healthcheck-protocol](#healthcheck-protocol) is set to `http`.
 
   ```yaml
-  vks.vngcloud.vn/healthcheck-http-method: POST
+  vks.vngcloud.vn/healthcheck-http-method: "POST"
   ```
 
 - <a name="healthcheck-http-version">`vks.vngcloud.vn/healthcheck-http-version`</a> Define the HTTP version used for sending health check requests to the backend servers.
@@ -229,7 +229,7 @@ Health check on target groups can be controlled with following annotations:
   > **⚠️ Warnings**: This option is applicable only when the [vks.vngcloud.vn/healthcheck-protocol](#healthcheck-protocol) is set to `http`.
 
   ```yaml
-  vks.vngcloud.vn/healthcheck-http-version: 1.1
+  vks.vngcloud.vn/healthcheck-http-version: "1.1"
   ```
 
 - <a name="healthcheck-http-domain-name">`vks.vngcloud.vn/healthcheck-http-domain-name`</a> The domain name, which be injected into the HTTP Host Header to the backend server for HTTP health check.
@@ -237,7 +237,7 @@ Health check on target groups can be controlled with following annotations:
   > **⚠️ Warnings**: This option is applicable only when the [vks.vngcloud.vn/healthcheck-protocol](#healthcheck-protocol) is set to `http` and [vks.vngcloud.vn/healthcheck-http-version](#healthcheck-http-version) is set to `1.1`.
 
   ```yaml
-  vks.vngcloud.vn/healthcheck-http-domain-name: example.com
+  vks.vngcloud.vn/healthcheck-http-domain-name: "example.com"
   ```
 
 ## Pool configuration
@@ -245,17 +245,17 @@ Health check on target groups can be controlled with following annotations:
 - <a name="pool-algorithm">`vks.vngcloud.vn/pool-algorithm`</a> The load balancing algorithm used to determine which backend server to send a request to.
 
   ```yaml
-  vks.vngcloud.vn/pool-algorithm: SOURCE_IP
+  vks.vngcloud.vn/pool-algorithm: "SOURCE_IP"
   ```
 
 - <a name="enable-sticky-session">`vks.vngcloud.vn/enable-sticky-session`</a> Sticky session ensures that all requests from the user during the session are sent to the same target.
 
   ```yaml
-  vks.vngcloud.vn/enable-sticky-session: true
+  vks.vngcloud.vn/enable-sticky-session: "true"
   ```
 
 - <a name="enable-tls-encryption">`vks.vngcloud.vn/enable-tls-encryption`</a> When true, connections to backend member servers will use TLS encryption.
 
   ```yaml
-  vks.vngcloud.vn/enable-tls-encryption: true
+  vks.vngcloud.vn/enable-tls-encryption: "true"
   ```
