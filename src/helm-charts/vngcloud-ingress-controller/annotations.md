@@ -4,17 +4,17 @@
 | -------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------- |
 | [/load-balancer-id](#load-balancer-id)                         | string                                      |                                          |
 | [/load-balancer-name](#load-balancer-name)                     | string                                      | auto generate with rule                  |
-| [/tags](#tags)                                                 | stringMap                                   | N/A                                      |
+| [/tags](#tags)                                                 | stringMap                                   |                                          |
 | [/scheme](#scheme)                                             | internal / internet-facing                  | internal                                 |
-| [/security-groups](#security-groups)                           | stringList                                  | N/A                                      |
-| [/inbound-cidrs](#inbound-cidrs)                               | stringList                                  | 0.0.0.0/0                                |
+| [/security-groups](#security-groups)                           | stringList                                  |                                          |
+| [/inbound-cidrs](#inbound-cidrs)                               | string                                      | 0.0.0.0/0                                |
 | [/healthcheck-protocol](#healthcheck-protocol)                 | HTTP / HTTPS                                | HTTP                                     |
 | [/healthcheck-path](#healthcheck-path)                         | string                                      | "/"                                      |
-| [/healthcheck-interval-seconds](#healthcheck-interval-seconds) | integer                                     | '15'                                     |
+| [/healthcheck-interval-seconds](#healthcheck-interval-seconds) | integer                                     | '30'                                     |
 | [/healthcheck-timeout-seconds](#healthcheck-timeout-seconds)   | integer                                     | '5'                                      |
-| [/healthy-threshold-count](#healthy-threshold-count)           | integer                                     | '2'                                      |
-| [/unhealthy-threshold-count](#unhealthy-threshold-count)       | integer                                     | '2'                                      |
-| [/success-codes](#success-codes)                               | string                                      | '200' / '12'                             |
+| [/healthy-threshold-count](#healthy-threshold-count)           | integer                                     | '3'                                      |
+| [/unhealthy-threshold-count](#unhealthy-threshold-count)       | integer                                     | '3'                                      |
+| [/success-codes](#success-codes)                               | stringList                                  | '200'                                    |
 | [/package-id](#package-id)                                     | string                                      | lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86 |
 | [/idle-timeout-client](#idle-timeout-client)                   | integer                                     | 50                                       |
 | [/idle-timeout-member](#idle-timeout-member)                   | integer                                     | 50                                       |
