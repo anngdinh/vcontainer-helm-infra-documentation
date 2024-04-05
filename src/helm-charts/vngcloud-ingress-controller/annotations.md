@@ -8,7 +8,7 @@
 | [/scheme](#scheme)                                             | internal / internet-facing                  | internal                                 |
 | [/security-groups](#security-groups)                           | stringList                                  |                                          |
 | [/inbound-cidrs](#inbound-cidrs)                               | string                                      | 0.0.0.0/0                                |
-| [/healthcheck-protocol](#healthcheck-protocol)                 | HTTP / HTTPS                                | HTTP                                     |
+| [/healthcheck-protocol](#healthcheck-protocol)                 | TCP / HTTP                                  | TCP                                      |
 | [/healthcheck-path](#healthcheck-path)                         | string                                      | "/"                                      |
 | [/healthcheck-interval-seconds](#healthcheck-interval-seconds) | integer                                     | '30'                                     |
 | [/healthcheck-timeout-seconds](#healthcheck-timeout-seconds)   | integer                                     | '5'                                      |
