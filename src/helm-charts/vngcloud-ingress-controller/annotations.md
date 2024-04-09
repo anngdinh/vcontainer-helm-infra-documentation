@@ -4,28 +4,28 @@
 | -------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------- |
 | [/load-balancer-id](#load-balancer-id)                         | string                                      |                                          |
 | [/load-balancer-name](#load-balancer-name)                     | string                                      | auto generate with rule                  |
+| [/package-id](#package-id)                                     | string                                      | lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86 |
 | [/tags](#tags)                                                 | stringMap                                   |                                          |
 | [/scheme](#scheme)                                             | internal / internet-facing                  | internal                                 |
 | [/security-groups](#security-groups)                           | stringList                                  |                                          |
 | [/inbound-cidrs](#inbound-cidrs)                               | string                                      | 0.0.0.0/0                                |
-| [/healthcheck-protocol](#healthcheck-protocol)                 | TCP / HTTP                                  | TCP                                      |
-| [/healthcheck-path](#healthcheck-path)                         | string                                      | "/"                                      |
-| [/healthcheck-interval-seconds](#healthcheck-interval-seconds) | integer                                     | '30'                                     |
-| [/healthcheck-timeout-seconds](#healthcheck-timeout-seconds)   | integer                                     | '5'                                      |
 | [/healthy-threshold-count](#healthy-threshold-count)           | integer                                     | '3'                                      |
 | [/unhealthy-threshold-count](#unhealthy-threshold-count)       | integer                                     | '3'                                      |
+| [/healthcheck-interval-seconds](#healthcheck-interval-seconds) | integer                                     | '30'                                     |
+| [/healthcheck-timeout-seconds](#healthcheck-timeout-seconds)   | integer                                     | '5'                                      |
+| [/healthcheck-protocol](#healthcheck-protocol)                 | TCP / HTTP                                  | TCP                                      |
+| [/healthcheck-http-method](#healthcheck-http-method)           | GET / POST / PUT                            | GET                                      |
+| [/healthcheck-path](#healthcheck-path)                         | string                                      | "/"                                      |
+| [/healthcheck-http-version](#healthcheck-http-version)         | 1.0 / 1.1                                   | 1.0                                      |
+| [/healthcheck-http-domain-name](#healthcheck-http-domain-name) | string                                      | ""                                       |
+| [/healthcheck-port](#healthcheck-port)                         | integer                                     | traffic port                             |
 | [/success-codes](#success-codes)                               | stringList                                  | '200'                                    |
-| [/package-id](#package-id)                                     | string                                      | lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86 |
 | [/idle-timeout-client](#idle-timeout-client)                   | integer                                     | 50                                       |
 | [/idle-timeout-member](#idle-timeout-member)                   | integer                                     | 50                                       |
 | [/idle-timeout-connection](#idle-timeout-connection)           | integer                                     | 5                                        |
 | [/pool-algorithm](#pool-algorithm)                             | ROUND_ROBIN / LEAST_CONNECTIONS / SOURCE_IP | ROUND_ROBIN                              |
-| [/healthcheck-http-method](#healthcheck-http-method)           | GET / POST / PUT                            | GET                                      |
-| [/healthcheck-http-version](#healthcheck-http-version)         | 1.0 / 1.1                                   | 1.0                                      |
-| [/healthcheck-http-domain-name](#healthcheck-http-domain-name) | string                                      | ""                                       |
 | [/enable-sticky-session](#enable-sticky-session)               | boolean                                     | false                                    |
 | [/enable-tls-encryption](#enable-tls-encryption)               | boolean                                     | false                                    |
-| [/healthcheck-port](#healthcheck-port)                         | integer                                     | traffic port                             |
 | [/target-node-labels](#target-node-labels)                     | stringMap                                   | N/A                                      |
 
 Compare with [AWS Ingress Annotation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.7/guide/ingress/annotations/).
