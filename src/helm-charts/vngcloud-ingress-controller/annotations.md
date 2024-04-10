@@ -140,6 +140,8 @@ Access control for LoadBalancer can be controlled with following annotations:
 
 - <a name="security-groups">`vks.vngcloud.vn/security-groups`</a> specifies the securityGroups you want to attach to Node.
 
+  > **⚠️ Warnings**: If you NOT specify this annotation, the controller will automatically create one security group, the security group will be attached to the Node and allow access from inbound-cidrs to the listen-ports.
+  >
   > **⚠️ Warnings**: If you specify this annotation, you need to ensure the security groups on your Node to allow inbound traffic from the load balancer.
   >
   > **⚠️ Warnings**: If you specify this annotation, it'll configure only security group only include in this annotation. Ensure include them all here.
