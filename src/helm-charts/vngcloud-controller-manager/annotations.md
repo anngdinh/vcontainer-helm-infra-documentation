@@ -6,7 +6,7 @@
 | [/load-balancer-name](#load-balancer-name)                     | string                                      | auto generate with rule                  |
 | [/package-id](#package-id)                                     | string                                      | lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86 |
 | [/tags](#tags)                                                 | stringMap                                   |                                          |
-| [/scheme](#scheme)                                             | internal / internet-facing                  | internal                                 |
+| [/scheme](#scheme)                                             | internal / internet-facing                  | internet-facing                          |
 | [/security-groups](#security-groups)                           | stringList                                  |                                          |
 | [/inbound-cidrs](#inbound-cidrs)                               | string                                      | 0.0.0.0/0                                |
 | [/healthy-threshold-count](#healthy-threshold-count)           | integer                                     | '3'                                      |
