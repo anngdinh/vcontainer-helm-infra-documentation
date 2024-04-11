@@ -2,12 +2,12 @@
 
 | VNGCLOUD                                                       | Type                                        | Default                                  |
 | -------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------- |
-| [/load-balancer-id](#load-balancer-id)                         | string                                      |                                          |
+| [/load-balancer-id](#load-balancer-id)                         | string                                      | ""                                       |
 | [/load-balancer-name](#load-balancer-name)                     | string                                      | auto generate with rule                  |
 | [/package-id](#package-id)                                     | string                                      | lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86 |
-| [/tags](#tags)                                                 | stringMap                                   |                                          |
+| [/tags](#tags)                                                 | stringMap                                   | ""                                       |
 | [/scheme](#scheme)                                             | internal / internet-facing                  | internal                                 |
-| [/security-groups](#security-groups)                           | stringList                                  |                                          |
+| [/security-groups](#security-groups)                           | stringList                                  | auto create secgroup                     |
 | [/inbound-cidrs](#inbound-cidrs)                               | string                                      | 0.0.0.0/0                                |
 | [/healthy-threshold-count](#healthy-threshold-count)           | integer                                     | '3'                                      |
 | [/unhealthy-threshold-count](#unhealthy-threshold-count)       | integer                                     | '3'                                      |
@@ -26,7 +26,8 @@
 | [/pool-algorithm](#pool-algorithm)                             | ROUND_ROBIN / LEAST_CONNECTIONS / SOURCE_IP | ROUND_ROBIN                              |
 | [/enable-sticky-session](#enable-sticky-session)               | boolean                                     | false                                    |
 | [/enable-tls-encryption](#enable-tls-encryption)               | boolean                                     | false                                    |
-| [/target-node-labels](#target-node-labels)                     | stringMap                                   | N/A                                      |
+| [/target-node-labels](#target-node-labels)                     | stringMap                                   | ""                                       |
+| [/certificate-ids](#certificate-ids)                           | stringList                                  | ""                                       |
 
 Compare with [AWS Ingress Annotation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.7/guide/ingress/annotations/).
 
@@ -166,6 +167,16 @@ Access control for LoadBalancer can be controlled with following annotations:
 
   ```yaml
   vks.vngcloud.vn/idle-timeout-connection: "5"
+  ```
+
+- <a name="certificate-ids">`vks.vngcloud.vn/certificate-ids`</a> specifies the certificates will be use in HTTPS listeners.
+
+  > **⚠️ Warnings**: If you specify `.Spec.TLS` in your ingress resource, this annotation is requires to config certificate default for HTTPS listener.
+  >
+  > **⚠️ Warnings**: The first secret in list will be the default certificate, the other will in SNI cert list.
+
+  ```yaml
+  vks.vngcloud.vn/certificate-ids: "secret-xxx, secret-yyy"
   ```
 
 ## Health Check
