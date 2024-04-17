@@ -73,7 +73,7 @@ Traffic Routing can be controlled with following annotations:
 
 The VNGCLOUD Ingress Controller automatically applies following tags to the Load Balancer resources, it creates:
 
-- `vks-cluster: ${clusterName}`
+- `vks-cluster-ids: ${clusterID}_${clusterID}_${clusterID}`
 
 In addition, you can use annotations to specify additional tags
 
