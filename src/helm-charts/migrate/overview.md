@@ -6,7 +6,7 @@ These are resources that can be migrated:
 
 * **Resources inside a cluster:**
   * **All objects in a cluster, including pods, jobs, Services, Deployments, and ConfigMaps.** You are not advised to migrate the resources in the velero and kube-system namespaces.
-  * **PersistentVolumes (PVs) mounted to containers:** Due to restrictions of the Restic tool, migration is not supported for the hostPath storage volume. For details about how to solve the problem, see Storage Volumes of the HostPath Type Cannot Be Backed Up.
+  * **PersistentVolumes (PVs) mounted to containers:** Due to restrictions of the Restic tool, migration is not supported for the hostPath storage volume. For details about how to solve the problem, see [here](/vcontainer-helm-infra-documentation/helm-charts/migrate/more-usage/troubleshooting.html#storage-volumes-of-the-hostpath-type-cannot-be-backed-up).
 * Resources outside a cluster
   * **On-premises image repository:** You can migrate to vCR.
   * **Non-containerized database:** You can migrate to vDB.
@@ -16,7 +16,7 @@ These are resources that can be migrated:
 
 The cluster migration process is as follows:
 
-1. **Plan resources for the target cluster.**
+1. **Plan resources for the target cluster.** Evaluate the different, plan resources as required and ensure that the performance configuration of the target cluster is the same as that of the source cluster.
 
 2. **Migrate resources outside a cluster.**
 3. **Install the migration tool.**
@@ -26,6 +26,7 @@ The cluster migration process is as follows:
 5. **Update resources accordingly.** After the migration, cluster resources may fail to be deployed. Update the faulty resources. The possible adaptation problems are as follows:
     * Updating Images
     * Updating Services
+    * Updating Ingress
     * Updating the Storage Class
     * Updating Databases
 

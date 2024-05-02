@@ -74,7 +74,9 @@
 
 2. (Optional) Changing Pod/Deployment/StatefulSet/DaemonSet/ReplicaSet/ReplicationController/Job/CronJob Image Repositories [docs](https://velero.io/docs/v1.13/restore-reference/)
 
-3. Use the Velero tool to create a restore and specify a backup named wordpress-backup to restore
+3. Use kubectl to connect to the VKS cluster. Create a storage class with the same name as that of the source cluster.
+
+4. Use the Velero tool to create a restore and specify a backup named wordpress-backup to restore
 
     ```bash
     velero restore create --from-backup wordpress-backup
@@ -82,4 +84,4 @@
 
     You can run the `velero restore get` statement to view the application restoration status.
 
-4. After the restoration is complete, check whether the application is running properly.
+5. After the restoration is complete, check whether the application is running properly.
