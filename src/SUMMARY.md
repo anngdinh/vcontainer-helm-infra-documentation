@@ -28,3 +28,8 @@
     - [Reuse existing LoadBalancer](helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.md)
     - [Nginx Ingress](helm-charts/vngcloud-controller-manager/example/nginx-ingress.md)
     - [Change LoadBalancer package](helm-charts/vngcloud-controller-manager/example/change-package.md)
+- [Migrate](helm-charts/migrate/README.md)
+  - [Overview](helm-charts/migrate/overview.md)
+  - [More usage](helm-charts/migrate/more-usage.md)
+    - [Setup Minio](helm-charts/migrate/more-usage/minio.md)
+    - [Troubleshooting](helm-charts/migrate/more-usage/troubleshooting.md)
