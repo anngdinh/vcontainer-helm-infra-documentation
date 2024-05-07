@@ -91,6 +91,21 @@ deletionPolicy: Delete
 ```
 
 Create a vStorage Project, Container, IAM Key,...
+Create a file `credentials-velero` with content:
+
+```yaml
+[default]
+aws_access_key_id=<AWS_ACCESS_KEY_ID>
+aws_secret_access_key=<AWS_SECRET_ACCESS_KEY>
+```
+
+Install velero cli:
+
+```bash
+curl -OL https://github.com/vmware-tanzu/velero/releases/download/v1.13.2/velero-v1.13.2-linux-amd64.tar.gz
+tar -xvf velero-v1.13.2-linux-amd64.tar.gz
+cp velero-v1.13.2-linux-amd64/velero /usr/local/bin
+```
 
 Install velero to cluster:
 
