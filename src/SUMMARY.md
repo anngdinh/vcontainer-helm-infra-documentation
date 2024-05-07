@@ -39,3 +39,5 @@
   - [More usage](helm-charts/migrate/more-usage.md)
     - [Setup Minio](helm-charts/migrate/more-usage/minio.md)
     - [Troubleshooting](helm-charts/migrate/more-usage/troubleshooting.md)
+    - [VKS to VKS](helm-charts/migrate/more-usage/vks-to-vks.md)
+    - [GKE to VKS](helm-charts/migrate/more-usage/other-to-vks.md)
