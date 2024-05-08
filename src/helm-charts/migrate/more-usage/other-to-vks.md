@@ -55,7 +55,7 @@ spec:
       namespace: annd2
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: sc-iops-200-retain
+      storageClassName: standard-rwo
       resources:
         requests:
           storage: 20Gi
