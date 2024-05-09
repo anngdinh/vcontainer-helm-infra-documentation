@@ -52,7 +52,7 @@ spec:
       storageClassName: sc-iops-200-retain
       resources:
         requests:
-          storage: 20Gi
+          storage: 40Gi
 ```
 
 Modify data

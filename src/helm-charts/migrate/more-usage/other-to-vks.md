@@ -1,4 +1,4 @@
-# How to migrate VKS to VKS
+# How to migrate other cloud to VKS
 
 Deploy a sample service
 
@@ -138,3 +138,8 @@ Create restore in target cluster:
 ```bash
 velero restore create --from-backup tantm3
 ```
+
+Note
+
+* GKE do not allow deploy daemonsets in all node but velero only need deploy it in node have mount pv, should adjust taint and toleration to do it
+* default resource request is cpu:500m and mem:512M, we can change at install step or adjust in deployment yaml

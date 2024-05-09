@@ -103,6 +103,57 @@ Impact của kopia lớn hơn so với restic. Nhưng theo docs của Velero ben
 * Trường hợp sao lưu lượng dữ liệu lớn hoặc các tệp nhỏ có dung lượng lớn thì Kopia vẫn tốt hơn
 * Nên tính toán resource phân bổ trước để tránh trường hợp timeout hoặc OOM.
 
+## Disk IOPS and throughput
+
+Mount 1 persistent volume with config is:...... Use fio to test IOPS and throughput for 2 action read/write when normal and backup. [Reference](https://cloud.google.com/compute/docs/disks/benchmarking-pd-performance)
+
+```bash
+sudo apt update
+sudo apt install -y fio
+sudo lsblk
+
+TEST_DIR=/mnt/disks/mnt_dir/fiotest
+TEST_DIR=/usr/share/nginx/html/fiotest
+sudo mkdir -p $TEST_DIR
+```
+
+Test with 4 scenario:
+
+```bash
+# write throughput
+fio --name=write_throughput --directory=$TEST_DIR --numjobs=400 \
+--size=1G --time_based --runtime=2m --ramp_time=2s --ioengine=libaio \
+--direct=1 --verify=0 --bs=1M --iodepth=64 --rw=write \
+--group_reporting=1 --iodepth_batch_submit=64 \
+--iodepth_batch_complete_max=64
+
+# write IOPS
+fio --name=write_iops --directory=$TEST_DIR --size=1G \
+--time_based --runtime=2m --ramp_time=2s --ioengine=libaio --direct=1 \
+--verify=0 --bs=4K --iodepth=256 --rw=randwrite --group_reporting=1  \
+--iodepth_batch_submit=256  --iodepth_batch_complete_max=256
+
+# read throughput
+fio --name=read_throughput --directory=$TEST_DIR --numjobs=16 \
+--size=1G --time_based --runtime=2m --ramp_time=2s --ioengine=libaio \
+--direct=1 --verify=0 --bs=1M --iodepth=64 --rw=read \
+--group_reporting=1 \
+--iodepth_batch_submit=64 --iodepth_batch_complete_max=64
+
+# read IOPS
+fio --name=read_iops --directory=$TEST_DIR --size=1G \
+--time_based --runtime=2m --ramp_time=2s --ioengine=libaio --direct=1 \
+--verify=0 --bs=4K --iodepth=256 --rw=randread --group_reporting=1 \
+--iodepth_batch_submit=256  --iodepth_batch_complete_max=256
+```
+
+|                  | IOPS |    BW    |     | IOPS |    BW     |
+|:---------------- |:----:|:--------:|:---:|:----:|:---------:|
+| write throughput | 100  | 108MiB/s |     |  85  | 93.0MiB/s |
+| write IOPS       | 197  | 797KiB/s |     | 102  | 417KiB/s  |
+| read throughput  |  95  | 103MiB/s |     |  98  | 107MiB/s  |
+| read IOPS        | 198  | 801KiB/s |     | 193  | 781KiB/s  |
+
 ## Incremental backup
 
 ```bash
@@ -126,3 +177,17 @@ Chắc chắn các tool về backup thì sẽ luôn có incremental backup. Như
 |  2   |      19      |     7.73     |      24       |     4.75      |
 |  3   |      15      |     8.13     |      26       |     4.89      |
 |  3   |      15      |     8.57     |      25       |     5.02      |
+
+Install wordpress:
+
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install wordpress bitnami/wordpress \
+    --set mariadb.primary.persistence.enabled=true \
+    --set mariadb.primary.persistence.storageClass=alicloud-disk-ssd \
+    --set mariadb.primary.persistence.size=20Gi \
+    --set persistence.enabled=false 
+```
+
+* tinh toan resource cho node agent khi data lon, ~ 400GB
+* co the overwrite config and volume hay ko
