@@ -111,9 +111,14 @@ Access to Nodeport URL, we will see "Hello, Tantm3".
 Create backup
 
 ```bash
-velero backup create tantm3 \
-  --exclude-namespaces kube-system,kube-public,kube-node-lease,velero,default \
-  --wait
+velero backup create tantm3 --include-cluster-scoped-resources="" \
+    --include-namespace-scoped-resources="*" \
+    --include-namespaces annd2 \
+    --wait
+
+# velero backup create tantm3 \
+#   --exclude-namespaces kube-system,kube-public,kube-node-lease,velero,default \
+#   --wait
 
 velero backup describe tantm3 --details
 ```
