@@ -2,6 +2,7 @@
 
 | VNGCLOUD                                                       | Type                                        | Default                                  |
 | -------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------- |
+| [/ignore](#ignore)                                             | boolean                                     | false                                    |
 | [/load-balancer-id](#load-balancer-id)                         | string                                      |                                          |
 | [/load-balancer-name](#load-balancer-name)                     | string                                      | auto generate with rule                  |
 | [/package-id](#package-id)                                     | string                                      | lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86 |
@@ -29,6 +30,12 @@
 ## Traffic Routing
 
 Traffic Routing can be controlled with following annotations:
+
+- <a name="ignore">`vks.vngcloud.vn/ignore`</a> specifies Service type Loadbalancer is ignored by controller.
+
+  ```yaml
+  vks.vngcloud.vn/ignore: "true"
+  ```
 
 - <a name="load-balancer-id">`vks.vngcloud.vn/load-balancer-id`</a> specifies the id of the load balancer.
 
