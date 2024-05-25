@@ -222,10 +222,7 @@ reset () {
     done
 }
 
-check () {
-    ################# hostPath volumes
-    echo "*** Check these hostPath volumes, they are be ignored in backup. Please convert to persistent volume to backup."
-    echo ""
+check_hostPath () {
     namespaces=$(kubectl get namespaces -o=jsonpath='{.items[*].metadata.name}')
     for namespace in $namespaces; do
         if [[ "$namespace" == "velero" ]]; then
@@ -247,11 +244,10 @@ check () {
             fi
         done
     done
+}
 
-    ############################## label for node
-    echo ""
-    echo "*** Ensure these labels not in use or exist in target cluster's nodes"
-    echo ""
+check_node_label () {
+    
     declare -a ignored_labels=(
         "beta.kubernetes.io/arch" 
         "beta.kubernetes.io/os"
@@ -289,13 +285,9 @@ check () {
             echo "      - $label"
         done <<< "$labels"
     done <<< "$node_names"
+}
 
-
-
-    ############################## taint for node
-    echo ""
-    echo "*** Ensure these taints exist in target cluster's nodes"
-    echo ""
+check_node_taint () {
     # Get node information in JSON format
     node_info=$(kubectl get nodes -o json)
 
@@ -312,6 +304,25 @@ check () {
             echo "      - $taint"
         done <<< "$taints"
     done <<< "$node_names"
+}
+
+check () {
+    ################# hostPath volumes
+    echo "*** Check these hostPath volumes, they are be ignored in backup. Please convert to persistent volume to backup."
+    echo ""
+    check_hostPath
+
+    ############################## label for node
+    echo ""
+    echo "*** Ensure these labels not in use or exist in target cluster's nodes"
+    echo ""
+    check_node_label
+    
+    ############################## taint for node
+    echo ""
+    echo "*** Ensure these taints exist in target cluster's nodes"
+    echo ""
+    check_node_taint
 
     ############################## mark volume
     echo ""
@@ -348,19 +359,31 @@ reset)
 mark_origin)
     mark_origin
     ;;
+check_hostPath)
+    check_hostPath
+    ;;
+check_node_label)
+    check_node_label
+    ;;
+check_node_taint)
+    check_node_taint
+    ;;
 check)
     check
     ;;
 *)
-    echo "Usage: $0 { mark_volume | mark_exclude | unmark } [--confirm|-c]"
+    echo "Usage: $0 "
     echo ""
-    echo "          mark_volume     Mark all PVC volumes in pods for backup"
-    echo "          mark_exclude    Mark system resource and vContainer resource to exclude from backup"
-    echo "          unmark          Unmark above"
-    echo "          mark_origin     Mark resource is origin resource"
-    echo "          reset           Delete all resource is not system resource and not origin resource"
+    echo "          mark_volume         Mark all PVC volumes in pods for backup"
+    echo "          mark_exclude        Mark system resource and vContainer resource to exclude from backup"
+    echo "          unmark              Unmark above"
     echo ""
-    echo "          [--confirm|-c]  Run command automatically"
+    echo "          check               check total"
+    echo "          check_hostPath      list all hostPath volumes in pods"
+    echo "          check_node_label    list all labels uncommon in nodes"
+    echo "          check_node_taint    list all taints in nodes"
+    echo ""
+    echo "          [--confirm|-c]      Run command automatically"
     exit 1
     ;;
 esac
