@@ -41,6 +41,21 @@ IsVKSMarkOriginLabel() {
     fi
 }
 
+IsGKELabel() {
+    # $label_info=$1
+    if [[   $1 =~ '"k8s-app":"glbc"' || 
+            $1 =~ '"k8s-app":"gcp-compute-persistent-disk-csi-driver"' || 
+            $1 =~ '"k8s-app":"konnectivity-agent-autoscaler"' || 
+            $1 =~ '"k8s-app":"event-exporter"' || 
+            $1 =~ '"k8s-app":"fluentbit-gke"' || 
+            $1 =~ '"component":"fluentbit-gke"' || 
+            $1 =~ '"k8s-app":"gke-metrics-agent"' ]]; then
+        return 0 # true
+    else
+        return 1 # false
+    fi
+}
+
 mark_volume () {
     # Get list of namespaces
     namespaces=$(kubectl get namespaces -o=jsonpath='{.items[*].metadata.name}')
@@ -136,7 +151,7 @@ mark_exclude () {
     for label_info in "${label_list[@]}"; do
         # echo "Resource Label: $label_info"
 
-        if  IsSystemLabel $label_info || IsVContainerLabel $label_info ; then
+        if  IsSystemLabel $label_info || IsVContainerLabel $label_info || IsGKELabel $label_info ; then
             : # do nothing
             # echo "Ignore resource: $label_info"
             echo "kubectl -n $namespace label $(echo $label_info | jq -r '.kind')/$(echo $label_info | jq -r '.name') velero.io/exclude-from-backup=true"
