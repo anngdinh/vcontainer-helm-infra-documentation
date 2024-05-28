@@ -46,9 +46,18 @@ IsGKELabel() {
     if [[   $1 =~ '"k8s-app":"glbc"' || 
             $1 =~ '"k8s-app":"gcp-compute-persistent-disk-csi-driver"' || 
             $1 =~ '"k8s-app":"konnectivity-agent-autoscaler"' || 
+            $1 =~ '"k8s-app":"konnectivity-agent"' || 
+            $1 =~ '"k8s-app":"kube-dns-autoscaler"' || 
             $1 =~ '"k8s-app":"event-exporter"' || 
             $1 =~ '"k8s-app":"fluentbit-gke"' || 
             $1 =~ '"component":"fluentbit-gke"' || 
+            $1 =~ '"component":"kube-proxy"' || 
+            $1 =~ '"k8s-app":"kube-proxy"' || 
+            $1 =~ '"k8s-app":"metadata-proxy"' || 
+            $1 =~ '"k8s-app":"nccl-fastsocket-installer"' || 
+            $1 =~ '"k8s-app":"runsc-metric-server"' || 
+            $1 =~ '"k8s-app":"tpu-device-plugin"' || 
+            $1 =~ '"k8s-app":"nvidia-gpu-device-plugin"' || 
             $1 =~ '"k8s-app":"gke-metrics-agent"' ]]; then
         return 0 # true
     else
