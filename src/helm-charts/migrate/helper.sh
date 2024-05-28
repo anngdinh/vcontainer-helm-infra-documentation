@@ -26,6 +26,11 @@ IsVContainerLabel() {
             $1 =~ '"app":"csi-cinder-controllerplugin"' || 
             $1 =~ '"app":"csi-cinder-nodeplugin"' || 
             $1 =~ '"app":"cluster-autoscaler"' ]]; then
+
+        if [[ $1 =~ '"app.kubernetes.io/name":"ingress-nginx"' ]]; then
+            return 1 # false
+        fi
+
         return 0 # true
     else
         return 1 # false
