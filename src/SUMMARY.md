@@ -28,6 +28,7 @@
     - [Reuse existing LoadBalancer](helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.md)
     - [Nginx Ingress](helm-charts/vngcloud-controller-manager/example/nginx-ingress.md)
     - [Change LoadBalancer package](helm-charts/vngcloud-controller-manager/example/change-package.md)
+    - [Nginx Proxy](helm-charts/vngcloud-controller-manager/example/nginx-proxy.md)
 - [Migrate](helm-charts/migrate/README.md)
   - [Overview](helm-charts/migrate/overview.md)
   - [Planning Resources for the Target Cluster](helm-charts/migrate/planning-resource.md)
