@@ -83,3 +83,20 @@ Curl sample:
 ```bash
 curl -H 'Host: kkk.example.com' http://_____IP_____/metrics
 ```
+
+## Update CCM to new version
+
+Get release name of `vngcloud-controller-manager`
+
+```bash
+$ helm list -A | grep vngcloud-controller-manager
+
+vngcloud-controller-manager-1716448250          kube-system     10              2024-06-10 17:00:17.866548653 +0700 +07 deployed        vngcloud-controller-manager-0.2.3       v0.2.0
+```
+
+Then update release to latest version. You can specific version by using flag `--version`
+
+```bash
+helm upgrade vngcloud-controller-manager-1716448250 oci://vcr.vngcloud.vn/81-vks-public/vks-helm-charts/vngcloud-controller-manager \
+  --namespace kube-system
+```
