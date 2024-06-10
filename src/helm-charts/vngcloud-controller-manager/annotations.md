@@ -26,6 +26,7 @@
 | [/idle-timeout-connection](#idle-timeout-connection)           | integer                                     | 5                                        |
 | [/pool-algorithm](#pool-algorithm)                             | ROUND_ROBIN / LEAST_CONNECTIONS / SOURCE_IP | ROUND_ROBIN                              |
 | [/target-node-labels](#target-node-labels)                     | stringMap                                   | N/A                                      |
+| [/enable-proxy-protocol](#enable-proxy-protocol)               | stringList                                  | N/A                                      |
 
 ## Traffic Routing
 
@@ -220,4 +221,33 @@ Health check on target groups can be controlled with following annotations:
 
   ```yaml
   vks.vngcloud.vn/pool-algorithm: "SOURCE_IP"
+  ```
+
+- <a name="enable-proxy-protocol">`vks.vngcloud.vn/enable-proxy-protocol`</a> Enable Proxy Protocol for the Load Balancer Pool.
+
+  Assume you have a service nginx-ingress-controller:
+
+  ```yaml
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: nginx-ingress-controller-controller
+    namespace: kube-system
+  spec:
+    ports:
+    - name: http-service
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    - name: https-service
+      port: 443
+      protocol: TCP
+      targetPort: 443
+    type: LoadBalancer
+  ```
+  
+  You can enable Proxy Protocol for the Load Balancer Pool by adding the following annotation:
+
+  ```yaml
+  vks.vngcloud.vn/enable-proxy-protocol: "http-service,https-service"
   ```

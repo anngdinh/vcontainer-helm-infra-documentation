@@ -46,7 +46,7 @@ data:
 ## Update service nginx-ingress-controller
 
 ```bash
-kubectl annotate service -n kube-system nginx-ingress-controller-controller vks.vngcloud.vn/proxy-protocol="http,https"
+kubectl annotate service -n kube-system nginx-ingress-controller-controller vks.vngcloud.vn/enable-proxy-protocol="http,https"
 ```
 
 ## Apply sample ingress
