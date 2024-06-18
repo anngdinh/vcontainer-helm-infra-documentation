@@ -2,6 +2,8 @@
 
 ## What is CNI?
 
+![CNI](https://miro.medium.com/v2/resize:fit:1050/1*gYqKRBOFfhdZW6Li63kLaw.png)
+
 CNI (Container Network Interface), a Cloud Native Computing Foundation project, consists of a specification and libraries for writing plugins to configure network interfaces in Linux containers, along with a number of supported plugins. CNI concerns itself only with network connectivity of containers and removing allocated resources when the container is deleted. Because of this focus, CNI has a wide range of support and the specification is simple to implement.
 
 ## The Kubernetes network model
@@ -10,6 +12,11 @@ CNI (Container Network Interface), a Cloud Native Computing Foundation project, 
 - Kubernetes imposes the following fundamental requirements on any networking implementation
   - pods can communicate with all other pods on any other node without NAT
   - agents on a node (e.g. system daemons, kubelet) can communicate with all pods on that node
+
+## Requirements for our CNI
+
+- Kubernetes network model
+- Security groups for pods
 
 ## GKE
 
@@ -58,6 +65,13 @@ Networking inside a single GKE Node
 
 While this seems like a small difference between the two modes, it is **highly advantageous**.
 
+- Pod IP addresses are natively routable within the cluster's VPC network and other VPC networks connected to it by VPC Network Peering.
+- Pod IP addresses are reserved in the VPC network before the Pods are created in your cluster. This prevents conflict with other resources in the VPC network and allows you to better plan IP address allocations.
+- Pod IP address ranges do not depend on custom static routes. They do not consume the system-generated and custom static routes quota. Instead, automatically-generated subnet routes handle routing for VPC-native clusters.
+- You can create firewall rules that apply to just Pod IP address ranges instead of any IP address on the cluster's nodes.
+- Pod IP address ranges, and subnet secondary IP address ranges in general, are accessible from on-premises networks connected with Cloud VPN or Cloud Interconnect using Cloud Routers.
+- Some features, such as network endpoint groups (NEGs), only work with VPC-native clusters.
+
 - no drawbacks to choosing a VPC-native cluster
 - firewall rules can be applied to individual pods (for routes-based clusters, the finest granularity level would have been an entire node)
 - Service (ClusterIP) addresses are only available from within the cluster. If you need to access within the cluster's VPC, create an internal Network Load Balancer.
@@ -65,6 +79,8 @@ While this seems like a small difference between the two modes, it is **highly a
 ## AWS EKS
 
 [Amazon VPC Container Network Interface(VPC CNI)](https://github.com/aws/amazon-vpc-cni-k8s)
+
+![CNI](https://aws.github.io/aws-eks-best-practices/networking/vpc-cni/image-3.png)
 
 - allows Kubernetes Pods to have the same IP address as they do on the VPC network
 - all containers inside the Pod share a network namespace, and they can communicate with each-other using local ports.
