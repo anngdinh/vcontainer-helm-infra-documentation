@@ -345,3 +345,66 @@ CNI_PATH=$(pwd)/cni-bin \
     ./cni-bin/bridge <bridge.conf
 docker rm -f alpine1
 ```
+
+## 7. rootns-netns(docker)
+
+```bash
+# start with no network
+docker run -d --rm --network none --name alpine1 -t alpine:3.12
+container_id=$(docker inspect -f '{{.Id}}' alpine1)
+
+# get nstns hide in docker and link it
+pid=$(docker inspect -f '{{.State.Pid}}' ${container_id})
+echo $pid
+mkdir -p /var/run/netns/
+ln -sfT /proc/$pid/ns/net /var/run/netns/$container_id
+
+# add veth pair
+ip link add veth0 type veth peer name veth1
+ip link set veth1 netns 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e
+
+# set an ip for pod
+ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ip addr add 11.0.0.99/24 dev veth1
+# default is route to interface veth1
+ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ip route add 0.0.0.0/0 dev veth1 proto kernel scope link src 11.0.0.99
+ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ip link set veth1 up
+ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ip a
+
+# add route to pod
+ip link set veth0 up
+ip route add 11.0.0.99 dev veth0 scope link
+
+# ping to outside
+ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ping 10.0.0.17
+## maybe by iptables drop ?
+iptables -P FORWARD ACCEPT
+## maybe by arp ?
+ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e arp -n
+ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e arp -s 10.0.0.17 06:96:1e:62:50:e7
+## should ping it now
+ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ping 10.0.0.17
+## must hold the real ip
+
+## outside to pod
+ping 11.0.0.99
+
+## clean
+docker remove -f alpine1
+```
+
+## FQA
+
+- interface docker0 for what?
+  - docker0 is a bridge interface created by Docker to allow containers to communicate with each other and with the host machine. It is the default bridge network used by Docker.
+- why `ip netns` not show network namespace of docker?
+  - That's because docker is not creating the reqired symlink:
+
+    ```bash
+    pid=$(docker inspect -f '{{.State.Pid}}' ${container_id})
+    mkdir -p /var/run/netns/
+    ln -sfT /proc/$pid/ns/net /var/run/netns/$container_id
+    ```
+
+- debug with tcpdump
+  - `tcpdump -i eth0 -nn icmp`
+  - `tcpdump -i any -nn icmp`
