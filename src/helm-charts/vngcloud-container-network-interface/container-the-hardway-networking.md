@@ -417,19 +417,20 @@ ip netns exec $netID ip a
 
 # set an ip for pod
 ip netns exec $netID ip addr add $ndIP/32 dev veth1
-# default is route to interface veth1
-ip netns exec $container_id ip link set veth1 up
-ip netns exec $container_id ip route add 0.0.0.0/0 dev veth1 proto kernel scope link src $ndIP
-ip netns exec $container_id ip a
 
-######### # set default arp
-######### veth1_mac_add=$(ip netns exec $netID cat /sys/class/net/veth1/address)
-######### ip netns exec $netID arp -i veth1 -s 169.254.1.1 $veth1_mac_add
-######### # default is route with sample IP to interface veth1
-######### ip netns exec $netID ip link set veth1 up
-######### ip netns exec $netID ip route add 169.254.1.1 dev veth1 scope link
-######### ip netns exec $netID ip route add default via 169.254.1.1 dev veth1
-######### ip netns exec $netID ip a
+########### default is route to interface veth1
+########### ip netns exec $container_id ip link set veth1 up
+########### ip netns exec $container_id ip route add 0.0.0.0/0 dev veth1 proto kernel scope link src $ndIP
+########### ip netns exec $container_id ip a
+
+# set default arp
+veth0_mac_add=$(cat /sys/class/net/veth0/address)
+ip netns exec $netID arp -i veth1 -s 169.254.1.1 $veth0_mac_add
+# default is route with sample IP to interface veth1
+ip netns exec $netID ip link set veth1 up
+ip netns exec $netID ip route add 169.254.1.1 dev veth1 scope link
+ip netns exec $netID ip route add default via 169.254.1.1 dev veth1
+ip netns exec $netID ip a
 
 # add route to pod
 ip link set veth0 up
