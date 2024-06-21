@@ -206,7 +206,7 @@ tar -C cni-bin -xzf cni-plugins-linux-amd64-v1.5.0.tgz
 rm -rf cni-plugins-linux-amd64-v1.5.0.tgz
 
 # start container without network
-docker run -d --rm --network none --name alpine1 -t alpine:3.12
+docker run -d --rm --network none --name alpine1 -t nginx:alpine
 
 # check container network
 docker exec alpine1 ip a # only loopback interface
@@ -350,7 +350,7 @@ docker rm -f alpine1
 
 ```bash
 # start with no network
-docker run -d --rm --network none --name alpine1 -t alpine:3.12
+docker run -d --rm --network none --name alpine1 -t nginx:alpine
 container_id=$(docker inspect -f '{{.Id}}' alpine1)
 
 # get nstns hide in docker and link it
@@ -361,28 +361,28 @@ ln -sfT /proc/$pid/ns/net /var/run/netns/$container_id
 
 # add veth pair
 ip link add veth0 type veth peer name veth1
-ip link set veth1 netns 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e
+ip link set veth1 netns $container_id
 
 # set an ip for pod
-ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ip addr add 11.0.0.99/24 dev veth1
+ip netns exec $container_id ip addr add 11.0.0.99/24 dev veth1
 # default is route to interface veth1
-ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ip route add 0.0.0.0/0 dev veth1 proto kernel scope link src 11.0.0.99
-ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ip link set veth1 up
-ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ip a
+ip netns exec $container_id ip link set veth1 up
+ip netns exec $container_id ip route add 0.0.0.0/0 dev veth1 proto kernel scope link src 11.0.0.99
+ip netns exec $container_id ip a
 
 # add route to pod
 ip link set veth0 up
 ip route add 11.0.0.99 dev veth0 scope link
 
 # ping to outside
-ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ping 10.0.0.17
+ip netns exec $container_id ping 10.0.0.17
 ## maybe by iptables drop ?
 iptables -P FORWARD ACCEPT
 ## maybe by arp ?
-ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e arp -n
-ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e arp -s 10.0.0.17 06:96:1e:62:50:e7
+ip netns exec $container_id arp -n
+ip netns exec $container_id arp -s 10.0.0.17 06:96:1e:62:50:e7
 ## should ping it now
-ip netns exec 4facacaf038ca93d6e14c44a8cf2082c57cc901fcf18ecaece82c6658c15de9e ping 10.0.0.17
+ip netns exec $container_id ping 10.0.0.17
 ## must hold the real ip
 
 ## outside to pod
@@ -390,6 +390,72 @@ ping 11.0.0.99
 
 ## clean
 docker remove -f alpine1
+ip netns del $container_id
+```
+
+## 8. secondaryIP - netns(docker)
+
+```bash
+ndIP=10.0.0.5
+
+# start with no network
+docker run -d --rm --network none --name alpine1 -t nginx:alpine
+container_id=$(docker inspect -f '{{.Id}}' alpine1)
+
+# get nstns hide in docker and link it
+pid=$(docker inspect -f '{{.State.Pid}}' ${container_id})
+echo $pid
+mkdir -p /var/run/netns/
+ln -sfT /proc/$pid/ns/net /var/run/netns/$container_id
+# now container_id is also netns's name
+netID=$container_id
+
+# add veth pair
+ip link add veth0 type veth peer name veth1
+ip link set veth1 netns $netID
+ip netns exec $netID ip a
+
+# set an ip for pod
+ip netns exec $netID ip addr add $ndIP/32 dev veth1
+# default is route to interface veth1
+ip netns exec $container_id ip link set veth1 up
+ip netns exec $container_id ip route add 0.0.0.0/0 dev veth1 proto kernel scope link src $ndIP
+ip netns exec $container_id ip a
+
+######### # set default arp
+######### veth1_mac_add=$(ip netns exec $netID cat /sys/class/net/veth1/address)
+######### ip netns exec $netID arp -i veth1 -s 169.254.1.1 $veth1_mac_add
+######### # default is route with sample IP to interface veth1
+######### ip netns exec $netID ip link set veth1 up
+######### ip netns exec $netID ip route add 169.254.1.1 dev veth1 scope link
+######### ip netns exec $netID ip route add default via 169.254.1.1 dev veth1
+######### ip netns exec $netID ip a
+
+# add route to pod
+ip link set veth0 up
+ip route add $ndIP/32 dev veth0 scope link
+# add ip rule
+ip rule add from all to $ndIP/32 table main prio 512
+
+# test
+## ping to pod
+ping $ndIP
+
+
+
+
+
+# debug
+tcpdump -nn -i any icmp -l
+ip netns exec $netID tcpdump -nn -i any icmp -l
+
+
+
+# clean
+docker remove -f alpine1
+ip netns del $container_id
+ip rule del from all to $ndIP/32 table main prio 512
+ip route del $ndIP/32 dev veth0 scope link
 ```
 
 ## FQA
