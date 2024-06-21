@@ -441,8 +441,11 @@ ip rule add from all to $ndIP/32 table main prio 512
 # test
 ## ping to pod
 ping $ndIP
-
-
+## ping to host ns, ping to vpc
+ip netns exec $netID ping 10.0.0.18
+## ping to external
+ip netns exec $netID ping 1.1.1.1
+iptables -t nat -A POSTROUTING ! -d 10.0.0.0/16 -s 10.0.0.5/32 -o ens3 -j MASQUERADE
 
 
 
