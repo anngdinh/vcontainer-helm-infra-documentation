@@ -93,3 +93,17 @@ While this seems like a small difference between the two modes, it is **highly a
 - When an instance is created, EC2 creates and attaches a primary ENI associated with a primary subnet. The Pods that run in hostNetwork mode use the primary IP address assigned to the node primary ENI and share the same network namespace as the host.
 
 ![eks-network](https://aws.github.io/aws-eks-best-practices/networking/index/image.png)
+
+## Next-step
+
+- [ ] benefit of secgroup, requirement, how to apply
+- [ ] Network policy
+- [x] Config VIP address pair to pod.
+- [ ] policy based routing when set `ip rule`
+- [ ] benchmark performance of (calico+kube_proxy+iptables) vs (calico+kube_proxy+ipvs) vs (cilium+ebpf)
+
+Note:
+
+- `externalTrafficPolicy` for NodePort Service
+- get real ip of request
+- ip in ip protocol
