@@ -94,16 +94,178 @@ While this seems like a small difference between the two modes, it is **highly a
 
 ![eks-network](https://aws.github.io/aws-eks-best-practices/networking/index/image.png)
 
-## Next-step
+## 2024-06-25
 
-- [ ] benefit of secgroup, requirement, how to apply
+### Next-step
+
+- [x] benefit of secgroup, requirement, how to apply
 - [ ] Network policy
-- [x] Config VIP address pair to pod.
-- [ ] policy based routing when set `ip rule`
+- [x] policy based routing when set `ip rule`
+  - it's controls the route selection algorithm
+  - Classic, routing algorithms only on the destination address of packets
+  - In some circumstances, we want to route packets on other packet fields: source address, IP protocol, transport protocol, ports or even packet payload.  This task is called `policy routing`.
+  - use `routing policy database` (RPDB) to solve
+  - in aws
+
+    ```bash
+    10: from all iif vlan.eth.3 lookup 103
+    10: from all iif vlan14d01641e41 lookup 103
+    20: from all lookup local
+    512: from all to 172.31.28.221 lookup main
+    512: from all to 172.31.24.86 lookup main
+    512: from all to 172.31.18.117 lookup main
+    1024: from all fwmark 0x80/0x80 lookup main
+    32766: from all lookup main
+    32767: from all lookup default
+    ```
+
 - [ ] benchmark performance of (calico+kube_proxy+iptables) vs (calico+kube_proxy+ipvs) vs (cilium+ebpf)
+- [x] why config default gateway `169.254.1.1` in network namespace and static ARP
+  - Address Resolution Protocol (ARP) is a protocol used to map IP addresses to MAC addresses. ARP is used to determine the MAC address of a device on the same network.
+  - ARP table is not have entry for the default gateway, so the packet will be `Destination Host Unreachable`
+  - Instead, use a default gateway IP address, config a static ARP entry for the default gateway IP address.
 
-Note:
+### Benefit of secgroup
 
-- `externalTrafficPolicy` for NodePort Service
-- get real ip of request
-- ip in ip protocol
+### GKE firewall rule
+
+- VPC network
+- priority
+- direct traffic (ingress/egress)
+- Action on match: allow/deny
+- target
+  - all instances in the network
+  - tags
+  - service account
+- source filter
+  - IP range v4 v6
+  - service account
+  - tag
+  - SA
+- destination filter
+  - IP range v4 v6
+  - none
+- Apply for Protocols and ports (TCP, UDP, ...)
+
+- tao service account tranh dynamic IP ???
+
+### EKS
+
+#### Configure Security groups for Pods [link](https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html)
+
+- Enable Pod CNI: `ENABLE_POD_ENI=true`
+- Create SecurityGroupPolicy CRD
+
+  ```yaml
+  apiVersion: vpcresources.k8s.aws/v1beta1
+  kind: SecurityGroupPolicy
+  metadata:
+    name: my-security-group-policy
+    namespace: my-namespace
+  spec:
+    podSelector: 
+      matchLabels:
+        role: my-role # -----> Pod Label Selector
+    securityGroups:
+      groupIds:
+        - my_pod_security_group_id # -----> Security Group ID
+  ```
+
+- Apply for Pods
+
+  ```yaml
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: my-deployment
+    namespace: my-namespace
+    labels:
+      app: my-app
+  spec:
+    replicas: 4
+    selector:
+      matchLabels:
+        app: my-app
+    template:
+      metadata:
+        labels:
+          app: my-app
+          role: my-role # -----> Pod Label Selector
+      spec:
+        terminationGracePeriodSeconds: 120
+        containers:
+        - name: nginx
+          image: public.ecr.aws/nginx/nginx:1.23
+          ports:
+          - containerPort: 80
+  ```
+
+#### How it works ?
+
+- It requires each Pod to have a unique security group => each Pod has a unique ENI
+  ![image](https://aws.github.io/aws-eks-best-practices/networking/sgpp/image-3.png)
+- Inside node:
+
+```bash
+# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000 # <--- node ENI
+    link/ether 0a:47:ee:98:ee:5f brd ff:ff:ff:ff:ff:ff
+3: dummy0: <BROADCAST,NOARP> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 0e:f3:c5:05:4d:65 brd ff:ff:ff:ff:ff:ff
+4: pod-id-link0: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether fa:5a:38:0b:67:8c brd ff:ff:ff:ff:ff:ff
+5: eni4c9bab731ed@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc noqueue state UP group default 
+    link/ether 3a:c7:2c:0d:ca:0f brd ff:ff:ff:ff:ff:ff link-netns cni-da53182a-dd25-596a-fae3-2d0556c2692a
+6: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000 # <--- trunk ENI
+    link/ether 0a:af:27:4c:70:db brd ff:ff:ff:ff:ff:ff
+7: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
+    link/ether 0a:66:21:94:e5:f1 brd ff:ff:ff:ff:ff:ff
+8: eni2bc5393b053@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc noqueue state UP group default 
+    link/ether 96:cb:92:f3:47:53 brd ff:ff:ff:ff:ff:ff link-netns cni-55ae0531-a760-9e14-a192-fdc6d6c82970
+11: vlan14d01641e41@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc noqueue state UP group default # <--- pod ENI
+    link/ether a2:bc:f2:84:d3:26 brd ff:ff:ff:ff:ff:ff link-netns cni-b3466bf5-4367-e10f-09dd-99abc561194e 
+12: vlan.eth.3@eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc noqueue state UP group default qlen 1000 # <--- VLAN pod ENI
+    link/ether 0a:c0:2c:46:6f:33 brd ff:ff:ff:ff:ff:ff
+17: eni37cc5983ec1@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc noqueue state UP group default 
+    link/ether 1e:6e:56:e4:a5:25 brd ff:ff:ff:ff:ff:ff link-netns cni-29b37092-bcad-2228-1130-8b9945f6bb30
+
+# ip netns
+cni-29b37092-bcad-2228-1130-8b9945f6bb30 (id: 6)
+cni-b3466bf5-4367-e10f-09dd-99abc561194e (id: 3) # <--- pod have security group
+cni-55ae0531-a760-9e14-a192-fdc6d6c82970 (id: 1)
+cni-da53182a-dd25-596a-fae3-2d0556c2692a (id: 0)
+
+# ip route # No route for pod ENI
+default via 172.31.16.1 dev eth0 
+169.254.169.254 dev eth0 
+169.254.170.23 dev pod-id-link0 
+172.31.16.0/20 dev eth0 proto kernel scope link src 172.31.17.137 
+172.31.18.117 dev eni37cc5983ec1 scope link 
+172.31.24.86 dev eni2bc5393b053 scope link 
+172.31.28.221 dev eni4c9bab731ed scope link
+```
+
+![image](https://wiki.openstack.org/w/images/thumb/7/7f/TrunkVnicsAfter.svg/653px-TrunkVnicsAfter.svg.png)
+
+### Network policy
+
+### Benchmark performance
+
+<https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-40gbit-s-network-2024-156f085a5e4e>
+
+- protocol: TCP
+- Step:
+  - [prepare] Deployment of nodes, installation of Kubernetes, and CNI setup
+  - [info] Information gathering, such as collecting MTU data of interfaces
+  - [idle] Idle performance measurement to gauge the CPU and memory overhead post-CNI installation
+  - [dts] Direct pod-to-pod TCP bandwidth with a Single stream
+  - [dtm] Direct pod-to-pod TCP bandwidth with Multiple streams (8)
+  - [dus] Direct pod-to-pod UDP bandwidth with a Single stream
+  - [dum] Direct pod-to-pod UDP bandwidth with Multiple streams (8)
+  - [sts] Pod to Service TCP bandwidth with a Single stream
+  - [stm] Pod to Service TCP bandwidth with Multiple streams (8)
+  - [sus] Pod to Service UDP bandwidth with a Single stream
+  - [sum] Pod to Service UDP bandwidth with Multiple streams (8)
+  - [teardown] Deinstallation of all nodes and Kubernetes cluster

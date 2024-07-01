@@ -46,3 +46,7 @@
     - [Deploy sample app](helm-charts/migrate/more-usage/deploy-sample-app.md)
     - [Setup Minio](helm-charts/migrate/more-usage/minio.md)
     - [Troubleshooting](helm-charts/migrate/more-usage/troubleshooting.md)
+- [CNI](helm-charts/vngcloud-container-network-interface/README.md)
+  - [Overview](helm-charts/vngcloud-container-network-interface/overview.md)
+  - [Container the Hard way](helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.md)
+  - [AWS network](helm-charts/vngcloud-container-network-interface/aws-network.md)
