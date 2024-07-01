@@ -247,7 +247,9 @@ default via 172.31.16.1 dev eth0
 172.31.28.221 dev eni4c9bab731ed scope link
 ```
 
-![image](https://wiki.openstack.org/w/images/thumb/7/7f/TrunkVnicsAfter.svg/653px-TrunkVnicsAfter.svg.png)
+Multi port - multi NIC - multi interface             |  multi port - trunk port
+:-------------------------:|:-------------------------:
+![image](https://wiki.openstack.org/w/images/thumb/5/55/TrunkVnicsBefore.svg/613px-TrunkVnicsBefore.svg.png)  |  ![image](https://wiki.openstack.org/w/images/thumb/7/7f/TrunkVnicsAfter.svg/653px-TrunkVnicsAfter.svg.png)
 
 ### Network policy
 
