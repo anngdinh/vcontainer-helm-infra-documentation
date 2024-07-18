@@ -50,3 +50,5 @@
   - [Overview](helm-charts/vngcloud-container-network-interface/overview.md)
   - [Container the Hard way](helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.md)
   - [AWS network](helm-charts/vngcloud-container-network-interface/aws-network.md)
+  - [OPS the hardway](helm-charts/vngcloud-container-network-interface/ops-the-hardway.md)
+  - [AWS trunk network](helm-charts/vngcloud-container-network-interface/aws-trunk.md)
