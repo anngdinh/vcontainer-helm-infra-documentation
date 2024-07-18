@@ -231,3 +231,37 @@ openstack port delete subport2
 openstack network trunk delete trunk1
 openstack port delete trunk-parent
 ```
+
+## 4. Secgroup remote secgroup (continue from part 3)
+
+- Can you config pod inside a node can access to other VMs but the node can't?
+- When autoscale up, the pod should be able to access to the VMs.
+
+```bash
+# create a minimum security group, not allow any server can ping to it (in portal)
+
+# create a empty security group for pod P
+openstack security group create --description "for pod" POD_SEC
+
+# create a security group DB allow from remote security group P
+openstack security group create --description "for DB allow from pod" DB_SEC
+openstack security group rule create \
+    --remote-group POD_SEC \
+    --ingress \
+    DB_SEC
+
+# attach security group DB to VMs
+# attach security group P to pod
+SERVER_DB_PORT=62df116d-c6ea-4500-ade9-e48b9e763e14
+SERVER_POD_PORT=subport1
+openstack port show $SERVER_DB_PORT
+openstack port show $SERVER_POD_PORT
+
+openstack port set $SERVER_DB_PORT --security-group DB_SEC
+openstack port set $SERVER_POD_PORT --security-group POD_SEC
+
+# test ping
+SEVER_DB_IP=172.16.1.13
+ping $SEVER_DB_IP
+ip netns exec ns1 ping $SEVER_DB_IP
+```
