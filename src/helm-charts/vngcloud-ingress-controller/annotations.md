@@ -29,6 +29,9 @@
 | [/enable-tls-encryption](#enable-tls-encryption)               | boolean                                     | false                                    |
 | [/target-node-labels](#target-node-labels)                     | stringMap                                   | ""                                       |
 | [/certificate-ids](#certificate-ids)                           | stringList                                  | ""                                       |
+| [/header](#header)                           | json                                  | "{"http":["X-Forwarded-For", "X-Forwarded-Proto", "X-Forwarded-Port"],"https":["X-Forwarded-For", "X-Forwarded-Proto", "X-Forwarded-Port"]}"                                       |
+| [/client-certificate-id](#client-certificate-id) | string                                      | ""                                       |
+| [/implementation-specific-params](#implementation-specific-params)                           | json                                  | "[]"                                       |
 
 Compare with [AWS Ingress Annotation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.7/guide/ingress/annotations/).
 
@@ -184,6 +187,83 @@ Access control for LoadBalancer can be controlled with following annotations:
 
   ```yaml
   vks.vngcloud.vn/certificate-ids: "secret-xxx, secret-yyy"
+  ```
+
+- <a name="header">`vks.vngcloud.vn/header`</a> specifies the header for HTTP and HTTPS listeners.
+
+  > **⚠️ Warnings**: If you specify in wrong format, the consequences will be unpredictable.
+  >
+  > **⚠️ Warnings**: You should choose the header allowed in portal.
+
+  ```yaml
+  vks.vngcloud.vn/header: "{"http":["X-Forwarded-For", "X-Forwarded-Proto", "X-Forwarded-Port"],"https":["X-Forwarded-For", "X-Forwarded-Proto", "X-Forwarded-Port","X-SSL-Client-Verify","X-SSL-Client-Has-Cert","X-SSL-Client-DN","X-SSL-Client-CN","X-SSL-Issuer","X-SSL-Client-SHA1","X-SSL-Client-Not-Before","X-SSL-Client-Not-After"]}"
+  ```
+
+- <a name="client-certificate-id">`vks.vngcloud.vn/client-certificate-id`</a> specifies the client certificate authentication will be use in HTTPS listener.
+
+  ```yaml
+  vks.vngcloud.vn/client-certificate-id: "secret-xxx"
+  ```
+
+- <a name="implementation-specific-params">`vks.vngcloud.vn/implementation-specific-params`</a> specifies the policy when use `ImplementSpecific` PathType. This annotation is an array of JSON objects, each object contains the path, rules (compare type `HOST_NAME`, `PATH`), and action (`REJECT`, `REDIRECT_TO_URL`, `REDIRECT_TO_POOL`).
+
+  JSON format value:
+
+  ```json
+  [
+    {
+      "path": "/haha", // this value should match path value
+      "rules": [
+        {
+          "type": "PATH", // HOST_NAME, PATH
+          "compare": "EQUAL_TO", // CONTAINS, EQUAL_TO, REGEX, STARTS_WITH, ENDS_WITH
+          "value": "/foo#" // value to compare
+        },
+        {
+          "type": "PATH",
+          "compare": "REGEX",
+          "value": "/foo#anchor"
+        }
+        // more rules ...
+      ],
+      "action": {
+        "action": "REJECT"                    // REJECT, REDIRECT_TO_URL, REDIRECT_TO_POOL
+        "redirectUrl": "https://example.com", // required when action is REDIRECT_TO_URL
+        "redirectHttpCode": 301,              // required when action is REDIRECT_TO_URL
+        "keepQueryString": true               // required when action is REDIRECT_TO_URL
+      }
+    }
+  ]
+  ```
+  
+  > **⚠️ Warnings**: If you specify in wrong format, the consequences will be unpredictable.
+
+  For example, when you have a rule use `ImplementSpecific` PathType, you can use this annotation to specify the policy for this rule.
+
+  ```yaml
+  spec:
+    rules:
+      - host: "a-1.vngcloud.vn"
+        http:
+          paths:
+            - path: /haha # this value should match in annotation
+              pathType: ImplementationSpecific
+              backend:
+                service:
+                  name: netperf-service
+                  port:
+                    number: 80
+  ```
+
+  ```yaml
+  # To create a policy REJECT for this rule, you can use this example:
+  vks.vngcloud.vn/implementation-specific-params: '[{"path":"/haha","rules":[{"type":"PATH","compare":"EQUAL_TO","value":"/foo#"}],"action":{"action":"REJECT"}}]'
+
+  # To create a policy REDIRECT_TO_URL for this rule, you can use this example:
+  vks.vngcloud.vn/implementation-specific-params: '[{"path":"/haha","rules":[{"type":"PATH","compare":"EQUAL_TO","value":"/foo#"}],"action":{"action":"REDIRECT_TO_URL","redirectUrl":"https://example.com","redirectHttpCode":301,"keepQueryString":true}}]'
+
+  # To create a policy REDIRECT_TO_POOL for this rule, you can use this example:
+  vks.vngcloud.vn/implementation-specific-params: '[{"path":"/haha","rules":[{"type":"PATH","compare":"EQUAL_TO","value":"/foo#"}],"action":{"action":"REDIRECT_TO_POOL"}}]'
   ```
 
 ## Health Check
