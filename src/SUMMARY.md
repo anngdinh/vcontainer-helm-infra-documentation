@@ -53,3 +53,6 @@
   - [Cilium](helm-charts/vngcloud-container-network-interface/cilium.md)
   - [OPS the hardway](helm-charts/vngcloud-container-network-interface/ops-the-hardway.md)
   - [AWS trunk network](helm-charts/vngcloud-container-network-interface/aws-trunk.md)
+- [Fleet](helm-charts/vks-fleet/README.md)
+  - [GKEVPN StrongSwan](helm-charts/vks-fleet/GKEVPN-strongswan.md)
+  - [Istio](helm-charts/vks-fleet/istio.md)
