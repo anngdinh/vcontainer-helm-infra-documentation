@@ -1,4 +1,4 @@
-# Preserve source IP address Istio Service Mesh
+# Preserve source IP address Istio Ingress gateway
 
 ## Reference
 
@@ -6,6 +6,24 @@
 - [Maintaining Traffic Transparency: Preserving Client Source IP in Istio](https://jimmysongio.medium.com/maintaining-traffic-transparency-preserving-client-source-ip-in-istio-69359fecd5f0)
 
 ## Setup test environment
+
+### Install Istio
+
+```bash
+helm repo add istio https://istio-release.storage.googleapis.com/charts
+helm repo update
+
+helm install istio-base istio/base -n istio-system --create-namespace --wait
+
+kubectl get crd gateways.gateway.networking.k8s.io &> /dev/null || \
+{ kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v1.1.0" | kubectl apply -f -; }
+
+
+helm install istiod istio/istiod --namespace istio-system --set profile=ambient
+helm install istio-ingressgateway istio/gateway -n istio-system
+```
+
+### Create test resources
 
 Firstly, make sure namespace is labeled with `istio-injection=enabled`.
 
@@ -106,7 +124,7 @@ Expected output:
 ```bash
 kubectl delete deployment echo-server
 kubectl delete service clusterip
-kubectl label namespace default istio-injection-
 kubectl delete -f config.yaml
-kubectl annotate service -n istio-system istio-ingressgateway vks.vngcloud.vn/enable-proxy-protocol-
+
+helm -n istio-system uninstall istio-base istiod istio-ingressgateway
 ```
