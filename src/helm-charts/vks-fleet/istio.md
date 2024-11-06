@@ -2,6 +2,7 @@
 
 ## Reference
 
+- [Getting started with Istio](https://istio.io/latest/docs/setup/getting-started)
 - [Maintaining Traffic Transparency: Preserving Client Source IP in Istio](https://jimmysongio.medium.com/maintaining-traffic-transparency-preserving-client-source-ip-in-istio-69359fecd5f0)
 
 ## Setup test environment
@@ -90,7 +91,7 @@ Firstly, enable `proxy-protocol` in LB to preserve source IP address.
 kubectl annotate service -n istio-system istio-ingressgateway vks.vngcloud.vn/enable-proxy-protocol="*"
 ```
 
-Then, update gateway to use `PROXY` protocol.
+Then, update gateway to use `PROXY` protocol. Be careful, this command can **OVERWRITE** the current configuration.
 
 ```bash
 kubectl patch deployment istio-ingressgateway -n istio-system -p '{"spec":{"template":{"metadata":{"annotations":{"proxy.istio.io/config":"{\"gatewayTopology\":{\"proxyProtocol\":{}}}"}}}}}'
@@ -99,3 +100,13 @@ kubectl patch deployment istio-ingressgateway -n istio-system -p '{"spec":{"temp
 Expected output:
 
 - All IP addresses to 2 pods are same (source IP address of request).
+
+## Clean up
+
+```bash
+kubectl delete deployment echo-server
+kubectl delete service clusterip
+kubectl label namespace default istio-injection-
+kubectl delete -f config.yaml
+kubectl annotate service -n istio-system istio-ingressgateway vks.vngcloud.vn/enable-proxy-protocol-
+```
