@@ -56,3 +56,6 @@
 - [Fleet](helm-charts/vks-fleet/README.md)
   - [GKEVPN StrongSwan](helm-charts/vks-fleet/GKEVPN-strongswan.md)
   - [Istio](helm-charts/vks-fleet/istio.md)
+- [English](helm-charts/english/README.md)
+  - [Speaking](helm-charts/english/speaking.md)
+  - [Writing](helm-charts/english/writing.md)
