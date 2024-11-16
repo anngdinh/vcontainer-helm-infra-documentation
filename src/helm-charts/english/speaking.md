@@ -53,16 +53,34 @@
   - And explain why you think this person is good at doing this thing
 
 ```markdown!
+markdown!
+
 *My best friend* is a **fitness** nut – she’s always doing something related to fitness in her spare time. In fact some people might even say she’s obsessed with it. But, she’s also very good at it because she has won competitions for her physique and physical fitness.
 
 My best friend is a fitness nut – she’s always doing something related to fitness in her spare time. In fact some people might even say she’s obsessed with it. But, she’s also very good at it because she has won competitions for her physique and physical fitness.
 ```
 
 ```markdown
+markdown
+
 My best friend is a fitness nut – she’s **always doing** something related to fitness in her spare time. In fact some people might even say she’s obsessed with it. But, she’s also very good at it because she has won competitions for her physique and physical fitness.
 
 We’ve been best friends for many years, since elementary school when we first met. She was always good at sports and things like that at school and she played on the soccer team, she also did gymnastics and athletics as well.
 ```
+
+`
+only one
+
+My best friend is a fitness nut – she’s **always doing** something related to fitness in her spare time. In fact some people might even say she’s obsessed with it. But, she’s also very good at it because she has won competitions for her physique and physical fitness.
+
+We’ve been best friends for many years, since elementary school when we first met. She was always good at sports and things like that at school and she played on the soccer team, she also did gymnastics and athletics as well.
+`
+
+<blockquote>
+My best friend is a fitness nut – she’s **always doing** something related to fitness in her spare time. In fact some people might even say she’s obsessed with it. But, she’s also very good at it because she has won competitions for her physique and physical fitness.
+
+We’ve been best friends for many years, since elementary school when we first met. She was always good at sports and things like that at school and she played on the soccer team, she also did gymnastics and athletics as well.
+</blockquote>
 
 > My best friend is a fitness nut – she’s always doing something related to fitness in her spare time. In fact some people might even say she’s obsessed with it. But, she’s also very good at it because she has won competitions for her physique and physical fitness.
 >
