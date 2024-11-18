@@ -5,6 +5,7 @@
 - [Speaking](#speaking)
   - [Catalogue](#catalogue)
   - [Introduction](#introduction)
+  - [Some questions](#some-questions)
   - [Part 1](#part-1)
     - [Test 1.10](#test-110)
       - [How do you usually spend your weekends?](#how-do-you-usually-spend-your-weekends)
@@ -38,6 +39,17 @@
 - You may not need to remember the answers, but you need vocabulary relate to the questions. And I expect all topics are covered here.
 - I will try to answer all questions in a simple way first, then I will try to answer them in a more professional way.
 - I will try to answer all questions in Cambridge English Test.
+
+## Some questions
+
+- Do you prefer to live in the city center or in the suburbs?
+  > I prefer to live in the suburbs because it's quieter and fresher. With advanced transportation, I can go to the city center easily. I also want to have a garden to plant some trees and flowers, which is hard to have in the city center.
+- Tell me about your daily routine.
+  > I usually wake up at 8 AM, then I brush my teeth and wash my face. I have breakfast and prepare for work. I go to work at 9 AM and have lunch at 12 PM. I go home at 5 PM and make dinner. After dinner, I usually watch youtube or learn something new. I go to bed at 11 PM.
+- How was your daily routine changed since you were a child?
+  > Well, I think my daily routine doesn't change much since I was a child. Instead of going to school, I go to work now. I also have more free time to do what I want.
+- Is your daily routine the same on weekends?
+  > No, it's not. I have a lot of things to do on weekends. Almost about relaxing and recharging for the week ahead. I usually do some hard workouts, make some dishes that I **have never done before**, or just hang out with my friends.
 
 ## Part 1
 
