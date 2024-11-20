@@ -4,12 +4,117 @@
 
 - [Writing](#writing)
   - [Catalogue](#catalogue)
+  - [Summary](#summary)
+    - [Argumentative/Opinion/Agree or Disagree Essay](#argumentativeopinionagree-or-disagree-essay)
+    - [Advantages and Disadvantages Essay](#advantages-and-disadvantages-essay)
+    - [Discussion Essay/Discuss both views](#discussion-essaydiscuss-both-views)
+    - [Causes and Effects/Causes and Solutions/Problems and Solutions Essay](#causes-and-effectscauses-and-solutionsproblems-and-solutions-essay)
+    - [Two-Part Question Essay](#two-part-question-essay)
   - [Part 1](#part-1)
   - [Part 2](#part-2)
     - [Young people are now spending more and more time and money following fashion trends. Is this a positive or negative development?](#young-people-are-now-spending-more-and-more-time-and-money-following-fashion-trends-is-this-a-positive-or-negative-development)
     - [Employers should give longer holidays to employees to encourage them to do their job well. To what extent do you agree or disagree?](#employers-should-give-longer-holidays-to-employees-to-encourage-them-to-do-their-job-well-to-what-extent-do-you-agree-or-disagree)
     - [People nowadays sleep less than they used to in the past. What do you think is the reason for this? What are the effects of this habit?](#people-nowadays-sleep-less-than-they-used-to-in-the-past-what-do-you-think-is-the-reason-for-this-what-are-the-effects-of-this-habit)
     - [Goverments should spend money on railways rather than roads. To what extent do you agree or disagree with this statement?](#goverments-should-spend-money-on-railways-rather-than-roads-to-what-extent-do-you-agree-or-disagree-with-this-statement)
+    - [Nowadays people depend on technology for leisure activities. Is this a positive or negative development?](#nowadays-people-depend-on-technology-for-leisure-activities-is-this-a-positive-or-negative-development)
+
+## Summary
+
+IELTS Writing Task 2 includes 5 types of essays:
+
+- **Argumentative/Opinion/Agree or Disagree Essay**
+  - Give you 1 opinion and you need to discuss it. You also need to give your opinion.
+  - Do you agree or disagree?
+  - To what extent do you agree or disagree?
+  - Is this a positive or negative development?
+  - Some people think that all teenagers should be required to do unpaid work in their free time to help the local community. They believe this would benefit both the individual teenager and society as a whole. Do you agree or disagree?
+- **Discussion Essay/Discuss both views**
+  - It'll give you 2 opinions and you need to discuss both of them, including your opinion.
+  - Discuss both these views and give your opinion.
+- **Advantages and Disadvantages Essay**
+  - It'll give you 1 topic and you need to discuss the advantages and disadvantages of it.
+  - "Do the advantages of this outweigh the disadvantages?" -> **GIVE YOUR OPINION**
+  - "Discuss the advantages and disadvantages of this?" -> **DO NOT GIVE YOUR OPINION**
+- **Causes and Effects/Causes and Solutions/Problems and Solutions Essay**
+  - The easiest type of essay in this test.
+  - The internet has transformed the way information is shared and consumed, but it has also created problems that did not exist before. What are the most serious problems associated with the Internet and what solutions can you suggest?
+- **Two-Part Question Essay**
+  - Many people decide on a career path early in their lives and keep to it. This, they argue, leads to a more satisfying working life. To what extent do you agree with this view? What other things can people do in order to have a satisfying working life?
+
+### Argumentative/Opinion/Agree or Disagree Essay
+
+### Advantages and Disadvantages Essay
+
+- You shoud base on 40/60 approach
+  - 40% for the opposite side
+  - 60% for your side
+- You should have 4 ideas in total
+  - 2 ideas for the opposite side
+  - 2 ideas for your side
+- **MUST** have a clear opinion and express it in the introduction and conclusion
+
+**Structure:**
+
+- **Introduction** (about 2-3 sentences)
+  - > Nowadays, there is a growing concern about ...
+  - > Opinions are divided on whether ...
+  - > I completely agree/disagree with the idea of ... due to two main reasons.
+  - > Although it may breing about certain negative impacts, the benefits outweigh them.
+  - > There are several advantages/disadvantages to doing STH
+  - > It’s beneficial/advantages/disadvantages for SB to do STH
+  - > DOING STH is more beneficial to SB for reasons related to/regarding OPPORTUNITIES and FINANCIAL BENEFITS.
+
+- **Body Paragraph 1**
+  - Topic Sentence
+    - > Admittedly, ... may bring certain ... to ... related to ... and ...
+    - > On the one hand...
+  - Core Idea 1
+    - > One of them is that, ...
+    - > Regarding the former, ...
+    - > Firstly, ...
+    - > Regarding (N), ...
+  - Supporting Idea 1
+    - > For example, ...
+  - Core Idea 2
+    - > Moreover, ...
+    - > Another reason is that ...
+    - > Furthermore, ...
+    - > In addition, ...
+    - > In addition to this, ...
+    - > Secondly, ...
+    - > Regarding the latter, ...
+    - > Regarding (N), ...
+    - > Additionally,
+    - > Furthermore,
+    - > With regard to the latter,...
+
+  - Supporting Idea 2
+    - > This is because ...
+- **Body Paragraph 2** (Same as Body Paragraph 1)
+  - Topic Sentence
+    - > On the other hand, ...
+- **Conclusion** (about 2-3 sentences)
+  - > In conclusion, even though there are some drawbacks to ..., the benefits of ... outweigh them.
+  - ...
+  - > Based on the aforementioned arguments, I completely agree with the proposed idea.
+
+### Discussion Essay/Discuss both views
+
+- You must give your opinion if required
+- Each body paragraph should discuss one view
+
+### Causes and Effects/Causes and Solutions/Problems and Solutions Essay
+
+- Problem + Reason + Solution
+- It'll ask you to discuss 2 of them
+  - What problems are associated with this, and what are some possible solutions? (Problem + Solution)
+- You must prepare 2 problems and 2 solutions
+  - each body have 1 problem and 1 solution
+  - **or** 2 problems in one body and 2 solutions in the other body
+
+### Two-Part Question Essay
+
+- Each body part is a separate question
 
 ## Part 1
 
@@ -62,3 +167,5 @@ There are several factors bringing about this tendency in today's society.
 
 In conclusion, while both railways and roads are important, I think governments should prioritize railways because they are better for the environment and can solve issues like traffic congestion in urban areas. At the same time, maintaining roads for local transportation is also essential.
 `
+
+### Nowadays people depend on technology for leisure activities. Is this a positive or negative development?
