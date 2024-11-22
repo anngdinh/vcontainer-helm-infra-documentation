@@ -35,7 +35,7 @@ Then, create debug pod and service. (NOTE: Should not use `nginx` pod because it
 
 ```bash
 kubectl create deployment echo-server --image=mccutchen/go-httpbin
-kubectl expose deployment echo-server --name=clusterip --port=80 --target-port=8080
+kubectl expose deployment echo-server --name=clusterip --port=80 --target-port=8080 --type=ClusterIP
 ```
 
 Create a service entry for the service.
