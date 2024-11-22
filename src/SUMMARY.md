@@ -60,3 +60,4 @@
 - [English](helm-charts/english/README.md)
   - [Speaking](helm-charts/english/speaking.md)
   - [Writing](helm-charts/english/writing.md)
+  - [Vocabulary](helm-charts/english/vocab.md)
