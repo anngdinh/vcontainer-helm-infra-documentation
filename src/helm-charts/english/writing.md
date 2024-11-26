@@ -18,6 +18,7 @@
     - [Goverments should spend money on railways rather than roads. To what extent do you agree or disagree with this statement?](#goverments-should-spend-money-on-railways-rather-than-roads-to-what-extent-do-you-agree-or-disagree-with-this-statement)
     - [Nowadays people depend on technology for leisure activities. Is this a positive or negative development?](#nowadays-people-depend-on-technology-for-leisure-activities-is-this-a-positive-or-negative-development)
     - [While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. Agree or disagree?](#while-many-people-go-to-university-for-academic-study-more-people-should-be-encouraged-to-do-vocational-training-because-there-is-a-lack-of-qualified-workers-such-as-electricians-and-plumbers-agree-or-disagree)
+    - [Many people want their country to host an international sporting event. Others believe that international sporting events bring more problems than benefits. Discuss both views and give your opinion](#many-people-want-their-country-to-host-an-international-sporting-event-others-believe-that-international-sporting-events-bring-more-problems-than-benefits-discuss-both-views-and-give-your-opinion)
 
 ## Summary
 
@@ -207,3 +208,13 @@ In conclusion, while both railways and roads are important, I think governments 
 > On the other hand, the benefits of becoming a skilled worker far outweigh the drawbacks to individuals. Firstly, this practice **saves significant time and financial resources for individuals**. Unlike academic study, vocational training is hands-on skills and could meet the requirements of the labor market in a short period. Secondly, this approach also provides high-paying jobs when employees have enough experience and become well-skilled workers. For example, in many countries like Germany or Japan, electricians and plumbers are always in high demand, and they can earn a lot of money for their work.
 >
 > In conclusion, even though there are some drawbacks to doing vocational training instead of going to university, the benefits of this practice outweigh them. Based on the aforementioned arguments, I completely agree with the proposed idea.
+
+### Many people want their country to host an international sporting event. Others believe that international sporting events bring more problems than benefits. Discuss both views and give your opinion
+
+> Nowadays, there is growing concern about whether a country should host an international sporting event or not. Although it may bring about certain negative impacts, the benefits outweigh them.
+>
+> Admittedly, the decision to host an international sporting event may cause a few different problems. One of them is that the cost of such events is exorbitantly expensive and requires the government to spend a large amount of investment. As a result, the resources spent on the others like healthcare system or education may be decreased or even not enough whenever such events take place. Another problem is affecting the locals' quality of life. This is because those who live near the stadium have to face the constant noise during the games or matches. Beyond that, their commutes were also impacted because the traffic volume increased dramatically when the event took place.
+>
+> On the other hand, I think we should hold events at this scope. Firstly, it's a chance to promote the host's culture. Visitors, and audiences from corners of the world can enjoy their cultural heritage and understand more about the host country. Beyond that, during these events, people tend to flock to the cities hosting them, creating many job opportunities for the locals. This is because visitors require accommodation, food, beverages, and services, which enable people in these fields to earn more money and raise their living standards.
+>
+> In conclusion, even though there are some drawbacks to hosting an international sporting event, I believe the benefits outweigh them.
