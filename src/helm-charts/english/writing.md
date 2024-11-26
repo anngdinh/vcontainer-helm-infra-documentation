@@ -17,6 +17,7 @@
     - [People nowadays sleep less than they used to in the past. What do you think is the reason for this? What are the effects of this habit?](#people-nowadays-sleep-less-than-they-used-to-in-the-past-what-do-you-think-is-the-reason-for-this-what-are-the-effects-of-this-habit)
     - [Goverments should spend money on railways rather than roads. To what extent do you agree or disagree with this statement?](#goverments-should-spend-money-on-railways-rather-than-roads-to-what-extent-do-you-agree-or-disagree-with-this-statement)
     - [Nowadays people depend on technology for leisure activities. Is this a positive or negative development?](#nowadays-people-depend-on-technology-for-leisure-activities-is-this-a-positive-or-negative-development)
+    - [While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. Agree or disagree?](#while-many-people-go-to-university-for-academic-study-more-people-should-be-encouraged-to-do-vocational-training-because-there-is-a-lack-of-qualified-workers-such-as-electricians-and-plumbers-agree-or-disagree)
 
 ## Summary
 
@@ -42,6 +43,25 @@ IELTS Writing Task 2 includes 5 types of essays:
   - Many people decide on a career path early in their lives and keep to it. This, they argue, leads to a more satisfying working life. To what extent do you agree with this view? What other things can people do in order to have a satisfying working life?
 
 ### Argumentative/Opinion/Agree or Disagree Essay
+
+- Introduction (Mở bài)
+  - Background Sentence (Paraphrase lại câu hỏi)
+    - > It is believed that ...
+  - Thesis Statement (Nêu quan điểm của bạn)
+    - > I completely agree/disagree with this idea ...
+    - > In my opinion, I disagree with this view.
+    - > From my point of view, I partly agree/disagree with this view.
+  - Outline Statement (Nếu lý do bạn ủng hộ quan điểm này)
+- Main body - Paragraph 1 (Đoạn thân bài 1)
+  - Topic Sentence (Câu chủ đề, nêu luận điểm 1)
+  - Explain Topic Sentence (Giải thích)
+  - Example (Cung cấp ví dụ chứng minh)
+- Main body - Paragraph 2 (Đoạn thân bài 2)
+  - Topic Sentence (Câu chủ đề, nêu luận điểm 1)
+  - Explain Topic Sentence (Giải thích)
+  - Example (Cung cấp ví dụ chứng minh)
+- Conclusion (Kết luận)
+  - Summary and reiteration of your opinion. (Tóm tắt các luận điểm đã nêu bên trên)
 
 ### Advantages and Disadvantages Essay
 
@@ -169,3 +189,21 @@ In conclusion, while both railways and roads are important, I think governments 
 `
 
 ### Nowadays people depend on technology for leisure activities. Is this a positive or negative development?
+
+> Nowadays, there is a growing concern about people depending on technology for leisure activities. Although it may have certain negative impacts, the benefits outweigh them.
+>
+> Admittedly, using tech devices for entertainment may bring certain negative to individuals related to health and lifestyle. Regarding the former, using phones, monitors, and laptops to relax causes increased screen time for users. Many people in this modern life already spend many hours a day with these devices for work, which is the main reason for some popular health problems such as short-sightedness or insomnia. With regard to the latter, time spent on outdoor leisure activities decreases when people use technology for their entertainment. Reduced physical activity affects both physical and mental health because it is the main reason for obesity and depression in many people.
+>
+> On the other hand, the benefits of using technology for entertainment far outweigh the drawbacks to individuals. One of them is that it offers a convenient way for many people with various topics. For instance, with only a phone or a laptop, we easily have many ways to relax or chill such as playing some games, watching movies, or suffering news on social media. Furthermore, one of the most valuable leisure activities that technology offers is the ability to connect with others. Social media allows people to interact with family, colleagues, and friends or join some community, and open new personal and business relationships.
+>
+> In conclusion, even though there are some drawbacks to depending on technology for leisure activities, the benefits of this practice outweigh them. Based on the aforementioned arguments, I completely agree with the proposed idea.
+
+### While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. Agree or disagree?
+
+> Nowadays, there is a growing concern about the lack of qualified workers because many people go to university for academic study. Some people think that doing vocational training should be encouraged to meet the demands of highly qualified employees. Personally, I completely agree with this idea because of some reasons related to resources and the demands of society.
+>
+> Admittedly, choosing a career path as a skilled worker may bring certain negatives to individuals related to opportunities and sustainability in the future. Regarding the former, it's obvious that academic study offers a wide range of career options that are limited to vocational training. For instance, this kind of career path only offers common jobs and does not require high-level knowledge such as electricians and plumbers, which is not suitable for someone whose dream is to become a doctor or engineer. Furthermore, in the digital age, while everything is changing to become automatically, many manual laborers in this field may become unemployed. This is because a robot is cheaper, more accurate, and smart enough to do some manual jobs at a certain skill level that directly affects the jobs of these individuals sooner or later.
+>
+> On the other hand, the benefits of becoming a skilled worker far outweigh the drawbacks to individuals. Firstly, this practice **saves significant time and financial resources for individuals**. Unlike academic study, vocational training is hands-on skills and could meet the requirements of the labor market in a short period. Secondly, this approach also provides high-paying jobs when employees have enough experience and become well-skilled workers. For example, in many countries like Germany or Japan, electricians and plumbers are always in high demand, and they can earn a lot of money for their work.
+>
+> In conclusion, even though there are some drawbacks to doing vocational training instead of going to university, the benefits of this practice outweigh them. Based on the aforementioned arguments, I completely agree with the proposed idea.
