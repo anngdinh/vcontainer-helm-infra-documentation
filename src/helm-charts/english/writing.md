@@ -20,6 +20,7 @@
     - [While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. Agree or disagree?](#while-many-people-go-to-university-for-academic-study-more-people-should-be-encouraged-to-do-vocational-training-because-there-is-a-lack-of-qualified-workers-such-as-electricians-and-plumbers-agree-or-disagree)
     - [Many people want their country to host an international sporting event. Others believe that international sporting events bring more problems than benefits. Discuss both views and give your opinion](#many-people-want-their-country-to-host-an-international-sporting-event-others-believe-that-international-sporting-events-bring-more-problems-than-benefits-discuss-both-views-and-give-your-opinion)
     - [Nowadays, there is a growing trend for men to stay at home and take care of their children while their spouses go out to work. There are some reasons for this tendency to become more popular and I believe this trend is beneficial in many ways](#nowadays-there-is-a-growing-trend-for-men-to-stay-at-home-and-take-care-of-their-children-while-their-spouses-go-out-to-work-there-are-some-reasons-for-this-tendency-to-become-more-popular-and-i-believe-this-trend-is-beneficial-in-many-ways)
+    - [It is observed that in many countries not enough students are choosing to study science as a subject. What are the causes? And what will be the effects on society?](#it-is-observed-that-in-many-countries-not-enough-students-are-choosing-to-study-science-as-a-subject-what-are-the-causes-and-what-will-be-the-effects-on-society)
 
 ## Summary
 
@@ -229,3 +230,14 @@ In conclusion, while both railways and roads are important, I think governments 
 > On the other hand, I believe this practice is beneficial in many ways. One of them is that the cost of external childcare is very expensive and this arrangement can save a lot of money for parents. Beyond that, when the father takes the primary responsibility for child raising, which is not typical in the past, could create a new environment for the **well-rounded development** of the child. This not only strengthens emotional bonds within the family but also creates a model of the father in modern life.
 >
 > In conclusion, while a father staying at home and taking care of their children is not common in the past and may have some drawbacks, I believe the benefits of this practice outweigh them.
+
+### It is observed that in many countries not enough students are choosing to study science as a subject. What are the causes? And what will be the effects on society?
+
+![1.png](./../../images/ielts/1.png)
+
+- `hands-on labs or practical activities to apply knowledge`
+- `to capture students' interest` - to attract students
+- `pursue higher education for an extended period` - have to study for a long time
+- `a shortage in the (ADJ) workforce` - a lack of (qualified) workers
+- `The more developed a country is, the higher its scientific power`
+- `unprecedented challenges` - challenges that have never been faced before
