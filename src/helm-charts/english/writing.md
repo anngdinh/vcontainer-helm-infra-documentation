@@ -21,6 +21,7 @@
     - [Many people want their country to host an international sporting event. Others believe that international sporting events bring more problems than benefits. Discuss both views and give your opinion](#many-people-want-their-country-to-host-an-international-sporting-event-others-believe-that-international-sporting-events-bring-more-problems-than-benefits-discuss-both-views-and-give-your-opinion)
     - [Nowadays, there is a growing trend for men to stay at home and take care of their children while their spouses go out to work. There are some reasons for this tendency to become more popular and I believe this trend is beneficial in many ways](#nowadays-there-is-a-growing-trend-for-men-to-stay-at-home-and-take-care-of-their-children-while-their-spouses-go-out-to-work-there-are-some-reasons-for-this-tendency-to-become-more-popular-and-i-believe-this-trend-is-beneficial-in-many-ways)
     - [It is observed that in many countries not enough students are choosing to study science as a subject. What are the causes? And what will be the effects on society?](#it-is-observed-that-in-many-countries-not-enough-students-are-choosing-to-study-science-as-a-subject-what-are-the-causes-and-what-will-be-the-effects-on-society)
+    - [Once children start school, teachers have more influence on their intellectual and social development. To what extent do you agree or disagree?](#once-children-start-school-teachers-have-more-influence-on-their-intellectual-and-social-development-to-what-extent-do-you-agree-or-disagree)
 
 ## Summary
 
@@ -241,3 +242,16 @@ In conclusion, while both railways and roads are important, I think governments 
 - `a shortage in the (ADJ) workforce` - a lack of (qualified) workers
 - `The more developed a country is, the higher its scientific power`
 - `unprecedented challenges` - challenges that have never been faced before
+
+### Once children start school, teachers have more influence on their intellectual and social development. To what extent do you agree or disagree?
+
+![2.png](./../../images/ielts/2.png)
+
+- `teachers are the most suitable FOR KEEPING a close eye on students' progress`
+- `spending most of THEIR time V_ing`
+- `strengths and weaknesses of each student` - not studentS
+- `respond appropriately` - respond in a suitable way
+- `imitating` - copying
+- `By exposing children to a wide range of activities and guiding them step by step,...` - by giving children a lot of different activities and helping them to do them
+- `parents are the most suitable to SHAPE their children's personality` - parents are the most suitable people to influence their children's character
+- `suitable` - `better positioned` - `more appropriate`
