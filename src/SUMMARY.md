@@ -59,5 +59,6 @@
   - [Cert Manager + Let's Encrypt + Nginx Ingress](helm-charts/vks-fleet/cert-manager-let-encrypt.md)
 - [English](helm-charts/english/README.md)
   - [Speaking](helm-charts/english/speaking.md)
-  - [Writing](helm-charts/english/writing.md)
+  - [Writing task 1](helm-charts/english/writing_1.md)
+  - [Writing task 2](helm-charts/english/writing.md)
   - [Vocabulary](helm-charts/english/vocab.md)
