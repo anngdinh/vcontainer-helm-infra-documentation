@@ -166,12 +166,17 @@ Events:
 
 Try curl to your domain, it'll return cert are self-signed. It's OKAY because it's staging.
 
+```bash
+curl -kivL -H 'Host: ______DOMAIN______' 'http://_____IP_____'
+```
+
 Delete resources:
   
 ```bash
 kubectl delete ingress go-httpbin
-kubectl delete secret quickstart-example-tls
 kubectl delete issuer letsencrypt-staging
+kubectl delete secret quickstart-example-tls
+kubectl delete secret letsencrypt-staging
 ```
 
 ### Test with Production
