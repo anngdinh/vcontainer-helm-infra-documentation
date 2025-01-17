@@ -83,6 +83,7 @@ metadata:
   name: go-httpbin
   annotations:
     cert-manager.io/issuer: "letsencrypt-staging"
+    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   ingressClassName: nginx
   tls:
@@ -165,6 +166,14 @@ Events:
 
 Try curl to your domain, it'll return cert are self-signed. It's OKAY because it's staging.
 
+Delete resources:
+  
+```bash
+kubectl delete ingress go-httpbin
+kubectl delete secret quickstart-example-tls
+kubectl delete issuer letsencrypt-staging
+```
+
 ### Test with Production
 
 Create Production Issuer, change `email` in this yaml file.
@@ -195,6 +204,7 @@ metadata:
   name: go-httpbin
   annotations:
     cert-manager.io/issuer: "letsencrypt-prod"  # Change to letsencrypt-prod
+    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   ingressClassName: nginx
   tls:
@@ -212,10 +222,4 @@ spec:
             name: clusterip
             port:
               number: 80
-```
-
-You will also need to delete the existing secret:
-  
-```bash
-kubectl delete secret quickstart-example-tls
 ```
