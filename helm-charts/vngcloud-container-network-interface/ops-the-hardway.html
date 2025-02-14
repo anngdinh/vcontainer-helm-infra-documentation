@@ -1,0 +1,434 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>OPS the hardway - vContainer Helm Infra Documentation</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="../../theme/pagetoc.css">
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">vContainer Helm Infa Repository</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/index.html"><strong aria-hidden="true">1.</strong> vContainer Storage Interface Chart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/overview.html"><strong aria-hidden="true">1.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example.html"><strong aria-hidden="true">1.3.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-type.html"><strong aria-hidden="true">1.3.1.</strong> StorageClass based on Volume Type</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/block-volume.html"><strong aria-hidden="true">1.3.2.</strong> Block volume</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-resizing.html"><strong aria-hidden="true">1.3.3.</strong> Volume resizing</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/nfs-server.html"><strong aria-hidden="true">1.3.4.</strong> NFS server</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/index.html"><strong aria-hidden="true">2.</strong> VNGCLOUD Ingress Controller</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/overview.html"><strong aria-hidden="true">2.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/annotations.html"><strong aria-hidden="true">2.3.</strong> Annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/index.html"><strong aria-hidden="true">3.</strong> VNG Cloud Controller Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/overview.html"><strong aria-hidden="true">3.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/installation.html"><strong aria-hidden="true">3.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/annotations.html"><strong aria-hidden="true">3.3.</strong> Annotations</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example.html"><strong aria-hidden="true">3.4.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/internal-loadbalancer.html"><strong aria-hidden="true">3.4.1.</strong> Internal LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/external-loadbalancer.html"><strong aria-hidden="true">3.4.2.</strong> External LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/upd-server.html"><strong aria-hidden="true">3.4.3.</strong> Support UDP protocol</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/http-application.html"><strong aria-hidden="true">3.4.4.</strong> HTTP Application</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.html"><strong aria-hidden="true">3.4.5.</strong> Reuse existing LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-ingress.html"><strong aria-hidden="true">3.4.6.</strong> Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/change-package.html"><strong aria-hidden="true">3.4.7.</strong> Change LoadBalancer package</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-proxy.html"><strong aria-hidden="true">3.4.8.</strong> Nginx Proxy</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/index.html"><strong aria-hidden="true">4.</strong> Migrate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/overview.html"><strong aria-hidden="true">4.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/planning-resource.html"><strong aria-hidden="true">4.2.</strong> Planning Resources for the Target Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-outside-resource.html"><strong aria-hidden="true">4.3.</strong> Migrating Resources Outside a Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/install-tool.html"><strong aria-hidden="true">4.4.</strong> Installing the Migration Tool</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-resource.html"><strong aria-hidden="true">4.5.</strong> Migrating Resources in a Cluster (Velero)</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/update-resource.html"><strong aria-hidden="true">4.6.</strong> Updating Resources Accordingly</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/additional-tasks.html"><strong aria-hidden="true">4.7.</strong> Performing Additional Tasks</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case.html"><strong aria-hidden="true">4.8.</strong> Usecase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vks-to-vks.html"><strong aria-hidden="true">4.8.1.</strong> VKS to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vcontainer-to-vks.html"><strong aria-hidden="true">4.8.2.</strong> vContainer to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/other-to-vks.html"><strong aria-hidden="true">4.8.3.</strong> Other cloud to VKS</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage.html"><strong aria-hidden="true">4.9.</strong> More usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/prepare-velero.html"><strong aria-hidden="true">4.9.1.</strong> Prepare Velero</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/deploy-sample-app.html"><strong aria-hidden="true">4.9.2.</strong> Deploy sample app</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/minio.html"><strong aria-hidden="true">4.9.3.</strong> Setup Minio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/troubleshooting.html"><strong aria-hidden="true">4.9.4.</strong> Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/index.html"><strong aria-hidden="true">5.</strong> CNI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/overview.html"><strong aria-hidden="true">5.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html"><strong aria-hidden="true">5.2.</strong> Container the Hard way</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-network.html"><strong aria-hidden="true">5.3.</strong> AWS network</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/cilium.html"><strong aria-hidden="true">5.4.</strong> Cilium</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/ops-the-hardway.html" class="active"><strong aria-hidden="true">5.5.</strong> OPS the hardway</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html"><strong aria-hidden="true">5.6.</strong> AWS trunk network</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/index.html"><strong aria-hidden="true">6.</strong> Fleet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/GKEVPN-strongswan.html"><strong aria-hidden="true">6.1.</strong> GKEVPN StrongSwan</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/istio.html"><strong aria-hidden="true">6.2.</strong> Istio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt.html"><strong aria-hidden="true">6.3.</strong> Cert Manager + Let's Encrypt + Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt-vngcloud.html"><strong aria-hidden="true">6.4.</strong> Cert Manager + Let's Encrypt + VNGCLOUD Ingress</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/english/index.html"><strong aria-hidden="true">7.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/english/speaking.html"><strong aria-hidden="true">7.1.</strong> Speaking</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing_1.html"><strong aria-hidden="true">7.2.</strong> Writing task 1</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing.html"><strong aria-hidden="true">7.3.</strong> Writing task 2</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/vocab.html"><strong aria-hidden="true">7.4.</strong> Vocabulary</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">vContainer Helm Infra Documentation</h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="ops-the-hard-way"><a class="header" href="#ops-the-hard-way">OPS the hard way</a></h1>
+<h2 id="1-new-port-direct-to-network-namespace"><a class="header" href="#1-new-port-direct-to-network-namespace">1. New port direct to network namespace</a></h2>
+<p>In OPS server</p>
+<pre><code class="language-bash">NETWORK_ID=90d74e7f-a8d0-4f52-adec-fd5bddd71f44
+SERVER=annd2-2
+# Create a new port
+openstack port create --network $NETWORK_ID pod-port-2
+openstack port set pod-port-2 --security-group IAAS_53539_1714970107604_Default
+
+# Add port to server
+openstack server add port $SERVER pod-port-2
+</code></pre>
+<p>In server</p>
+<pre><code class="language-bash">PORT_IP_1=172.16.1.7
+PORT_IP_2=172.16.1.8
+sudo ip netns add ns1
+sudo ip link set eth1 netns ns1
+sudo ip netns exec ns1 ip addr add $PORT_IP_2/24 dev eth1
+sudo ip netns exec ns1 ip link set eth1 up
+
+# Test
+ip netns exec ns1 python3 -m http.server 8080
+curl $PORT_IP_2:8080
+
+# Test
+python3 -m http.server 8080
+ip netns exec ns1 curl $PORT_IP_1:8080
+
+# Clean up
+ip netns del ns1
+</code></pre>
+<p>Clean up</p>
+<pre><code class="language-bash">openstack port delete pod-port-2
+</code></pre>
+<h2 id="2-new-port---veth-pair---network-namespace"><a class="header" href="#2-new-port---veth-pair---network-namespace">2. New port -&gt; veth pair -&gt; network namespace</a></h2>
+<p>In OPS server</p>
+<pre><code class="language-bash">NETWORK_ID=90d74e7f-a8d0-4f52-adec-fd5bddd71f44
+SERVER=annd2-main-2
+# Create a new port
+openstack port create --network $NETWORK_ID pod-port-22
+openstack port set pod-port-22 --security-group IAAS_53539_1714970107604_Default
+
+# Add port to server
+openstack server add port $SERVER pod-port-22
+</code></pre>
+<p>Inside the VM</p>
+<pre><code class="language-bash">PORT_IP_2=172.16.1.16
+ip link set eth1 up
+ip netns add ns1
+
+# Create veth pair
+ip link add veth0 type veth peer name veth1
+ip link set veth1 netns ns1
+ip netns exec ns1 ip addr add $PORT_IP_2/32 dev veth1
+
+
+# set default arp
+veth0_mac_add=$(cat /sys/class/net/veth0/address)
+ip netns exec ns1 arp -i veth1 -s 169.254.1.1 $veth0_mac_add
+# default is route with sample IP to interface veth1
+ip netns exec ns1 ip link set veth1 up
+ip netns exec ns1 ip route add 169.254.1.1 dev veth1 scope link
+ip netns exec ns1 ip route add default via 169.254.1.1 dev veth1
+
+# add route to pod
+ip link set veth0 up
+ip route add $PORT_IP_2/32 dev veth0 scope link
+
+# Disable reverse path filtering
+echo 0 | sudo tee /proc/sys/net/ipv4/conf/all/rp_filter
+echo 0 | sudo tee /proc/sys/net/ipv4/conf/eth1/rp_filter
+
+# Enable IP forwarding, default is 0
+sysctl net.ipv4.ip_forward
+sudo sysctl -w net.ipv4.ip_forward=1
+# sudo ip netns exec ns1 sysctl -w net.ipv4.ip_forward=1
+
+# Test
+ip netns exec ns1 python3 -m http.server 8080
+
+# Clean up
+ip netns del ns1
+</code></pre>
+<p>Clean up</p>
+<pre><code class="language-bash">openstack port delete pod-port-22
+</code></pre>
+<h2 id="3-trunk-network"><a class="header" href="#3-trunk-network">3. Trunk network</a></h2>
+<pre><code class="language-bash">NETWORK_ID=90d74e7f-a8d0-4f52-adec-fd5bddd71f44
+# Create a parent port
+openstack port create --network $NETWORK_ID trunk-parent
+
+# Create a trunk
+openstack network trunk create --parent-port trunk-parent trunk1
+
+# Create subports
+openstack port create --network $NETWORK_ID subport1
+openstack port create --network $NETWORK_ID subport2
+
+# Add subports to trunk
+openstack network trunk set \
+  --subport port=subport1,segmentation-type=vlan,segmentation-id=100 \
+  trunk1
+openstack network trunk set \
+  --subport port=subport2,segmentation-type=vlan,segmentation-id=200 \
+  trunk1
+
+# Show trunk
+openstack network trunk show trunk1
+
+# Set security group
+openstack port set trunk-parent --security-group IAAS_53539_1714970107604_Default
+openstack port set subport1 --security-group IAAS_53539_1714970107604_Default
+openstack port set subport2 --security-group IAAS_53539_1714970107604_Default
+
+# Add trunk to server
+SERVER=annd2-super-main
+SERVER_IP=172.16.1.4
+SERVER_TEST=annd2-2
+SERVER_TEST_IP=172.16.1.7
+openstack server add port $SERVER trunk-parent
+</code></pre>
+<p>In Server</p>
+<pre><code class="language-bash">TRUNK_IP=172.16.1.5
+ip addr add $TRUNK_IP/24 dev eth1
+ip link set eth1 up
+
+# Can't ping because server have 2 NICs, one for trunk, one for management
+# Must add ip rule for trunk
+echo &quot;200 out&quot; &gt;&gt; /etc/iproute2/rt_tables
+ip route add default via $TRUNK_IP dev eth1 table out
+ip rule add from $TRUNK_IP table out
+ip route show table out
+# can ping now
+
+# # setup VLAN for subport https://www.baeldung.com/linux/vlans-create
+# sudo apt-get install vlan
+# sudo modprobe 8021q
+# lsmod | grep 8021q
+
+SUBPORT_1_MAC=02:69:dd:00:ee:19
+SUBPORT_2_MAC=02:7b:1d:9f:80:5f
+ip link add link eth1 address $SUBPORT_1_MAC name eth1.100 type vlan id 100
+ip link set up eth1.100
+ip link add link eth1 address $SUBPORT_2_MAC name eth1.200 type vlan id 200
+ip link set up eth1.200
+ip a
+</code></pre>
+<p>Create network namespace with subport</p>
+<pre><code class="language-bash">SUBPORT_1_IP=172.16.1.7
+ip netns add ns1
+
+# Create veth pair
+ip link add veth0 type veth peer name veth1
+ip link set veth1 netns ns1
+ip netns exec ns1 ip addr add $SUBPORT_1_IP/32 dev veth1
+
+
+# set default arp
+veth0_mac_add=$(cat /sys/class/net/veth0/address)
+ip netns exec ns1 arp -i veth1 -s 169.254.1.1 $veth0_mac_add
+# default is route with sample IP to interface veth1
+ip netns exec ns1 ip link set veth1 up
+ip netns exec ns1 ip route add 169.254.1.1 dev veth1 scope link
+ip netns exec ns1 ip route add default via 169.254.1.1 dev veth1
+ip netns exec ns1 ip a
+ip link set veth0 up
+</code></pre>
+<p>Config route (key part)</p>
+<pre><code class="language-bash">DEFAULT_GATEWAY=172.16.1.1
+# table 101
+ip route add $DEFAULT_GATEWAY dev eth1.100 scope link table 101
+ip route add 172.16.1.7 dev veth0 scope link table 101
+ip route add default via $DEFAULT_GATEWAY dev eth1.100 table 101
+ip route show table 101
+
+
+# rule
+ip rule add from all iif eth1.100 table 101 prio 10
+ip rule add from all iif veth0 table 101 prio 10
+
+
+# test
+ip netns exec ns1 python3 -m http.server 8080
+tcpdump -nn icmp -l -i any
+
+# clean up
+ip netns del ns1
+</code></pre>
+<p>Clean up</p>
+<pre><code class="language-bash">openstack server remove port $SERVER trunk-parent
+
+openstack network trunk unset --subport subport1 trunk1
+openstack network trunk unset --subport subport2 trunk1
+openstack port delete subport1
+openstack port delete subport2
+openstack network trunk delete trunk1
+openstack port delete trunk-parent
+</code></pre>
+<h2 id="4-secgroup-remote-secgroup-continue-from-part-3"><a class="header" href="#4-secgroup-remote-secgroup-continue-from-part-3">4. Secgroup remote secgroup (continue from part 3)</a></h2>
+<ul>
+<li>Can you config pod inside a node can access to other VMs but the node can't?</li>
+<li>When autoscale up, the pod should be able to access to the VMs.</li>
+</ul>
+<pre><code class="language-bash"># create a minimum security group, not allow any server can ping to it (in portal)
+
+# create a empty security group for pod P
+openstack security group create --description &quot;for pod&quot; POD_SEC
+
+# create a security group DB allow from remote security group P
+openstack security group create --description &quot;for DB allow from pod&quot; DB_SEC
+openstack security group rule create \
+    --remote-group POD_SEC \
+    --ingress \
+    DB_SEC
+
+# attach security group DB to VMs
+# attach security group P to pod
+SERVER_DB_PORT=62df116d-c6ea-4500-ade9-e48b9e763e14
+SERVER_POD_PORT=subport1
+openstack port show $SERVER_DB_PORT
+openstack port show $SERVER_POD_PORT
+
+openstack port set $SERVER_DB_PORT --security-group DB_SEC
+openstack port set $SERVER_POD_PORT --security-group POD_SEC
+
+# test ping
+SEVER_DB_IP=172.16.1.13
+ping $SEVER_DB_IP
+ip netns exec ns1 ping $SEVER_DB_IP
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../helm-charts/vngcloud-container-network-interface/cilium.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../helm-charts/vngcloud-container-network-interface/cilium.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../../theme/pagetoc.js"></script>
+        
+        
+    </body>
+</html>

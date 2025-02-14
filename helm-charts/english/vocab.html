@@ -1,0 +1,740 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Vocabulary - vContainer Helm Infra Documentation</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="../../theme/pagetoc.css">
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">vContainer Helm Infa Repository</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/index.html"><strong aria-hidden="true">1.</strong> vContainer Storage Interface Chart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/overview.html"><strong aria-hidden="true">1.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example.html"><strong aria-hidden="true">1.3.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-type.html"><strong aria-hidden="true">1.3.1.</strong> StorageClass based on Volume Type</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/block-volume.html"><strong aria-hidden="true">1.3.2.</strong> Block volume</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-resizing.html"><strong aria-hidden="true">1.3.3.</strong> Volume resizing</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/nfs-server.html"><strong aria-hidden="true">1.3.4.</strong> NFS server</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/index.html"><strong aria-hidden="true">2.</strong> VNGCLOUD Ingress Controller</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/overview.html"><strong aria-hidden="true">2.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/annotations.html"><strong aria-hidden="true">2.3.</strong> Annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/index.html"><strong aria-hidden="true">3.</strong> VNG Cloud Controller Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/overview.html"><strong aria-hidden="true">3.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/installation.html"><strong aria-hidden="true">3.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/annotations.html"><strong aria-hidden="true">3.3.</strong> Annotations</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example.html"><strong aria-hidden="true">3.4.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/internal-loadbalancer.html"><strong aria-hidden="true">3.4.1.</strong> Internal LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/external-loadbalancer.html"><strong aria-hidden="true">3.4.2.</strong> External LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/upd-server.html"><strong aria-hidden="true">3.4.3.</strong> Support UDP protocol</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/http-application.html"><strong aria-hidden="true">3.4.4.</strong> HTTP Application</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.html"><strong aria-hidden="true">3.4.5.</strong> Reuse existing LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-ingress.html"><strong aria-hidden="true">3.4.6.</strong> Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/change-package.html"><strong aria-hidden="true">3.4.7.</strong> Change LoadBalancer package</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-proxy.html"><strong aria-hidden="true">3.4.8.</strong> Nginx Proxy</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/index.html"><strong aria-hidden="true">4.</strong> Migrate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/overview.html"><strong aria-hidden="true">4.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/planning-resource.html"><strong aria-hidden="true">4.2.</strong> Planning Resources for the Target Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-outside-resource.html"><strong aria-hidden="true">4.3.</strong> Migrating Resources Outside a Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/install-tool.html"><strong aria-hidden="true">4.4.</strong> Installing the Migration Tool</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-resource.html"><strong aria-hidden="true">4.5.</strong> Migrating Resources in a Cluster (Velero)</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/update-resource.html"><strong aria-hidden="true">4.6.</strong> Updating Resources Accordingly</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/additional-tasks.html"><strong aria-hidden="true">4.7.</strong> Performing Additional Tasks</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case.html"><strong aria-hidden="true">4.8.</strong> Usecase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vks-to-vks.html"><strong aria-hidden="true">4.8.1.</strong> VKS to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vcontainer-to-vks.html"><strong aria-hidden="true">4.8.2.</strong> vContainer to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/other-to-vks.html"><strong aria-hidden="true">4.8.3.</strong> Other cloud to VKS</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage.html"><strong aria-hidden="true">4.9.</strong> More usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/prepare-velero.html"><strong aria-hidden="true">4.9.1.</strong> Prepare Velero</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/deploy-sample-app.html"><strong aria-hidden="true">4.9.2.</strong> Deploy sample app</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/minio.html"><strong aria-hidden="true">4.9.3.</strong> Setup Minio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/troubleshooting.html"><strong aria-hidden="true">4.9.4.</strong> Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/index.html"><strong aria-hidden="true">5.</strong> CNI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/overview.html"><strong aria-hidden="true">5.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html"><strong aria-hidden="true">5.2.</strong> Container the Hard way</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-network.html"><strong aria-hidden="true">5.3.</strong> AWS network</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/cilium.html"><strong aria-hidden="true">5.4.</strong> Cilium</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/ops-the-hardway.html"><strong aria-hidden="true">5.5.</strong> OPS the hardway</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html"><strong aria-hidden="true">5.6.</strong> AWS trunk network</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/index.html"><strong aria-hidden="true">6.</strong> Fleet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/GKEVPN-strongswan.html"><strong aria-hidden="true">6.1.</strong> GKEVPN StrongSwan</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/istio.html"><strong aria-hidden="true">6.2.</strong> Istio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt.html"><strong aria-hidden="true">6.3.</strong> Cert Manager + Let's Encrypt + Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt-vngcloud.html"><strong aria-hidden="true">6.4.</strong> Cert Manager + Let's Encrypt + VNGCLOUD Ingress</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/english/index.html"><strong aria-hidden="true">7.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/english/speaking.html"><strong aria-hidden="true">7.1.</strong> Speaking</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing_1.html"><strong aria-hidden="true">7.2.</strong> Writing task 1</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing.html"><strong aria-hidden="true">7.3.</strong> Writing task 2</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/vocab.html" class="active"><strong aria-hidden="true">7.4.</strong> Vocabulary</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">vContainer Helm Infra Documentation</h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="vocabulary"><a class="header" href="#vocabulary">Vocabulary</a></h1>
+<h2 id="catalogue"><a class="header" href="#catalogue">Catalogue</a></h2>
+<ul>
+<li><a href="#vocabulary">Vocabulary</a>
+<ul>
+<li><a href="#catalogue">Catalogue</a></li>
+<li><a href="#task-1">Task 1</a></li>
+<li><a href="#task-2">Task 2</a>
+<ul>
+<li><a href="#vocabulary-by-topic">Vocabulary by Topic</a>
+<ul>
+<li><a href="#technology">Technology</a>
+<ul>
+<li><a href="#collocations">Collocations</a></li>
+</ul>
+</li>
+<li><a href="#education">Education</a></li>
+<li><a href="#environment">Environment</a>
+<ul>
+<li><a href="#global-warming">Global Warming</a></li>
+<li><a href="#pollution-environment">Pollution Environment</a></li>
+<li><a href="#energy">Energy</a></li>
+<li><a href="#garbage">Garbage</a></li>
+<li><a href="#some-ideas">Some ideas</a></li>
+</ul>
+</li>
+<li><a href="#family">Family</a></li>
+<li><a href="#health">Health</a>
+<ul>
+<li><a href="#healthy-lifestyle">Healthy Lifestyle</a></li>
+<li><a href="#pandemic-%C4%91%E1%BA%A1i-d%E1%BB%8Bch">Pandemic (Đại dịch)</a></li>
+<li><a href="#health-care">Health Care</a></li>
+<li><a href="#unhealthy-habits">Unhealthy Habits</a></li>
+<li><a href="#colocations">Colocations</a></li>
+</ul>
+</li>
+<li><a href="#jobcareer">Job/Career</a>
+<ul>
+<li><a href="#collocations-for-job">Collocations for Job</a></li>
+</ul>
+</li>
+<li><a href="#effective-communicate-giao-ti%E1%BA%BFp-x%C3%A3-h%E1%BB%99i">Effective Communicate (Giao tiếp xã hội)</a></li>
+<li><a href="#lifestyles">Lifestyles</a></li>
+<li><a href="#the-energy-crisis-kh%E1%BB%A7ng-ho%E1%BA%A3ng-n%C4%83ng-l%C6%B0%E1%BB%A3ng">The Energy Crisis (Khủng hoảng năng lượng)</a></li>
+<li><a href="#animal-right-quy%E1%BB%81n-c%E1%BB%A7a-%C4%91%E1%BB%99ng-v%E1%BA%ADt">Animal Right (Quyền của động vật)</a></li>
+<li><a href="#gender-gi%E1%BB%9Bi-t%C3%ADnh">Gender (Giới tính)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="task-1"><a class="header" href="#task-1">Task 1</a></h2>
+<h2 id="task-2"><a class="header" href="#task-2">Task 2</a></h2>
+<ul>
+<li>Reference:
+<ul>
+<li><a href="https://ielts.idp.com/vietnam/prepare/article-ielts-vocabulary-writing-task-2">https://ielts.idp.com/vietnam/prepare/article-ielts-vocabulary-writing-task-2</a></li>
+<li><a href="https://ielts.idp.com/vietnam/prepare/article-common-vocabulary-ielts-topics">https://ielts.idp.com/vietnam/prepare/article-common-vocabulary-ielts-topics</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="vocabulary-by-topic"><a class="header" href="#vocabulary-by-topic">Vocabulary by Topic</a></h3>
+<h4 id="technology"><a class="header" href="#technology">Technology</a></h4>
+<table><thead><tr><th>Word</th><th>Definition</th><th>Example</th></tr></thead><tbody>
+<tr><td>Appliance</td><td>/əˈplaɪ.əns/</td><td>Thiết bị, máy móc</td></tr>
+<tr><td>Turntable</td><td>/ˈtɜːnˌteɪ.bəl/</td><td>Máy hát</td></tr>
+<tr><td>Microprocessor</td><td>/ˌmaɪ.krəʊˈprəʊ.ses.ər/</td><td>Bộ vi xử lý</td></tr>
+<tr><td>Selfie stick</td><td>/ˈsel.fi ˌstɪk/</td><td>Gậy hỗ trợ tự chụp ảnh</td></tr>
+<tr><td>Wireless headphones</td><td>/ˈwaɪə.ləs/ /ˈhed.fəʊnz/</td><td>Tai nghe không dây</td></tr>
+<tr><td>Router</td><td>/ˈruː.tər/</td><td>Thiết bị phát sóng internet</td></tr>
+<tr><td>Cloud storage</td><td>/ˈklaʊd ˌstɔː.rɪdʒ/</td><td>Lưu trữ đám mây</td></tr>
+<tr><td>High-spec (laptop)</td><td></td><td>Máy tính chất lượng cao</td></tr>
+<tr><td>USB (Universal Serial Bus)</td><td></td><td>Cổng kết nối cáp tiêu chuẩn cho máy tính và thiết bị điện tử khác</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Artificial intelligence</td><td>/ˌɑː.tɪ.fɪʃ.əl ɪnˈtel.ɪ.dʒəns/</td><td>Trí tuệ nhân tạo</td></tr>
+<tr><td>Augmented reality</td><td>/ɔːɡˌmentɪd riˈæl.ɪ.ti/</td><td>Thực tế tăng cường</td></tr>
+<tr><td>Virtual reality</td><td>/ˌvɜː.tju.əl riˈæl.ɪ.ti/</td><td>Thực tế ảo</td></tr>
+<tr><td>Humanoid</td><td>/ˈhjuː.mə.nɔɪd/</td><td>Rô bốt hình người</td></tr>
+<tr><td>Gadget</td><td>/ˈɡædʒ.ɪt/</td><td>Đồ dùng công nghệ</td></tr>
+<tr><td>Labor-intensive</td><td>/ˌleɪ.bər.ɪnˈten.sɪv/</td><td>(Công việc) Cần nhiều lao động</td></tr>
+<tr><td>Personality trait</td><td>/ˌpɜː.sənˈæl.ə.ti/ /treɪt/</td><td>Tính cách</td></tr>
+<tr><td>Strike up conversations</td><td></td><td>Bắt chuyện</td></tr>
+<tr><td>-----------------------</td><td>-----------------------------------</td><td>--------------------------------------</td></tr>
+<tr><td>Operating System</td><td>/ˈɒp.ər.eɪ.tɪŋ ˌsɪs.təm/</td><td>Hệ điều hành (chung)</td></tr>
+<tr><td>Streaming videos</td><td>/ˈstriː.mɪŋ/ /ˈvɪd.i.əʊ/</td><td>Phát video</td></tr>
+<tr><td>Cybercriminal</td><td>/ˈsaɪ.bə.kraɪm/</td><td>Tội phạm mạng</td></tr>
+<tr><td>E-commerce</td><td>/ˌiːˈkɒm.ɜːs/</td><td>Nền tảng mua bán trực tuyến</td></tr>
+<tr><td>Intranet</td><td>/ˈɪn.trə.net/</td><td>Mạng máy tính nội bộ</td></tr>
+<tr><td>Algorithm</td><td>/ˈæl.ɡə.rɪ.ðəm/</td><td>Thuật toán</td></tr>
+<tr><td>Wearable technology</td><td>/ˈweə.rə.bəl/ /tekˈnɒl.ə.dʒi/</td><td>Công nghệ mang trên người</td></tr>
+<tr><td>Blockchain</td><td>/ˈblɒk.tʃeɪn/</td><td>Công nghệ blockchain</td></tr>
+</tbody></table>
+<h5 id="collocations"><a class="header" href="#collocations">Collocations</a></h5>
+<table><thead><tr><th>English Phrase</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Eye-opening</td><td>Mở mang tầm mắt</td><td>Traveling to new countries can be an eye-opening experience.</td></tr>
+<tr><td>Keep in touch with</td><td>Giữ liên lạc với ai</td><td>Make sure to keep in touch with your old classmates.</td></tr>
+<tr><td>Personal and professional relationships</td><td>Mối quan hệ cá nhân và sự nghiệp</td><td>Building strong personal and professional relationships is key to success.</td></tr>
+<tr><td>Expand business network</td><td>Mở rộng thêm mạng lưới kinh doanh</td><td>Attending conferences is a great way to expand your business network.</td></tr>
+<tr><td>Take part in interactive activities</td><td>Tham gia các hoạt động có tính tương tác</td><td>Students are encouraged to take part in interactive activities during the workshop.</td></tr>
+<tr><td>Distract somebody from something</td><td>Làm ai đó xao nhãng, mất tập trung</td><td>Loud noises can easily distract somebody from their work.</td></tr>
+<tr><td>Discourage real interaction</td><td>Cản trở sự tương tác thực</td><td>Excessive use of social media may discourage real interaction.</td></tr>
+<tr><td>Social isolation</td><td>Sự cô lập, cách ly xã hội</td><td>Prolonged social isolation can negatively impact mental health.</td></tr>
+<tr><td>The loss of traditional cultures</td><td>Sự mất đi của nét văn hóa truyền thống</td><td>Globalization sometimes leads to the loss of traditional cultures.</td></tr>
+<tr><td>Improve the quality of life</td><td>Cải thiện chất lượng cuộc sống</td><td>Access to clean water can drastically improve the quality of life in rural areas.</td></tr>
+<tr><td>Grasp the opportunity</td><td>Tận dụng cơ hội để làm gì</td><td>She decided to grasp the opportunity and start her own business.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Keep abreast of something</td><td>Cập nhật cái gì mới</td><td>She always keeps abreast of the latest trends in technology.</td></tr>
+<tr><td>Work one’s fingers to the bone</td><td>Làm việc chăm chỉ</td><td>He worked his fingers to the bone to finish the project on time.</td></tr>
+<tr><td>Pull the Plug On</td><td>Dừng lại một việc gì đó ngay lập tức</td><td>The company decided to pull the plug on the failing project.</td></tr>
+<tr><td>Run into a Buzz Saw</td><td>Gặp phải sự cố nghiêm trọng và bất ngờ</td><td>The team ran into a buzz saw of unexpected challenges during the launch.</td></tr>
+<tr><td>A glitch in the system</td><td>Bị lỗi hệ thống</td><td>There was a glitch in the system that delayed the payment processing.</td></tr>
+<tr><td>To go viral</td><td>Trở nên phổ biến với tốc độ kinh ngạc</td><td>The funny video went viral within hours of being posted online.</td></tr>
+<tr><td>To get up to speed</td><td>Bắt kịp nhịp độ, xu thế</td><td>She needs time to get up to speed on the new software.</td></tr>
+<tr><td>To troubleshoot</td><td>Tìm kiếm và khắc phục sự cố</td><td>The IT team is working to troubleshoot the network issue.</td></tr>
+<tr><td>To plug away</td><td>Làm điều gì đó một cách quyết tâm bất chấp những khó khăn</td><td>He kept plugging away at his studies despite many setbacks.</td></tr>
+<tr><td>In the loop</td><td>Luôn cập nhật những điều quan trọng đối với những gì bạn và mọi người đang làm</td><td>Make sure to keep me in the loop about any changes to the plan.</td></tr>
+</tbody></table>
+<h4 id="education"><a class="header" href="#education">Education</a></h4>
+<table><thead><tr><th>English Term</th><th>Vietnamese Translation</th></tr></thead><tbody>
+<tr><td>Kindergarten</td><td>Trường mầm non</td></tr>
+<tr><td>Primary school</td><td>Trường cấp 1</td></tr>
+<tr><td>Pre-school education</td><td>Giáo dục mầm non</td></tr>
+<tr><td>Secondary school</td><td>Trường cấp 2</td></tr>
+<tr><td>High school</td><td>Trường trung học phổ thông</td></tr>
+<tr><td>Boarding school</td><td>Trường nội trú</td></tr>
+<tr><td>Private school</td><td>Trường tư thục</td></tr>
+<tr><td>---</td><td>---</td></tr>
+<tr><td>Math</td><td>Toán học</td></tr>
+<tr><td>Literature</td><td>Ngữ văn</td></tr>
+<tr><td>English</td><td>Tiếng Anh</td></tr>
+<tr><td>Physics</td><td>Vật lý</td></tr>
+<tr><td>Chemistry</td><td>Hóa học</td></tr>
+<tr><td>Biology</td><td>Sinh học</td></tr>
+<tr><td>Geography</td><td>Địa lý</td></tr>
+<tr><td>History</td><td>Lịch sử</td></tr>
+<tr><td>Art</td><td>Nghệ thuật</td></tr>
+<tr><td>Physical Education (PE)</td><td>Thể dục</td></tr>
+<tr><td>Civil education</td><td>Giáo dục công dân</td></tr>
+<tr><td>---</td><td>---</td></tr>
+<tr><td>College = further education</td><td>Cao đẳng</td></tr>
+<tr><td>Undergraduate</td><td>Cử nhân / Đại học</td></tr>
+<tr><td>Post-graduate school</td><td>Sau đại học</td></tr>
+<tr><td>BA/BSs = Bachelor of Arts Degree/Bachelor of Science Degree</td><td>Bằng Cử nhân Nghệ thuật/Cử nhân Khoa học</td></tr>
+<tr><td>MA/MSc = Masters of Arts/Masters of Science</td><td>Thạc sĩ Nghệ thuật/Thạc sĩ Khoa học</td></tr>
+<tr><td>PhD = Doctorate</td><td>Tiến sĩ</td></tr>
+<tr><td>Vocational course</td><td>Khóa học hướng nghiệp</td></tr>
+<tr><td>Non-vocational course</td><td>Khóa học tổng quát, không liên quan đến hướng nghiệp</td></tr>
+<tr><td>Distance learning course</td><td>Khóa học đào tạo từ xa</td></tr>
+<tr><td>Comprehensive education</td><td>Giáo dục toàn diện</td></tr>
+</tbody></table>
+<table><thead><tr><th>English Phrase</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>To learn by heart</td><td>Học thuộc lòng</td><td>She had to learn the entire poem by heart for the test.</td></tr>
+<tr><td>To deliver a lecture</td><td>Giảng bài</td><td>The professor will deliver a lecture on quantum physics tomorrow.</td></tr>
+<tr><td>To get higher academic results</td><td>Đạt được kết quả học tập cao</td><td>He studied harder to get higher academic results this semester.</td></tr>
+<tr><td>Pass with flying colors</td><td>Hoàn thành bài kiểm tra với điểm cao</td><td>She passed her final exams with flying colors.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>To pursue further/tertiary education</td><td>Theo đuổi giáo dục bậc đại học</td><td>She decided to pursue tertiary education in engineering.</td></tr>
+<tr><td>To give a presentation</td><td>Thực hiện bài thuyết trình</td><td>He will give a presentation on climate change tomorrow.</td></tr>
+<tr><td>To grasp the main point of the lesson</td><td>Hiểu được nội dung bài giảng</td><td>The students struggled to grasp the main point of the lesson.</td></tr>
+<tr><td>To bury oneself in tasks/assignments</td><td>Vùi mình vào bài tập</td><td>She buried herself in assignments to prepare for the deadline.</td></tr>
+<tr><td>Extracurricular Activities</td><td>Hoạt động ngoại khóa</td><td>Joining extracurricular activities helps students build teamwork skills.</td></tr>
+<tr><td>Intellectual Activities</td><td>Hoạt động về trí tuệ</td><td>Chess clubs are great examples of intellectual activities.</td></tr>
+<tr><td>To take a gap year</td><td>Nghỉ học một năm</td><td>She decided to take a gap year to travel and gain new experiences.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>A for effort</td><td>Sự cố gắng hết sức mình cho dù kết quả có thể không như mong muốn</td><td>She didn’t win, but her dedication earned her an A for effort.</td></tr>
+<tr><td>Copycat</td><td>Những người chuyên đi bắt chước bài người khác</td><td>The teacher warned the copycats about cheating during the exam.</td></tr>
+<tr><td>Drop out of school</td><td>Nghỉ học</td><td>He had to drop out of school due to financial difficulties.</td></tr>
+<tr><td>Put your thinking cap on</td><td>Suy nghĩ về một vấn đề nào đó một cách nghiêm túc</td><td>You’ll need to put your thinking cap on to solve this puzzle.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Learn a wide range of skills</td><td>Học được các kỹ năng khác nhau</td><td>She hopes to learn a wide range of skills in her new job.</td></tr>
+<tr><td>Explore each other’s perspectives</td><td>Khám phá sự khác nhau/giống nhau và quan điểm của người khác</td><td>The workshop was a great opportunity to explore each other’s perspectives.</td></tr>
+<tr><td>Gain international qualifications</td><td>Có được bằng cấp quốc tế</td><td>He plans to study abroad to gain international qualifications.</td></tr>
+<tr><td>Encourage independent learning</td><td>Thúc đẩy việc tự học</td><td>The teacher encouraged independent learning in her students.</td></tr>
+<tr><td>Reach new heights of knowledge</td><td>Đạt đến những đỉnh cao tri thức mới</td><td>This course will help you reach new heights of knowledge in science.</td></tr>
+<tr><td>Move up the career ladder</td><td>Thăng tiến trong công việc</td><td>She moved up the career ladder quickly after finishing her degree.</td></tr>
+<tr><td>Burn the midnight oil = Work very late into the night</td><td>Thức khuya để học/làm việc</td><td>He had to burn the midnight oil to complete the project on time.</td></tr>
+<tr><td>There is little chance for</td><td>Hầu như không có cơ hội cho…</td><td>There is little chance for success without proper preparation.</td></tr>
+<tr><td>Poor/outdated School facilities</td><td>Cơ sở vật chất nghèo nàn/cũ</td><td>The students complained about the poor school facilities.</td></tr>
+</tbody></table>
+<h4 id="environment"><a class="header" href="#environment">Environment</a></h4>
+<table><thead><tr><th>English Term</th><th>Pronunciation</th><th>Vietnamese Translation</th></tr></thead><tbody>
+<tr><td>Pollution</td><td>/pəˈluː.ʃən/</td><td>Sự ô nhiễm/ quá trình ô nhiễm</td></tr>
+<tr><td>Contamination</td><td>/kənˈtæm.ɪ.neɪt/</td><td>Sự nhiễm độc</td></tr>
+<tr><td>A marine ecosystem</td><td>/məˈriːn/ /ˈiː.kəʊˌsɪs.təm/</td><td>Hệ sinh thái dưới nước</td></tr>
+<tr><td>Solar panel</td><td>/ˌsəʊ.lə ˈpæn.əl/</td><td>Tấm năng lượng mặt trời</td></tr>
+<tr><td>Habitat destruction</td><td>/ˈhæb.ɪ.tæt/ /dɪˈstrʌk.ʃən/</td><td>Phá hủy môi trường sống tự nhiên</td></tr>
+<tr><td>Fossil fuels</td><td>/ˈfɒs.əl ˌfjʊəl/</td><td>Nhiên liệu hóa thạch</td></tr>
+<tr><td>Deforestation</td><td>/diːˌfɒr.ɪˈsteɪ.ʃən/</td><td>Nạn phá rừng</td></tr>
+<tr><td>Preserve biodiversity</td><td>/prɪˈzɜːv/ /ˌbaɪ.əʊ.daɪˈvɜː.sə.ti/</td><td>Bảo tồn sự đa dạng sinh học</td></tr>
+<tr><td>Greenhouse</td><td>/ˈɡriːn.haʊs/</td><td>Hiệu ứng nhà kính</td></tr>
+<tr><td>The ozone layer</td><td>/ˈəʊ.zəʊn ˌleɪ.ər/</td><td>Tầng ozon</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Exploit</td><td>/ɪkˈsplɔɪt/</td><td>Khai thác</td></tr>
+<tr><td>Over-abuse</td><td>/ˈəʊ.vər ; əˈbjuːz/</td><td>Lạm dụng quá mức</td></tr>
+<tr><td>Degrade ecosystems</td><td>/dɪˈɡreɪd , ˈiː.kəʊˌsɪs.təm/</td><td>Làm suy thoái hệ sinh thái</td></tr>
+<tr><td>Damage</td><td>/ˈdæm.ɪdʒ/</td><td>Phá hủy</td></tr>
+<tr><td>Deplete natural resources</td><td>/dɪˈpliːt/ /ˌnætʃ.ər.əl rɪˈzɔː.sɪz/</td><td>Làm cạn kiệt tài nguyên thiên nhiên</td></tr>
+<tr><td>Offset CO2 emissions</td><td>/ɒfˈset , iˈmɪʃ.ən/</td><td>Làm giảm lượng khí thải carbon/CO2</td></tr>
+<tr><td>Raise awareness</td><td>/reɪz ; əˈweə.nəs/</td><td>Nâng cao nhận thức</td></tr>
+<tr><td>Log forests</td><td>/lɒɡ; ˈfɒr.ɪst/</td><td>Chặt phá rừng</td></tr>
+<tr><td>Threaten natural habitats</td><td>/ˈθret.ən/ /ˈnætʃ.ər.əl ˈhæb.ɪ.tæt/</td><td>Đe dọa môi trường sống tự nhiên</td></tr>
+<tr><td>Tackle/cope with</td><td>/ˈtæk.əl/ ;</td><td>Giải quyết</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Efficacious</td><td>/ˌef.ɪˈkeɪ.ʃəs/</td><td>Hiệu quả</td></tr>
+<tr><td>Poisonous</td><td>/ˈpɔɪ.zən.əs/</td><td>Độc hại</td></tr>
+<tr><td>Environmentally-friendly</td><td>/ɪn.vaɪ.rənˌmen.təl.i ˈfrend.li/</td><td>Thân thiện với môi trường</td></tr>
+<tr><td>Excessive</td><td></td><td>Quá mức</td></tr>
+<tr><td>Easily recyclable</td><td>/ˈiː.zəl.i ; ˌriːˈsaɪ.klə.bəl/</td><td>Có thể dễ dàng tái chế</td></tr>
+<tr><td>Sustainable</td><td>/səˈsteɪnəbəl/</td><td>Bền vững</td></tr>
+<tr><td>Biodegradable</td><td>/ˌbaɪəʊdɪˈɡreɪdəbəl/</td><td>Có thể phân hủy</td></tr>
+<tr><td>Compostable</td><td>/kɒmˈpɒs.tə.bəl/</td><td>Có thể phân hủy thành phân hữu cơ</td></tr>
+<tr><td>Endangered</td><td>/ɪnˈdeɪn.dʒəd/</td><td>Bị đe dọa</td></tr>
+<tr><td>Disposable</td><td>/dɪˈspəʊ.zə.bəl/</td><td>Có thể tái sử dụng</td></tr>
+</tbody></table>
+<h5 id="global-warming"><a class="header" href="#global-warming">Global Warming</a></h5>
+<table><thead><tr><th>English Term</th><th>Pronunciation</th><th>Vietnamese Translation</th></tr></thead><tbody>
+<tr><td>Soil erosion</td><td>/sɔɪl, ɪˈrəʊ.ʒən/</td><td>Xói mòn đất</td></tr>
+<tr><td>Activated carbon</td><td>/ˈæk.tɪ.veɪt, ˈkɑː.bən/</td><td>Than hoạt tính</td></tr>
+<tr><td>Alternatives</td><td>/ɒlˈtɜː.nə.tɪv/</td><td>Giải pháp thay thế</td></tr>
+<tr><td>Deforestation</td><td>/diːˌfɒr.ɪˈsteɪ.ʃən/</td><td>Phá rừng</td></tr>
+<tr><td>Contamination</td><td>/kənˈtæm.ɪ.neɪt/</td><td>Sự làm nhiễm độc</td></tr>
+<tr><td>Greenhouse</td><td>/ˈɡriːn.haʊs/</td><td>Hiệu ứng nhà kính</td></tr>
+<tr><td>Acid deposition</td><td>/ˈæs.ɪd, ˌdep.əˈzɪʃ.ən/</td><td>Mưa axit</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Protect a coastal ecosystem</td><td>Bảo vệ hệ sinh thái ven bờ</td><td>Local communities are working to protect a coastal ecosystem from overfishing.</td></tr>
+<tr><td>Aerobic attached-growth treatment process</td><td>Quá trình xử lý sinh học hiếu khí dính bám</td><td>The plant uses an aerobic attached-growth treatment process to filter out contaminants.</td></tr>
+<tr><td>Aerobic suspended-growth treatment process</td><td>Quá trình xử lý sinh học hiếu khí lơ lửng</td><td>The treatment facility utilizes an aerobic suspended-growth treatment process to purify wastewater.</td></tr>
+<tr><td>Raise awareness of environmental issues</td><td>Nâng cao nhận thức về những vấn đề môi trường</td><td>Schools and NGOs organize events to raise awareness of environmental issues like pollution.</td></tr>
+<tr><td>Deplete natural resources/the ozone layer</td><td>Làm cạn kiệt tài nguyên thiên nhiên/tầng ozon</td><td>The burning of coal and oil continues to deplete natural resources and harm the ozone layer.</td></tr>
+</tbody></table>
+<h5 id="pollution-environment"><a class="header" href="#pollution-environment">Pollution Environment</a></h5>
+<table><thead><tr><th>English Term</th><th>Pronunciation</th><th>Vietnamese Translation</th></tr></thead><tbody>
+<tr><td>Exhaust gas</td><td>/ɪɡˈzɔːst, ɡæs/</td><td>Khí thải gas</td></tr>
+<tr><td>Illegal dumping</td><td>/ɪˈliː.ɡəl, ˈdʌm.pɪŋ/</td><td>Xả rác trái quy định</td></tr>
+<tr><td>Intensive farming</td><td>/ɪnˌten.sɪv ˈfɑː.mɪŋ/</td><td>Canh tác quá mức</td></tr>
+<tr><td>Overpopulation</td><td>/ˌəʊ.vəˌpɒp.jəˈleɪ.ʃən/</td><td>Dân số quá lớn</td></tr>
+<tr><td>Overgrazing</td><td>/ˌəʊ.vəˈɡreɪ.zɪŋ/</td><td>Chăn thả quá mức</td></tr>
+<tr><td>Fresh/pure</td><td>/freʃ/ /pjʊər/</td><td>Trong lành</td></tr>
+<tr><td>Catalyze (for)</td><td>/ˈkæt̬.əl.aɪz/</td><td>Xúc tác (cho)</td></tr>
+<tr><td>Produce pollution/CO2/greenhouse (gas) emissions</td><td>–</td><td>Tạo ra sự ô nhiễm/ khí CO2/ khí thải nhà kính</td></tr>
+<tr><td>Contaminate groundwater/the soil/food/crops</td><td>–</td><td>Làm ô nhiễm nguồn nước ngầm/ đất/ thực phẩm/ mùa màng</td></tr>
+</tbody></table>
+<h5 id="energy"><a class="header" href="#energy">Energy</a></h5>
+<table><thead><tr><th>English Term</th><th>Pronunciation</th><th>Vietnamese Translation</th></tr></thead><tbody>
+<tr><td>Sources of Power</td><td>/sɔːsiz əv paʊəʳ/</td><td>Nguồn năng lượng</td></tr>
+<tr><td>Coal mine</td><td>/kəʊl maɪn/</td><td>Mỏ than</td></tr>
+<tr><td>Generation of Power</td><td>/ˌdʒen.əˈreɪ.ʃən əv paʊəʳ/</td><td>Sự phát điện</td></tr>
+<tr><td>Nuclear reactor</td><td>/ˈnjuː.klɪəʳ riˈæk.təʳ/</td><td>Lò phản ứng hạt nhân</td></tr>
+<tr><td>Electrical generator</td><td>/ɪˈlek.trɪ.kəl ˈdʒen.ə.reɪ.təʳ/</td><td>Máy phát điện</td></tr>
+<tr><td>Transformer</td><td>/trænsˈfɔː.məʳ/</td><td>Máy biến thế</td></tr>
+<tr><td>Radioactive waste</td><td>/ˌreɪ.di.əʊˈæk.tɪv, weɪst/</td><td>Chất thải phóng xạ</td></tr>
+<tr><td>Hydroelectricity</td><td>/ˌhaɪ.drəʊ.ɪ.lekˈtrɪs.ə.ti/</td><td>Thủy điện</td></tr>
+<tr><td>Implement rolling power cuts</td><td>–</td><td>Tiến hành cắt điện luân phiên</td></tr>
+<tr><td>High levels of radiation</td><td>–</td><td>Mức độ phóng xạ cao</td></tr>
+<tr><td>Nuclear accident = nuclear disaster</td><td>–</td><td>Tai nạn/thảm họa hạt nhân</td></tr>
+</tbody></table>
+<h5 id="garbage"><a class="header" href="#garbage">Garbage</a></h5>
+<table><thead><tr><th>English Term</th><th>Pronunciation</th><th>Vietnamese Translation</th></tr></thead><tbody>
+<tr><td>litterer</td><td>/ˈlɪtərər/</td><td>Người xả rác</td></tr>
+<tr><td>emission</td><td>/ɪˈmɪʃn/</td><td>Khí thải</td></tr>
+<tr><td>disturbing</td><td>/dɪˈstɜːrbɪŋ/</td><td>Khó chịu</td></tr>
+<tr><td>separate/ segregated</td><td>/ˈsep.ər.ət/</td><td>Phân loại</td></tr>
+<tr><td></td><td>/ˈseɡ.rɪ.ɡeɪ.tɪd/</td><td></td></tr>
+<tr><td>fouling organisms</td><td>/fuːˈleɪɪŋ/ /ˈɔːgənɪzmz/</td><td>Sinh vật gây ô nhiễm</td></tr>
+<tr><td>disposal place</td><td>/dɪˈspoʊzl pleɪs/</td><td>Nơi vứt rác</td></tr>
+<tr><td>to prioritize</td><td>/praɪˈɔːrətaɪz/</td><td>Ưu tiên cái gì hơn</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>construction projects</td><td>công trình xây dựng</td><td>Large construction projects are being built in the city.</td></tr>
+<tr><td>expanding fleets of cars and motorcycles</td><td>hàng dài ô tô và xe máy</td><td>Expanding fleets of cars and motorcycles contribute to traffic congestion.</td></tr>
+<tr><td>air quality</td><td>chất lượng không khí</td><td>The air quality in urban areas has worsened over the years.</td></tr>
+<tr><td>discard food waste</td><td>bỏ thức ăn thừa</td><td>It's important to discard food waste properly to avoid pollution.</td></tr>
+<tr><td>the global plastic waste crisis</td><td>cuộc khủng hoảng rác thải nhựa toàn cầu</td><td>The global plastic waste crisis requires immediate action to reduce waste.</td></tr>
+<tr><td>a world free of plastic pollution</td><td>một thế giới không ô nhiễm nhựa</td><td>We all strive for a world free of plastic pollution.</td></tr>
+</tbody></table>
+<h5 id="some-ideas"><a class="header" href="#some-ideas">Some ideas</a></h5>
+<table><thead><tr><th>English Term</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>carbon footprint</td><td>dấu chân carbon (từ lóng), chỉ hệ quả của quá trình sử dụng carbon để lại</td><td>The company's carbon footprint is significant due to its large factories.</td></tr>
+<tr><td>ozone layer depletion</td><td>suy thoái tầng ozon, thủng tầng ozon</td><td>Ozone layer depletion leads to more harmful UV rays reaching the Earth.</td></tr>
+<tr><td>temperatures soar</td><td>sự tăng nhiệt độ, sự nóng lên</td><td>As temperatures soar, many animals face challenges in their habitats.</td></tr>
+<tr><td>natural disaster</td><td>thảm họa thiên nhiên</td><td>The earthquake was a natural disaster that devastated the city.</td></tr>
+<tr><td>climate change</td><td>biến đổi khí hậu</td><td>Climate change is causing more extreme weather patterns.</td></tr>
+<tr><td>industrial waste</td><td>rác thải công nghiệp</td><td>The factory was fined for improper disposal of industrial waste.</td></tr>
+<tr><td>plastic pollution crisis</td><td>khủng hoảng ô nhiễm nhựa</td><td>The plastic pollution crisis is affecting oceans and wildlife.</td></tr>
+<tr><td>the burning of fossil fuels</td><td>việc đốt nhiên liệu hóa thạch</td><td>The burning of fossil fuels is a major contributor to air pollution.</td></tr>
+<tr><td>melting of the polar ice caps</td><td>tan băng ở cực</td><td>The melting of the polar ice caps is causing sea levels to rise.</td></tr>
+<tr><td>desertification</td><td>quá trình sa mạc hóa</td><td>Desertification is spreading due to overgrazing and deforestation.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>threaten species with extinction</td><td>đe dọa giống loài có nguy cơ tuyệt chủng</td><td>Pollution is threatening species with extinction, especially marine life.</td></tr>
+<tr><td>increases the risk of respiratory infections</td><td>làm tăng nguy cơ nhiễm trùng đường hô hấp</td><td>Poor air quality increases the risk of respiratory infections.</td></tr>
+<tr><td>reduced lung function</td><td>chức năng phổi bị giảm đi</td><td>Smoking can lead to reduced lung function over time.</td></tr>
+<tr><td>cause buildings and monuments to decay</td><td>làm cho các tòa nhà và di tích bị tàn phá</td><td>Pollution can cause buildings and monuments to decay more quickly.</td></tr>
+<tr><td>lower reproductive rates</td><td>bệnh tật và tỷ lệ sinh sản thấp hơn</td><td>Environmental stress can lower reproductive rates in wildlife.</td></tr>
+<tr><td>mild breathing difficulties</td><td>khó thở nhẹ</td><td>The pollution in the air can cause mild breathing difficulties.</td></tr>
+<tr><td>polluted cities</td><td>các thành phố bị ô nhiễm</td><td>Many polluted cities suffer from poor air quality and health issues.</td></tr>
+<tr><td>create dust storms</td><td>tạo ra bão bụi</td><td>Dry weather and pollution can create dust storms in arid regions.</td></tr>
+<tr><td>damage crops, forests</td><td>phá hoại mùa màng, rừng</td><td>Chemicals in the environment can damage crops and forests.</td></tr>
+<tr><td>to float around the world’s oceans</td><td>trôi nổi khắp các đại dương trên thế giới</td><td>Plastics float around the world’s oceans, causing environmental harm.</td></tr>
+<tr><td>kill millions of marine animals</td><td>giết hàng triệu động vật biển</td><td>Oil spills can kill millions of marine animals, disrupting ecosystems.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>replace gasoline-fueled cars with zero-emissions vehicles</td><td>thay thế xe chạy bằng xăng bằng xe không thải khí thải ra môi trường</td><td>The government plans to replace gasoline-fueled cars with zero-emissions vehicles by 2030.</td></tr>
+<tr><td>install pollution control devices</td><td>lắp đặt thiết bị kiểm soát ô nhiễm</td><td>Factories must install pollution control devices to reduce harmful emissions.</td></tr>
+<tr><td>take public transportation instead of driving a car</td><td>đi phương tiện công cộng thay vì lái xe</td><td>To reduce air pollution, many people choose to take public transportation instead of driving a car.</td></tr>
+<tr><td>adopt laws to regulate emissions</td><td>thông qua luật để điều tiết lượng khí thải</td><td>The government has adopted new laws to regulate emissions from industrial factories.</td></tr>
+<tr><td>the green movement</td><td>cuộc vận động xanh</td><td>The green movement is gaining momentum as more people adopt sustainable practices.</td></tr>
+<tr><td>recycling waste or planting a tree in their garden</td><td>tái chế rác thải và trồng cây trong vườn.</td><td>Many people in the neighborhood are recycling waste or planting trees in their garden to help the environment.</td></tr>
+<tr><td>develop renewable energy</td><td>phát triển nguồn năng lượng có thể tái tạo</td><td>The country is investing heavily to develop renewable energy sources like wind and solar power.</td></tr>
+<tr><td>choose products with less packaging</td><td>chọn sản phẩm ít bao bì</td><td>Consumers are encouraged to choose products with less packaging to reduce waste.</td></tr>
+<tr><td>take action on global warming</td><td>ngăn chặn sự nóng lên toàn cầu</td><td>It's essential for world leaders to take action on global warming to protect future generations.</td></tr>
+</tbody></table>
+<h4 id="family"><a class="header" href="#family">Family</a></h4>
+<table><thead><tr><th>English Term</th><th>Pronunciation</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Nuclear family</td><td>/ˈnu·kli·ər ˈfæm·ə·li/</td><td>Gia đình cơ bản với đầy đủ bố mẹ và con cái</td><td>Nuclear family is mostly in Vietnam.</td></tr>
+<tr><td>Immediate family</td><td>/ɪˈmiːdiət ˈfæm·ə·li/</td><td>Gia đình ruột thịt</td><td>Immediate family is close-knit.</td></tr>
+<tr><td>Extended family</td><td>/ɪkˈsten·dɪd ˈfæm·ə·li/</td><td>Đại gia đình</td><td>On Tet, extended families will get together.</td></tr>
+<tr><td>Dysfunctional family</td><td>/dɪsˈfʌŋkʃənl ˈfæm·ə·li/</td><td>Gia đình bất ổn</td><td>Ben grew up in a dysfunctional family. That’s why he became a thief at teenager age.</td></tr>
+<tr><td>Single parent</td><td>/ˈsɪŋ.ɡəl ˈper.ənt/</td><td>Bố hoặc mẹ đơn thân</td><td>Nowadays, more people prefer to become single parents.</td></tr>
+<tr><td>Adoptive parents</td><td>/əˈdɒptɪv ˈpeərənt/</td><td>Gia đình nhận con nuôi</td><td>Adoptive parents of Nicole changed their life.</td></tr>
+<tr><td>Only-child</td><td>/ˌəʊnli ˈtʃaɪld/</td><td>Gia đình một con</td><td>Thomas lives in an only-child family, so he acts so rudely.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Ancestor</td><td>/ˈænsestə(r)/</td><td>Tổ tiên</td><td>His ancestors had blue blood.</td></tr>
+<tr><td>Parent</td><td>/ˈpeərənt/</td><td>Bố mẹ</td><td>Marie and Ben have recently become parents.</td></tr>
+<tr><td>Grandfather / Grandmother</td><td>/ˈɡrænfɑːðə(r)//ˈɡrænmʌðə(r)/</td><td>Ông / bà</td><td>The factory had been founded by his grandfather.</td></tr>
+<tr><td>Father / Mother</td><td>/ˈfɑːðə(r)//ˈmʌðə(r)/</td><td>Bố/ mẹ</td><td>My father and my mother got married in 1996.</td></tr>
+<tr><td>Brother</td><td>/ˈbrʌðə(r)/</td><td>Anh / em trai</td><td>I had two younger brothers, one is eight, and one is five.</td></tr>
+<tr><td>Sister</td><td>/ˈsɪstə(r)/</td><td>Chị/ em gái</td><td>My older sister lives in another city because she pursues her dream.</td></tr>
+<tr><td>Sibling</td><td>/ˈsɪblɪŋ/</td><td>Anh em ruột</td><td>Sibling rivalry is an amazing memory of my childhood.</td></tr>
+<tr><td>Daughter</td><td>/ˈdɔːtə(r)/</td><td>Con gái</td><td>Father and daughter usually have a close-knit relationship.</td></tr>
+<tr><td>Son</td><td>/sʌn/</td><td>Con trai</td><td>Albert’s four-year-old son is so adorable.</td></tr>
+<tr><td>Twin/triplet</td><td>/twɪn// /ˈtrɪplət/</td><td>Song sinh / sinh ba</td><td>Michelle wishes to have a twin or triplet after watching The Return of Superman show.</td></tr>
+<tr><td>Stepfather / Stepmother</td><td>/ˈstepfɑːðə(r)/ /ˈstepmʌðə(r)/</td><td>Bố dượng / Mẹ kế</td><td>It’s difficult to be a stepfather or stepmother.</td></tr>
+<tr><td>Half-brother / Half-sister</td><td>/ˈhɑːf brʌðə(r)/ /ˈhɑːf sɪstə(r)/</td><td>Anh em cùng cha khác mẹ/cùng mẹ khác cha</td><td>I have two younger sisters and a half-brother.</td></tr>
+<tr><td>Step-brother / Step-sister</td><td>/ˈstepˌbrʌ.ðər/ /ˈstepˌsɪs.tər/</td><td>Anh kế / Chị kế</td><td>Because of my father’s wedding, I have a five-year-old stepbrother and an eight-year-old stepsister.</td></tr>
+<tr><td>Nephew</td><td>/ˈnefjuː/</td><td>Cháu trai</td><td>My nephew looks like an angel.</td></tr>
+<tr><td>Niece</td><td>/niːs/</td><td>Cháu gái</td><td>The grandfather loves to take care of their niece.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Cousin</td><td>/ˈkʌzn/</td><td>Anh em họ</td><td>We have a lot of distant cousins living in California.</td></tr>
+<tr><td>Distant relative</td><td>/ˈdɪstənt ˈrelətɪv/</td><td>Họ hàng xa</td><td>Last night, the distant relatives came to my home to see the new baby.</td></tr>
+<tr><td>Uncle</td><td>/ˈʌŋkl/</td><td>Bác trai/chú/cậu</td><td>Uncle Liam, my father’s younger brother, plays poker with me at the weekend.</td></tr>
+<tr><td>Aunt</td><td>/ɑːnt/</td><td>Bác gái/cô/dì/thím</td><td>Lisa is my aunt and she is my drawing teacher too.</td></tr>
+<tr><td>Nephew</td><td>/ˈnef.juː/</td><td>Cháu trai</td><td>I have a nephew, who is 5 years old.</td></tr>
+<tr><td>---&gt;</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Father-in-law</td><td>/ˈfɑːðər ɪn lɔː/</td><td>Bố chồng / bố vợ</td><td>Lusia’s father-in-law got sick after her wedding.</td></tr>
+<tr><td>Mother-in-law</td><td>/ˈmʌðər ɪn lɔː/</td><td>Mẹ chồng / mẹ vợ</td><td>Her mother-in-law and Ann always tell off. That makes Ann’s husband confused a lot.</td></tr>
+<tr><td>Parents-in-law</td><td>/ˈpeərənts ɪn lɔː/</td><td>Bố mẹ chồng / bố mẹ vợ</td><td>My husband and her husband have been visiting her parents-in-law in Turkey for 3 weeks.</td></tr>
+<tr><td>Son-in-law</td><td>/ˈsʌn ɪn lɔː/</td><td>Con rể</td><td>The Johnsons have three sons-in-law. One of them just came back from the USA.</td></tr>
+<tr><td>Daughter-in-law</td><td>/ˈdɔːtər ɪn lɔː/</td><td>Con dâu</td><td>My daughter-in-law can cook well.</td></tr>
+<tr><td>Sister-in-law</td><td>/ˈsɪstər ɪn lɔː/</td><td>Chị / em dâu</td><td>I have a selfish sister-in-law. She leaves her child at home and hangs out all day with friends.</td></tr>
+<tr><td>Brother-in-law</td><td>/ˈbrʌðər ɪn lɔː/</td><td>Anh / em rể</td><td>My brother-in-law is a pilot.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Get together</td><td>/ɡet təˈɡeðə(r)/</td><td>Tụ họp</td><td>My family gets together every Sunday and enjoys my mother’s cooking.</td></tr>
+<tr><td>Adopt</td><td>/əˈdɒpt/</td><td>Nhận nuôi</td><td>Angelina Jolie adopted a Vietnamese boy in 2007.</td></tr>
+<tr><td>Look after</td><td>/lʊk ˈæf.tɚ/</td><td>Chăm sóc</td><td>My grandmother has looked after me from my childhood until now.</td></tr>
+<tr><td>Bring up</td><td>/brɪŋ ʌp/</td><td>Nuôi nấng</td><td>Lisa brings up her sister’s son after her death.</td></tr>
+<tr><td>Grow up</td><td>/ɡrəʊ ʌp/</td><td>Trưởng thành</td><td>Children grow up believing they are the center of the universe.</td></tr>
+<tr><td>Give birth to</td><td>/ɡɪv bɜːθ tə/</td><td>Sinh con</td><td>Since his wife gave birth to their first child, he understood what responsibility was.</td></tr>
+<tr><td>Take after</td><td>/teɪk ˈɑːftə(r)/</td><td>Giống (Ngoại hình)</td><td>Milan takes after his half-brother although they don’t have the same father.</td></tr>
+<tr><td>Settle down</td><td>/ˈsetl daʊn/</td><td>Định cư</td><td>My ancestor migrated from the Northern to the Southern and settled there in 1954.</td></tr>
+<tr><td>Tell off</td><td>/tel ɒf/</td><td>La mắng</td><td>John’s mother always tells him off.</td></tr>
+<tr><td>Make up with</td><td>/meɪk ʌp wɪð/</td><td>Làm hòa với</td><td>My father buys a flower pot to make up with my mother.</td></tr>
+<tr><td>Divorce</td><td>/dɪˈvɔːs/</td><td>Li dị</td><td>She told him she was filing for divorce.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Black sheep of the family</td><td>/blæk ʃiːp əv ðə ˈfæməli/</td><td>Thành viên cá biệt trong gia đình</td><td>Cinderella became a black sheep of the family because her mother died.</td></tr>
+<tr><td>Fall out with</td><td>/fɔːl aʊt wɪð/</td><td>Xung đột, tranh cãi với ai đó và sau đó không còn thân thiện với họ nữa</td><td>He left home after falling out with his parents.</td></tr>
+<tr><td>Own flesh and blood</td><td>/əʊn fleʃ ənd blʌd/</td><td>Người thân của nhau</td><td>I couldn't send him away - he's my own flesh and blood.</td></tr>
+<tr><td>Blood is thicker than water</td><td>/blʌd ɪz θɪk ðən ˈwɔːtə(r)/</td><td>Một giọt máu đào hơn ao nước lã</td><td>Families have their problems and jealousies, but blood is thicker than water.</td></tr>
+<tr><td>Breadwinner</td><td>/ˈbredwɪnə(r)/</td><td>Người gánh kinh tế gia đình</td><td>He is 34, a father of three, and the sole breadwinner of the family.</td></tr>
+<tr><td>Run in the family</td><td>/rʌn ɪn ðə ˈfæməli/</td><td>Đặc tính, di truyền</td><td>The doctor ordered some tests because breast cancer runs in my family.</td></tr>
+<tr><td>Wear the trousers</td><td>/weə(r) ðə ˈtraʊzəz/</td><td>Người quyết định</td><td>In my home, my mother wears trousers.</td></tr>
+</tbody></table>
+<h4 id="health"><a class="header" href="#health">Health</a></h4>
+<h5 id="healthy-lifestyle"><a class="header" href="#healthy-lifestyle">Healthy Lifestyle</a></h5>
+<table><thead><tr><th>Vocabulary</th><th>Pronunciation</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Balanced diet</td><td>/ˌbæl.ənst ˈdaɪ.ət/</td><td>Chế độ ăn uống cân bằng, điều độ</td><td>A balanced diet includes a variety of foods to provide the nutrients your body needs.</td></tr>
+<tr><td>Organic food</td><td>/ɔːˈɡæn.ɪk/ /fuːd/</td><td>Thực phẩm hữu cơ</td><td>Organic food is grown without synthetic pesticides or fertilizers.</td></tr>
+<tr><td>Intense workout</td><td>/ɪnˈtens/ /ˈwɜː.kaʊt/</td><td>Tập luyện cường độ cao</td><td>I do an intense workout every morning to build muscle and improve stamina.</td></tr>
+<tr><td>Stay hydrated</td><td>/haɪˈdreɪt/</td><td>Giữ cơ thể không mất nước</td><td>It's important to stay hydrated, especially during hot weather or after exercising.</td></tr>
+<tr><td>Health-conscious</td><td>/helθ/ /ˈkɒn.ʃəs/</td><td>Quan tâm đến sức khoẻ</td><td>Many health-conscious people prefer to buy organic products and avoid processed foods.</td></tr>
+<tr><td>Have regular check-ups</td><td>/ˈreɡ.jə.lər/ /ˈtʃek.ʌp/</td><td>Đi khám định kỳ</td><td>It’s advisable to have regular check-ups to detect any health problems early.</td></tr>
+<tr><td>Disease prevention</td><td>/dɪˈziːz prɪˈvenʃn/</td><td>Phòng chống bệnh tật</td><td>Vaccinations are an important part of disease prevention.</td></tr>
+<tr><td>Optimistic mindset</td><td>/ˈɒp.tɪ.mɪ.zəm/</td><td>Tư tưởng lạc quan</td><td>Having an optimistic mindset can help you overcome difficult situations in life.</td></tr>
+<tr><td>Speed up my metabolism</td><td></td><td>Tăng cường trao đổi chất</td><td>Drinking water and exercising can help speed up my metabolism.</td></tr>
+<tr><td>Eat fresh fruit and vegetables</td><td></td><td>Ăn rau quả tươi</td><td>It's always a good idea to eat fresh fruit and vegetables for better health.</td></tr>
+<tr><td>To limit sugar intake</td><td></td><td>Hạn chế lượng đường nạp vào</td><td>It's important to limit sugar intake to maintain healthy blood sugar levels.</td></tr>
+</tbody></table>
+<h5 id="pandemic-Đại-dịch"><a class="header" href="#pandemic-Đại-dịch">Pandemic (Đại dịch)</a></h5>
+<table><thead><tr><th>Vocabulary</th><th>Pronunciation</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Screening</td><td>/’skri:.nin/</td><td>Sàng lọc</td><td>Screening for early detection of diseases is essential for effective treatment.</td></tr>
+<tr><td>Quarantine</td><td>/ˈkwɒrəntiːn/</td><td>Cách ly</td><td>People who have been exposed to the virus are required to quarantine for 14 days.</td></tr>
+<tr><td>Social distancing</td><td>/ˌsəʊ.ʃəl ˈdɪs.təns.ɪŋ/</td><td>Cách ly xã hội</td><td>During the pandemic, social distancing became a necessary measure to slow the spread of the virus.</td></tr>
+<tr><td>Protective measures</td><td>/prəˈtektɪv ˈmeʒəz/</td><td>Biện pháp phòng ngừa</td><td>Protective measures like wearing masks and hand sanitizing can reduce the risk of infection.</td></tr>
+<tr><td>Self-isolate</td><td>/ˌselfˈaɪ.sə.leɪt/</td><td>Tự cách ly</td><td>After showing symptoms, she decided to self-isolate until her test results came back.</td></tr>
+<tr><td>Social bubble</td><td>/ˈsəʊ.ʃəl/ /ˈbʌb.əl/</td><td>Vòng tròn xã hội khép kín</td><td>During the lockdown, some families formed a social bubble to allow for safe interactions.</td></tr>
+</tbody></table>
+<table><thead><tr><th>Vocabulary</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Work from home</td><td>Làm việc tại nhà</td><td>Many people have adapted to work from home since the pandemic started.</td></tr>
+<tr><td>Personal protective equipment</td><td>Thiết bị bảo hộ cá nhân</td><td>Personal protective equipment like masks and gloves is essential for healthcare workers.</td></tr>
+<tr><td>A global health crisis</td><td>Một cuộc khủng hoảng sức khỏe toàn cầu</td><td>The COVID-19 pandemic became a global health crisis that affected millions of lives worldwide.</td></tr>
+<tr><td>To be fully vaccinated</td><td>Được tiêm chủng đầy đủ</td><td>It is important to be fully vaccinated to protect yourself and others from severe illness.</td></tr>
+<tr><td>To halt the spread of the virus</td><td>Ngăn chặn sự lây lan của vi rút</td><td>Governments worldwide imposed lockdowns to halt the spread of the virus.</td></tr>
+<tr><td>To face an existential threat</td><td>Đối mặt với mối đe dọa tới sự tồn tại của con người</td><td>Climate change is considered by many experts as an existential threat to humanity.</td></tr>
+<tr><td>To experience financial hardship</td><td>Gặp khó khăn về tài chính</td><td>Many small businesses are struggling and experiencing financial hardship due to the ongoing crisis.</td></tr>
+</tbody></table>
+<h5 id="health-care"><a class="header" href="#health-care">Health Care</a></h5>
+<table><thead><tr><th>Vocabulary</th><th>Pronunciation</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Disseminate information</td><td>/dɪˈsem.ɪ.neɪt/ /ˌɪn.fəˈmeɪ.ʃən/</td><td>Phổ biến thông tin</td><td>Health organizations disseminate information about COVID-19 prevention through various media.</td></tr>
+<tr><td>Early diagnosis</td><td>/ˈɜː.li/ /ˌdaɪ.əɡˈnəʊ.sɪs/</td><td>Chẩn đoán sớm</td><td>Early diagnosis of diseases like cancer can significantly improve the chances of effective treatment.</td></tr>
+<tr><td>Treatment</td><td>/ˈtriːt.mənt/</td><td>Điều trị</td><td>The treatment for the flu often involves rest, fluids, and medication prescribed by a doctor.</td></tr>
+<tr><td>Prescription</td><td>/prɪˈskrɪp.ʃən/</td><td>Việc kê đơn thuốc</td><td>The doctor gave me a prescription for antibiotics to treat my infection.</td></tr>
+<tr><td>Organize medical workshops</td><td>/ˈɔrgəˌnaɪz ˈmɛdəkəl ˈwɜrkˌʃɑps/</td><td>Tổ chức hội thảo y khoa</td><td>The hospital will organize medical workshops to train staff on the latest treatment techniques.</td></tr>
+<tr><td>Advanced medical facilities</td><td>/ədˈvænst ˈmɛdəkəl fəˈsɪlətiz/</td><td>Trang thiết bị y tế hiện đại</td><td>The city has advanced medical facilities that can handle complex surgeries and emergency situations.</td></tr>
+<tr><td>To take the full responsibility</td><td>/tə teɪk ðə fʊl rɪˈspɒnsɪbɪləti/</td><td>Chịu toàn bộ trách nhiệm</td><td>As the project manager, I take the full responsibility for ensuring the project is completed on time.</td></tr>
+<tr><td>Enhance medical workers' competency</td><td>/ɪnˈhæns ˈmɛdɪkəl ˈwɜrkərz ˈkəmˌpɛtənsi/</td><td>Nâng cao năng lực của nhân viên y tế</td><td>Continuous education programs help enhance medical workers' competency in handling new technologies.</td></tr>
+</tbody></table>
+<h5 id="unhealthy-habits"><a class="header" href="#unhealthy-habits">Unhealthy Habits</a></h5>
+<table><thead><tr><th>Vocabulary</th><th>Pronunciation</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Eating Disorder</td><td>/ˈiː.tɪŋ dɪˌsɔː.dər/</td><td>Rối loạn tiêu hóa</td><td>Eating disorders such as anorexia and bulimia can have serious health consequences if not treated.</td></tr>
+<tr><td>Narcotic</td><td>/nɑːˈkɒt.ɪk/</td><td>Chất gây nghiện bị cấm</td><td>Narcotics like heroin are illegal and can cause severe addiction and health issues.</td></tr>
+<tr><td>Fast/Processed foods</td><td>/ˈprəʊ.sest/ /fuːd/</td><td>Thực phẩm nhanh/ chế biến</td><td>Fast foods, like burgers and fries, are often high in unhealthy fats and sugars.</td></tr>
+<tr><td>Junk food</td><td>/ˈdʒʌŋk ˌfuːd/</td><td>Đồ ăn vặt</td><td>Junk food is often full of calories and low in nutritional value, which can lead to weight gain.</td></tr>
+<tr><td>Taking drugs</td><td>/drʌɡ/</td><td>Sử dụng ma túy</td><td>Taking drugs, especially without medical supervision, can lead to addiction and serious health risks.</td></tr>
+<tr><td>Chronic disease</td><td>/ˈkrɒn.ɪk/ /dɪˈziːz/</td><td>Bệnh mãn tính</td><td>Chronic diseases like diabetes require long-term management and lifestyle changes.</td></tr>
+<tr><td>Sedentary lifestyles</td><td>/ˈsed.ən.tər.i/ /ˈlaɪf.staɪl/</td><td>Lối sống thụ động</td><td>Sedentary lifestyles, such as sitting for long periods, are linked to various health problems.</td></tr>
+<tr><td>Highly addictive ingredients</td><td>/ˈhaɪ.li/ /əˈdɪk.tɪv/ /ɪnˈɡriː.dɪənts/</td><td>Các thành phần gây nghiện cao</td><td>Many snacks and processed foods contain highly addictive ingredients like sugar and salt.</td></tr>
+<tr><td>Excessive consumption of…</td><td>/ɪkˈses.ɪv/ /kənˈsʌmpʃən/</td><td>Việc tiêu thụ quá mức…</td><td>Excessive consumption of sugary drinks can lead to weight gain and an increased risk of diabetes.</td></tr>
+</tbody></table>
+<h5 id="colocations"><a class="header" href="#colocations">Colocations</a></h5>
+<table><thead><tr><th>Vocabulary</th><th>Pronunciation</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Prevention is better than cure</td><td>/prɪˈvɛnʃən ɪz ˈbɛtər ðən kjʊər/</td><td>Phòng bệnh hơn chữa bệnh</td><td>Prevention is better than cure, so regular exercise is important to maintain good health.</td></tr>
+<tr><td>Burden on society</td><td>/ˈbɜː.dən ɒn səˈsaɪ.ə.ti/</td><td>Gánh nặng cho xã hội</td><td>The aging population is a growing burden on society, requiring more healthcare resources.</td></tr>
+<tr><td>Upgrade medical competency</td><td>/ʌpˈɡreɪd ˈmɛdɪkəl ˈkɒmpɪtənsi/</td><td>Nâng cao tay nghề của y bác sĩ</td><td>To keep up with medical advancements, doctors must continually upgrade their medical competency.</td></tr>
+<tr><td>Reduce personal financial stress</td><td>/rɪˈdjuːs ˈpɜːsənl faɪˈnænʃəl strɛs/</td><td>Giảm áp lực lên tài chính cá nhân</td><td>Creating a savings plan can help reduce personal financial stress during unexpected situations.</td></tr>
+<tr><td>Easy organization of activities and campaigns</td><td>/ˈiːzi ˌɔːɡəˈnaɪzeɪʃən ɒv ækˈtɪvɪtiz ənd ˈkæmˌpeɪnz/</td><td>Tổ chức các hoạt động và chiến dịch dễ dàng</td><td>The software allows for easy organization of activities and campaigns, making event management much simpler.</td></tr>
+<tr><td>To alleviate (the) pain/symptoms</td><td>/əˈliː.eɪt/ /ðə/ /peɪn/ /ˈsɪmptəmz/</td><td>Giảm đau, giảm triệu chứng</td><td>Medication can help alleviate the pain and symptoms of a headache.</td></tr>
+<tr><td>To reduce one's stress levels</td><td>/rɪˈdjuːs wʌnz strɛs ˈlɛvəlz/</td><td>Giảm bớt mức độ căng thẳng</td><td>Regular meditation is proven to reduce one's stress levels significantly.</td></tr>
+<tr><td>To take the full responsibility</td><td>/tə teɪk ðə fʊl rɪˌspɒnsɪˈbɪləti/</td><td>Chịu toàn bộ trách nhiệm</td><td>As the project manager, she decided to take the full responsibility for the project's success.</td></tr>
+<tr><td>To lead a sedentary lifestyle</td><td>/tə liːd ə ˈsɛd.ənˌter.i ˈlaɪf.staɪl/</td><td>Để có lối sống ít vận động</td><td>Leading a sedentary lifestyle can lead to various health issues, such as obesity and cardiovascular disease.</td></tr>
+<tr><td>To reduce meat intake</td><td>/tə rɪˈdjuːs miːt ˈɪnteɪk/</td><td>Giảm lượng thịt</td><td>To maintain a healthy diet, it's advisable to reduce meat intake and focus more on plant-based foods.</td></tr>
+<tr><td>The prevalence of fast food and processed food</td><td>/ðə ˈprɛvələns əv fæst fuːd ənd ˈprəʊsɛst fuːd/</td><td>Việc thịnh hành của thức ăn nhanh và các thức ăn được chế biến sẵn</td><td>The prevalence of fast food and processed food has been linked to rising health issues, like obesity and diabetes.</td></tr>
+</tbody></table>
+<h4 id="jobcareer"><a class="header" href="#jobcareer">Job/Career</a></h4>
+<table><thead><tr><th>Vocabulary</th><th>Pronunciation</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>Bodyguard</td><td>/ˈbɒd.i.ɡɑːd/</td><td>Vệ sĩ</td><td>I work as a bodyguard, ensuring the safety of high-profile clients.</td></tr>
+<tr><td>Judge</td><td>/dʒʌdʒ/</td><td>Thẩm phán</td><td>I am in no position to judge, as I don't have all the facts.</td></tr>
+<tr><td>Forensic scientist</td><td>/fəˈren.sɪk ˈsaɪən.tɪst/</td><td>Nhân viên pháp y</td><td>At one stage, a forensic scientist in the witness box had a chart.</td></tr>
+<tr><td>Barrister</td><td>/ˈbær.ɪ.stər/</td><td>Luật sư bào chữa</td><td>She chose a career as a barrister after studying law at university.</td></tr>
+<tr><td>Security officer</td><td>/sɪˈkjʊə.rɪ.ti ˈɒfɪsər/</td><td>Nhân viên an ninh</td><td>The boy was shot dead by a security officer who had no charges brought against him.</td></tr>
+<tr><td>Solicitor</td><td>/səˈlɪsɪtə(r)/</td><td>Cố vấn luật pháp</td><td>Her solicitor said she may take legal action against the company.</td></tr>
+<tr><td>Detective</td><td>/dɪˈtɛktɪv/</td><td>Thám tử</td><td>I hired a private detective to find out who was responsible for the crime.</td></tr>
+<tr><td>Lawyer</td><td>/ˈlɔːjə(r)/</td><td>Luật sư</td><td>I hope you have a good lawyer to represent you in court.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Programmer</td><td>/ˈprəʊɡræmər/</td><td>Lập trình viên</td><td>Bob is a software computer programmer.</td></tr>
+<tr><td>Web developer</td><td>/wɛb dɪˈvɛləpər/</td><td>Nhân viên phát triển mạng</td><td>She works as a web developer for a financial services company.</td></tr>
+<tr><td>Database administrator</td><td>/ˈdeɪtəˌbæs ædˈmɪnɪstreɪtə(r)/</td><td>Nhân viên quản lý dữ liệu</td><td>The table space is created by database administrator.</td></tr>
+<tr><td>Computer software engineer</td><td>/kəmˈpjuːtə ˈsɒftweər ˌɪnˈdʒɪnɪə(r)/</td><td>Kỹ sư phần mềm máy tính</td><td>Our software engineers work alongside our design engineers and motors engineers.</td></tr>
+<tr><td>UX designer</td><td>/ˈjuːɛks dɪˈzaɪnə(r)/</td><td>Người thiết kế trải nghiệm người dùng</td><td>Crafting a compelling UX designer bio is a powerful way to showcase your unique value proposition.</td></tr>
+<tr><td>Systems analyst</td><td>/ˈsɪstəmz ˈænəlɪst/</td><td>Chuyên viên phân tích hệ thống</td><td>As a systems analyst, you will be at the center of developing this software.</td></tr>
+<tr><td>IT security specialist</td><td>/aɪ tiː sɪˈkjʊərɪti ˈspɛʃəlɪst/</td><td>Chuyên viên an ninh mạng</td><td>Security specialists develop and implement the security measures their organization needs to protect their information assets in a secure system.</td></tr>
+<tr><td>IT business analyst</td><td>/aɪ tiː ˈbɪznɪs ˈænəlɪst/</td><td>Chuyên viên phân tích yêu cầu doanh nghiệp</td><td>But travel trade groups and business analysts put it lower.</td></tr>
+<tr><td>Accountant</td><td>/əˈkaʊntənt/</td><td>Kế toán</td><td>I am an accountant.</td></tr>
+<tr><td>Actuary</td><td>/ˈæktʃʊəri/</td><td>Chuyên viên thống kê</td><td>Without his job as an insurance actuary, the 66-year-old Schmidt has no identity.</td></tr>
+<tr><td>Investment analyst</td><td>/ɪnˈvɛstmənt ˈænəlɪst/</td><td>Nhà phân tích đầu tư</td><td>Constance's husband is a financial analyst.</td></tr>
+<tr><td>Financial adviser</td><td>/fɪˈnænʃəl ədˈvaɪzə(r)/</td><td>Cố vấn tài chính</td><td>Her independent financial adviser had died a short time before and she had no one to consult.</td></tr>
+<tr><td>Management consultant</td><td>/ˈmænɪdʒmənt kənˈsʌltənt/</td><td>Cố vấn cho ban giám đốc</td><td>He spent four years as a management consultant.</td></tr>
+<tr><td>Businessman</td><td>/ˈbɪznɪsmən/</td><td>Doanh nhân</td><td>A Malaysian businessman is the biggest investor.</td></tr>
+<tr><td>Telephonist</td><td>/tɪˈlɛfənist/</td><td>Nhân viên trực điện thoại</td><td>He was working as a telephonist.</td></tr>
+<tr><td>Customer service representative</td><td>/ˈkʌstəmər ˈsɜːvɪs ˌrɛprɪˈzɛntətɪv/</td><td>Người đại diện của dịch vụ hỗ trợ khách hàng</td><td>If you call our Customer Service Department, a Customer Service Representative will try to resolve your concern.</td></tr>
+<tr><td>Advertising executive</td><td>/ˈædvətaɪzɪŋ ɪɡˈzɛkjʊtɪv/</td><td>Nhân viên quảng cáo</td><td>The advertising executive was praised for his innovative ideas.</td></tr>
+<tr><td>Economist</td><td>/ɪˈkɒnəmɪst/</td><td>Nhà kinh tế học</td><td>He is a good economist with a strong pedigree and wide experience of the world economy.</td></tr>
+<tr><td>Doctor</td><td>/ˈdɒktə(r)/</td><td>Bác sĩ</td><td>I'll make him go and see the doctor.</td></tr>
+<tr><td>Physiotherapist</td><td>/ˌfɪzɪəʊˈθɛrəpɪst/</td><td>Nhà trị liệu vật lý</td><td>The physiotherapist gave her some exercises to do at home.</td></tr>
+<tr><td>Pharmacist</td><td>/ˈfɑːməsɪst/</td><td>Dược sĩ</td><td>She trained as a pharmacist.</td></tr>
+<tr><td>Veterinary surgeon</td><td>/ˌvɛtərɪnəri ˈsɜːdʒən/</td><td>Bác sĩ thú y</td><td>Brucellosis and the veterinary surgeon.</td></tr>
+<tr><td>Midwife</td><td>/ˈmɪdwaɪf/</td><td>Bà đỡ/ nữ hộ sinh</td><td>The midwife weighed the new baby.</td></tr>
+<tr><td>Surgeon</td><td>/ˈsɜːdʒən/</td><td>Bác sĩ phẫu thuật</td><td>I discussed the operation with the surgeon.</td></tr>
+<tr><td>Social worker</td><td>/ˈsəʊʃəl ˈwɜːkə(r)/</td><td>Nhân viên công tác xã hội</td><td>The man claimed to be a social worker and the old woman believed him.</td></tr>
+<tr><td>Vet</td><td>/vɛt/</td><td>Bác sĩ thú y</td><td>I think we'll have to call the vet.</td></tr>
+<tr><td>Dentist</td><td>/ˈdɛntɪst/</td><td>Nha sĩ</td><td>He is studying to be a dentist.</td></tr>
+<tr><td>Orthoptist</td><td>/ɔːˈθɒptɪst/</td><td>Bác sĩ chuyên điều trị tật mắt</td><td>She commutes daily to her job as an orthoptist at the Manchester Eye Hospital.</td></tr>
+<tr><td>Biologist</td><td>/baɪˈɒlədʒɪst/</td><td>Nhà sinh vật học</td><td>My brother is a biologist.</td></tr>
+<tr><td>Physicist</td><td>/ˈfɪzɪsɪst/</td><td>Nhà vật lý học</td><td>I read the report by a physicist studying the effects of heat.</td></tr>
+<tr><td>Meteorologist</td><td>/ˌmɪətəˈrɒlədʒɪst/</td><td>Nhà khí tượng học</td><td>I am no meteorologist, but that sky indicates rain.</td></tr>
+<tr><td>Astronomer</td><td>/əˈstrɒnəmə(r)/</td><td>Nhà thiên văn học</td><td>A new star attracted the notice of the astronomer.</td></tr>
+<tr><td>Psychiatrist</td><td>/saɪˈkɪətrɪst/</td><td>Nhà tâm thần học</td><td>He is a prominent psychiatrist.</td></tr>
+<tr><td>Botanist</td><td>/ˈbɒtənɪst/</td><td>Nhà thực vật học</td><td>He is a botanist and a collector of rare plants.</td></tr>
+<tr><td>Lab technician</td><td>/læb tɛkˈnɪʃən/</td><td>Nhân viên phòng thí nghiệm</td><td>He portrayed a lab technician working at a crime scene.</td></tr>
+<tr><td>HR manager</td><td>/eɪʧ ˈɑːr ˈmænɪdʒə(r)/</td><td>Trưởng phòng nhân sự</td><td>It's been three years since I finished a higher diploma in Human Resources Management course.</td></tr>
+<tr><td>Personal assistant</td><td>/ˈpɜːsənl əˈsɪstənt/</td><td>Thư ký riêng</td><td>Maybe the Queen will make you a personal assistant to her, like I am.</td></tr>
+<tr><td>Project manager</td><td>/ˈprɒdʒɛkt ˈmænɪdʒə(r)/</td><td>Quản lý dự án</td><td>You lashed out at your project manager, which was completely out of line.</td></tr>
+<tr><td>Recruitment consultant</td><td>/rɪˈkruːtmənt kənˈsʌltənt/</td><td>Chuyên viên tư vấn tuyển dụng</td><td>You're a prospective partner, not a recruitment consultant.</td></tr>
+<tr><td>Receptionist</td><td>/rɪˈsɛpʃənɪst/</td><td>Lễ tân</td><td>I asked the receptionist if there was a message for me.</td></tr>
+<tr><td>Cook</td><td>/kʊk/</td><td>Đầu bếp</td><td>I'm a good cook.</td></tr>
+<tr><td>Chef</td><td>/ʃɛf/</td><td>Bếp trưởng</td><td>He is training to be a chef.</td></tr>
+<tr><td>Bartender</td><td>/ˈbɑːtɛndə(r)/</td><td>Nhân viên pha chế</td><td>I'll settle up with the bartender, then let's go.</td></tr>
+<tr><td>Waiter/Waitress</td><td>/ˈweɪtə(r)/ˈweɪtrəs/</td><td>Bồi bàn nam/nữ</td><td>The waitress brought their order.</td></tr>
+<tr><td>Hotel porter</td><td>/ˈhəʊtɛl ˈpɔːtə(r)/</td><td>Nhân viên khuân vác trong khách sạn</td><td>The hotel porter helped me with my luggage.</td></tr>
+<tr><td>Hotel manager</td><td>/ˈhəʊtɛl ˈmænɪdʒə(r)/</td><td>Quản lý khách sạn</td><td>I'm a hotel manager on good pay.</td></tr>
+<tr><td>Tourist guide</td><td>/ˈtʊərɪst ɡaɪd/</td><td>Hướng dẫn viên du lịch</td><td>Our tour guide showed us around the old town.</td></tr>
+<tr><td>Photographer</td><td>/fəˈtɒɡrəfə(r)/</td><td>Thợ chụp ảnh</td><td>Who will be the photographer at the wedding?</td></tr>
+<tr><td>Model</td><td>/ˈmɒdl/</td><td>Người mẫu</td><td>I was a fashion model.</td></tr>
+<tr><td>Composer</td><td>/kəmˈpəʊzə(r)/</td><td>Nhà soạn nhạc</td><td>Mozart was her favorite composer.</td></tr>
+<tr><td>Master of Ceremonies (MC)</td><td>/ˈmɑːstər əv ˈsɛrəˌmoʊniz/</td><td>Dẫn chương trình truyền hình</td><td>The master of ceremonies introduced the guest of honor.</td></tr>
+<tr><td>Graphic designer</td><td>/ˈɡræfɪk dɪˈzaɪnə(r)/</td><td>Người thiết kế đồ họa</td><td>She asked her son, a graphic designer, to create letterheads and stationery.</td></tr>
+<tr><td>Fashion designer</td><td>/ˈfæʃən dɪˈzaɪnə(r)/</td><td>Nhà thiết kế thời trang</td><td>She's the fashion designer of the moment.</td></tr>
+<tr><td>Choreographer</td><td>/ˌkɔːrɪˈɒɡrəfə(r)/</td><td>Biên đạo múa</td><td>The style, by intention, echoes that of the late, great choreographer Fosse.</td></tr>
+<tr><td>Playwright</td><td>/ˈpleɪˌraɪt/</td><td>Nhà soạn kịch</td><td>Gwyn Thomas was a famous playwright.</td></tr>
+<tr><td>Film director</td><td>/fɪlm dɪˈrɛktə(r)/</td><td>Đạo diễn phim</td><td>She would like to become a film director someday.</td></tr>
+<tr><td>Sculptor</td><td>/ˈskʌlptə(r)/</td><td>Nhà điêu khắc</td><td>Of course, you can be a great sculptor without being able to draw.</td></tr>
+</tbody></table>
+<h5 id="collocations-for-job"><a class="header" href="#collocations-for-job">Collocations for Job</a></h5>
+<table><thead><tr><th>Phrase</th><th>Vietnamese Translation</th><th>Example</th></tr></thead><tbody>
+<tr><td>To be called for an interview</td><td>Được gọi tới phỏng vấn</td><td>She was excited to be called for an interview.</td></tr>
+<tr><td>To be your own boss</td><td>Có công việc kinh doanh riêng</td><td>After years of working for others, he decided to be his own boss.</td></tr>
+<tr><td>A heavy workload</td><td>Khối lượng công việc lớn</td><td>With a heavy workload, she struggled to keep up with deadlines.</td></tr>
+<tr><td>A high-powered job</td><td>Một công việc quan trọng</td><td>He landed a high-powered job in the finance industry.</td></tr>
+<tr><td>To meet a deadline</td><td>Hoàn thành công việc đúng hạn</td><td>We must work overtime to meet the deadline.</td></tr>
+<tr><td>To be stuck behind a desk</td><td>Mắc kẹt trong công việc bàn giấy buồn chán</td><td>She felt stuck behind a desk with no chance for creativity.</td></tr>
+<tr><td>To be well paid</td><td>Được trả lương hậu hĩnh</td><td>This job offers excellent benefits and is well paid.</td></tr>
+<tr><td>Leadership qualities</td><td>Tố chất lãnh đạo</td><td>He demonstrated strong leadership qualities during the project.</td></tr>
+<tr><td>Skeleton staff</td><td>Lượng nhân viên tối thiểu</td><td>The company was running on skeleton staff during the holiday season.</td></tr>
+<tr><td>A stable monthly paycheck</td><td>Tiền lương hàng tháng ổn định</td><td>She appreciates having a stable monthly paycheck.</td></tr>
+<tr><td>To feel overworked and overwhelmed</td><td>Cảm thấy quá sức và quá tải</td><td>He started to feel overworked and overwhelmed by the demands of his job.</td></tr>
+<tr><td>Today’s cut-throat labor market</td><td>Thị trường lao động cạnh tranh ngày nay</td><td>Finding a job is challenging in today’s cut-throat labor market.</td></tr>
+<tr><td>To face employment</td><td>Đối mặt với tình trạng thất nghiệp</td><td>He had to face employment uncertainty after the company downsized.</td></tr>
+<tr><td>Fast-track scheme</td><td>Hệ thống/chương trình đào tạo nhanh cho nhân viên và được thăng chức sớm</td><td>The company offers a fast-track scheme for talented young professionals.</td></tr>
+<tr><td>---</td><td>---</td><td>---</td></tr>
+<tr><td>Get the sack</td><td>Bị đuổi việc</td><td>He was upset after getting the sack for being late to work.</td></tr>
+<tr><td>To cold-call</td><td>Gọi điện hoặc đến một khách hàng ngẫu nhiên để bán hàng mà không báo trước</td><td>She had to cold-call dozens of potential clients every day.</td></tr>
+<tr><td>To bring home the bacon</td><td>Kiếm tiền cho gia đình</td><td>He works hard to bring home the bacon and provide for his family.</td></tr>
+<tr><td>To be snowed under (with something)</td><td>Bị vùi đầu trong công việc</td><td>I'm completely snowed under with paperwork this week.</td></tr>
+<tr><td>To sweat blood</td><td>Nỗ lực để hoàn thành công việc</td><td>She sweated blood to finish the project on time.</td></tr>
+<tr><td>To learn the ropes</td><td>Học để cho thành thạo một công việc</td><td>It took me a while to learn the ropes of the new job.</td></tr>
+<tr><td>Movers and shakers</td><td>Người khôn ngoan và có thể làm mọi việc hiệu quả nhanh chóng</td><td>The company was led by a few movers and shakers who knew how to drive success.</td></tr>
+<tr><td>Practice makes perfect</td><td>Diễn tả việc tập luyện sẽ dẫn đến kết quả tốt hơn</td><td>He practiced every day, remembering that practice makes perfect.</td></tr>
+<tr><td>To think outside the box</td><td>Sáng tạo hơn, nghĩ vượt ra khỏi cách truyền thống</td><td>She always encourages the team to think outside the box for creative solutions.</td></tr>
+</tbody></table>
+<h4 id="effective-communicate-giao-tiếp-xã-hội"><a class="header" href="#effective-communicate-giao-tiếp-xã-hội">Effective Communicate (Giao tiếp xã hội)</a></h4>
+<h4 id="lifestyles"><a class="header" href="#lifestyles">Lifestyles</a></h4>
+<h4 id="the-energy-crisis-khủng-hoảng-năng-lượng"><a class="header" href="#the-energy-crisis-khủng-hoảng-năng-lượng">The Energy Crisis (Khủng hoảng năng lượng)</a></h4>
+<h4 id="animal-right-quyền-của-động-vật"><a class="header" href="#animal-right-quyền-của-động-vật">Animal Right (Quyền của động vật)</a></h4>
+<h4 id="gender-giới-tính"><a class="header" href="#gender-giới-tính">Gender (Giới tính)</a></h4>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../helm-charts/english/writing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../helm-charts/english/writing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../../theme/pagetoc.js"></script>
+        
+        
+    </body>
+</html>

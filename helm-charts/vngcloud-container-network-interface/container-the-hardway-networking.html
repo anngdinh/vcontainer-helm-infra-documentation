@@ -1,0 +1,673 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Container the Hard way - vContainer Helm Infra Documentation</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="../../theme/pagetoc.css">
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">vContainer Helm Infa Repository</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/index.html"><strong aria-hidden="true">1.</strong> vContainer Storage Interface Chart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/overview.html"><strong aria-hidden="true">1.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example.html"><strong aria-hidden="true">1.3.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-type.html"><strong aria-hidden="true">1.3.1.</strong> StorageClass based on Volume Type</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/block-volume.html"><strong aria-hidden="true">1.3.2.</strong> Block volume</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-resizing.html"><strong aria-hidden="true">1.3.3.</strong> Volume resizing</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/nfs-server.html"><strong aria-hidden="true">1.3.4.</strong> NFS server</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/index.html"><strong aria-hidden="true">2.</strong> VNGCLOUD Ingress Controller</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/overview.html"><strong aria-hidden="true">2.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/annotations.html"><strong aria-hidden="true">2.3.</strong> Annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/index.html"><strong aria-hidden="true">3.</strong> VNG Cloud Controller Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/overview.html"><strong aria-hidden="true">3.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/installation.html"><strong aria-hidden="true">3.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/annotations.html"><strong aria-hidden="true">3.3.</strong> Annotations</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example.html"><strong aria-hidden="true">3.4.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/internal-loadbalancer.html"><strong aria-hidden="true">3.4.1.</strong> Internal LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/external-loadbalancer.html"><strong aria-hidden="true">3.4.2.</strong> External LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/upd-server.html"><strong aria-hidden="true">3.4.3.</strong> Support UDP protocol</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/http-application.html"><strong aria-hidden="true">3.4.4.</strong> HTTP Application</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.html"><strong aria-hidden="true">3.4.5.</strong> Reuse existing LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-ingress.html"><strong aria-hidden="true">3.4.6.</strong> Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/change-package.html"><strong aria-hidden="true">3.4.7.</strong> Change LoadBalancer package</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-proxy.html"><strong aria-hidden="true">3.4.8.</strong> Nginx Proxy</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/index.html"><strong aria-hidden="true">4.</strong> Migrate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/overview.html"><strong aria-hidden="true">4.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/planning-resource.html"><strong aria-hidden="true">4.2.</strong> Planning Resources for the Target Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-outside-resource.html"><strong aria-hidden="true">4.3.</strong> Migrating Resources Outside a Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/install-tool.html"><strong aria-hidden="true">4.4.</strong> Installing the Migration Tool</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-resource.html"><strong aria-hidden="true">4.5.</strong> Migrating Resources in a Cluster (Velero)</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/update-resource.html"><strong aria-hidden="true">4.6.</strong> Updating Resources Accordingly</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/additional-tasks.html"><strong aria-hidden="true">4.7.</strong> Performing Additional Tasks</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case.html"><strong aria-hidden="true">4.8.</strong> Usecase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vks-to-vks.html"><strong aria-hidden="true">4.8.1.</strong> VKS to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vcontainer-to-vks.html"><strong aria-hidden="true">4.8.2.</strong> vContainer to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/other-to-vks.html"><strong aria-hidden="true">4.8.3.</strong> Other cloud to VKS</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage.html"><strong aria-hidden="true">4.9.</strong> More usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/prepare-velero.html"><strong aria-hidden="true">4.9.1.</strong> Prepare Velero</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/deploy-sample-app.html"><strong aria-hidden="true">4.9.2.</strong> Deploy sample app</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/minio.html"><strong aria-hidden="true">4.9.3.</strong> Setup Minio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/troubleshooting.html"><strong aria-hidden="true">4.9.4.</strong> Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/index.html"><strong aria-hidden="true">5.</strong> CNI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/overview.html"><strong aria-hidden="true">5.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html" class="active"><strong aria-hidden="true">5.2.</strong> Container the Hard way</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-network.html"><strong aria-hidden="true">5.3.</strong> AWS network</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/cilium.html"><strong aria-hidden="true">5.4.</strong> Cilium</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/ops-the-hardway.html"><strong aria-hidden="true">5.5.</strong> OPS the hardway</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html"><strong aria-hidden="true">5.6.</strong> AWS trunk network</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/index.html"><strong aria-hidden="true">6.</strong> Fleet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/GKEVPN-strongswan.html"><strong aria-hidden="true">6.1.</strong> GKEVPN StrongSwan</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/istio.html"><strong aria-hidden="true">6.2.</strong> Istio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt.html"><strong aria-hidden="true">6.3.</strong> Cert Manager + Let's Encrypt + Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt-vngcloud.html"><strong aria-hidden="true">6.4.</strong> Cert Manager + Let's Encrypt + VNGCLOUD Ingress</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/english/index.html"><strong aria-hidden="true">7.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/english/speaking.html"><strong aria-hidden="true">7.1.</strong> Speaking</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing_1.html"><strong aria-hidden="true">7.2.</strong> Writing task 1</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing.html"><strong aria-hidden="true">7.3.</strong> Writing task 2</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/vocab.html"><strong aria-hidden="true">7.4.</strong> Vocabulary</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">vContainer Helm Infra Documentation</h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="container-the-hardway-networking"><a class="header" href="#container-the-hardway-networking">Container the hardway networking</a></h1>
+<h2 id="1-rootns-netns"><a class="header" href="#1-rootns-netns">1. rootns-netns</a></h2>
+<pre><code class="language-bash"># create netns
+ip netns add netns1
+
+# create veth pair
+ip link add veth0 type veth peer name veth1
+
+# move veth1 to netns1
+ip link set veth1 netns netns1
+
+# set ip address for rootns = 201
+ip addr add 10.0.0.201/24 dev veth0
+ip link set veth0 up
+
+# set ip address for netns1
+ip netns exec netns1 ip addr add 10.0.0.101/24 dev veth1
+ip netns exec netns1 ip link set veth1 up
+
+# ping from rootns to netns1
+ping 10.0.0.101
+
+# ping from netns1 to rootns
+ip netns exec netns1 ping 10.0.0.201
+
+# cleanup
+ip netns del netns1
+</code></pre>
+<h2 id="2-rootns-netns-netns"><a class="header" href="#2-rootns-netns-netns">2. rootns-netns-netns</a></h2>
+<pre><code class="language-bash"># create netns
+ip netns add netns1
+ip netns add netns2
+
+# create veth pair
+ip link add veth0 type veth peer name veth1
+ip link add veth2 type veth peer name veth3
+
+# move veth1 to netns1
+ip link set veth1 netns netns1
+ip link set veth3 netns netns2
+
+# set ip address for rootns = 201
+ip addr add 10.0.0.201/24 dev veth0
+ip addr add 10.0.1.201/24 dev veth2
+ip link set veth0 up
+ip link set veth2 up
+
+# set ip address for netns1
+ip netns exec netns1 ip addr add 10.0.0.101/24 dev veth1
+ip netns exec netns1 ip link set veth1 up
+
+# set ip address for netns2
+ip netns exec netns2 ip addr add 10.0.1.101/24 dev veth3
+ip netns exec netns2 ip link set veth3 up
+
+# ping from rootns to netns1 and netns2
+ping 10.0.0.101
+ip netns exec netns1 ping 10.0.0.201
+ping 10.0.1.101
+ip netns exec netns2 ping 10.0.1.201
+
+# ping from netns1 to netns2
+ip netns exec netns1 ping 10.0.1.101
+ip netns exec netns2 ping 10.0.0.101
+# =&gt; ping: connect: Network is unreachable
+ip netns exec netns1 ip route show
+ip netns exec netns2 ip route show
+# =&gt; default to reach outside of netns is missing
+ip netns exec netns1 ip route add default via 10.0.0.201 dev veth1
+ip netns exec netns2 ip route add default via 10.0.1.201 dev veth3
+# But iptables is blocking FORWARD
+iptables -P FORWARD ACCEPT
+# ping should work now
+
+# cleanup
+ip netns del netns1
+ip netns del netns2
+</code></pre>
+<h2 id="3-rootns-netns-bridge-netns"><a class="header" href="#3-rootns-netns-bridge-netns">3. rootns-netns-bridge-netns</a></h2>
+<pre><code class="language-bash"># create netns
+ip netns add netns1
+ip netns add netns2
+
+# create veth pair
+ip link add veth0 type veth peer name veth1
+ip link add veth2 type veth peer name veth3
+
+# move veth1 to netns1
+ip link set veth1 netns netns1
+ip link set veth3 netns netns2
+
+# create bridge
+ip link add name br0 type bridge
+ip addr add 10.0.0.1/24 dev br0
+ip link set br0 up
+
+# move veth0, veth2 to bridge
+ip link set veth0 master br0
+ip link set veth2 master br0
+ip link set veth0 up
+ip link set veth2 up
+
+# set ip address for netns1
+ip netns exec netns1 ip addr add 10.0.0.101/24 dev veth1
+ip netns exec netns1 ip link set veth1 up
+ip netns exec netns1 ip route add default via 10.0.0.1 dev veth1
+
+# set ip address for netns2
+ip netns exec netns2 ip addr add 10.0.0.102/24 dev veth3
+ip netns exec netns2 ip link set veth3 up
+ip netns exec netns2 ip route add default via 10.0.0.1 dev veth3
+
+# ping rootns &lt;=&gt; netns1, netns2
+ping 10.0.0.101
+ping 10.0.0.102
+ip netns exec netns1 ping 10.0.0.1
+ip netns exec netns2 ping 10.0.0.1
+
+# ping netns1 &lt;=&gt; netns2
+ip netns exec netns1 ping 10.0.0.102
+ip netns exec netns2 ping 10.0.0.101
+
+# ping internet
+ip netns exec netns1 ping 1.1.1.1 # not reachable
+tcpdump -i br0 -nn icmp # =&gt; bridge is reacheable
+tcpdump -i enp0s3 -nn icmp # =&gt; default is reacheable
+# 10.0.0.101 &gt; 1.1.1.1: ip of packet is can't resolve when return, should be source nat (change ip source)
+gw_dev=$(ip -j route show | jq -r '.[]|select(.dst==&quot;default&quot;)|.dev') # get default gateway device
+echo $gw_dev
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o $gw_dev -j MASQUERADE # source nat, if packet from 10.0.0.0/24 and going out to $gw_dev, change ip source
+
+
+# cleanup
+ip netns del netns1
+ip netns del netns2
+ip link del br0
+gw_dev=$(ip -j route show | jq -r '.[]|select(.dst==&quot;default&quot;)|.dev') # get default gateway device
+echo $gw_dev
+iptables -t nat -D POSTROUTING -s 10.0.0.0/24 -o $gw_dev -j MASQUERADE
+</code></pre>
+<h2 id="4-expose-service-to-external"><a class="header" href="#4-expose-service-to-external">4. expose service to external</a></h2>
+<pre><code class="language-bash"># create netns
+ip netns add netns1
+
+# create veth pair
+ip link add veth0 type veth peer name veth1
+
+# move veth1 to netns1
+ip link set veth1 netns netns1
+
+# set ip address for rootns = 201
+ip addr add 10.0.0.201/24 dev veth0
+ip link set veth0 up
+
+# set ip address for netns1
+ip netns exec netns1 ip addr add 10.0.0.101/24 dev veth1
+ip netns exec netns1 ip link set veth1 up
+ip netns exec netns1 ip route add default via 10.0.0.201 dev veth1
+
+# expose service
+ip netns exec netns1 python3 -m http.server 8080
+
+# test from rootns
+curl 10.0.0.101:8080 # should return index.html
+
+# test from external
+curl 10.0.0.101:8080 # not reachable
+curl 192.168.56.12:80 # host ip, not reachable
+# =&gt; need to forward port from host to netns
+iptables -P FORWARD ACCEPT
+iptables -t nat -A PREROUTING -d 192.168.56.12 -p tcp -m tcp --dport 80 -j DNAT --to-destination 10.0.0.101:8080
+
+# test from internal
+curl 192.168.56.12:80 # host ip, not reachable
+# =&gt; Failed to connect to 192.168.56.12 port 80 after 0 ms: Connection refused
+# =&gt; need to forward port from host to netns
+iptables -t nat -A OUTPUT -d 192.168.56.12 -p tcp -m tcp --dport 80 -j DNAT --to-destination 10.0.0.101:8080
+
+# cleanup
+ip netns del netns1
+iptables -t nat -D PREROUTING -d 192.168.56.12 -p tcp -m tcp --dport 80 -j DNAT --to-destination 10.0.0.101:8080
+iptables -t nat -D OUTPUT -d 192.168.56.12 -p tcp -m tcp --dport 80 -j DNAT --to-destination 10.0.0.101:8080
+</code></pre>
+<h2 id="5-load-balancer"><a class="header" href="#5-load-balancer">5. load balancer</a></h2>
+<h2 id="6-cni"><a class="header" href="#6-cni">6. CNI</a></h2>
+<pre><code class="language-bash"># Download CNI plugins
+curl -OL https://github.com/containernetworking/plugins/releases/download/v1.5.0/cni-plugins-linux-amd64-v1.5.0.tgz
+mkdir cni-bin
+tar -C cni-bin -xzf cni-plugins-linux-amd64-v1.5.0.tgz
+rm -rf cni-plugins-linux-amd64-v1.5.0.tgz
+
+# start container without network
+docker run -d --rm --network none --name alpine1 -t nginx:alpine
+
+# check container network
+docker exec alpine1 ip a # only loopback interface
+docker exec alpine1 ip route show # nothing
+
+# get container id and network namespace
+container_id=$(docker inspect -f '{{.Id}}' alpine1) 
+# 6bcebe665b31678906a5452fae78c1fd86a36a479c3054bb1c3e80aa05db826b
+container_namespace=$(docker inspect alpine1 | jq -r '.[].NetworkSettings.SandboxKey') 
+# /var/run/docker/netns/f0b18d774f4e
+
+# config file
+cat &lt;&lt;EOF &gt; bridge.conf
+{
+    &quot;cniVersion&quot;: &quot;1.0.0&quot;,
+    &quot;name&quot;: &quot;devops&quot;,
+    &quot;type&quot;: &quot;bridge&quot;,
+    &quot;bridge&quot;: &quot;devops0&quot;,
+    &quot;isGateway&quot;: true,
+    &quot;ipMasq&quot;: true,
+    &quot;ipam&quot;: {
+        &quot;type&quot;: &quot;host-local&quot;,
+        &quot;subnet&quot;: &quot;10.0.0.0/24&quot;,
+        &quot;routes&quot;: [
+            { &quot;dst&quot;: &quot;0.0.0.0/0&quot; }
+        ],
+        &quot;rangeStart&quot;: &quot;10.0.0.2&quot;,
+        &quot;rangeEnd&quot;: &quot;10.0.0.5&quot;,
+        &quot;gateway&quot;: &quot;10.0.0.1&quot;
+    },
+    &quot;dns&quot;: {
+        &quot;nameservers&quot;: [ &quot;1.1.1.1&quot; ]
+    }
+}
+EOF
+
+# add network to container
+CNI_PATH=$(pwd)/cni-bin \
+    CNI_COMMAND=ADD \
+    CNI_CONTAINERID=$container_id \
+    CNI_NETNS=$container_namespace \
+    CNI_IFNAME=eth10 \
+    ./cni-bin/bridge &lt;bridge.conf
+
+# {
+#     &quot;cniVersion&quot;: &quot;1.0.0&quot;,
+#     &quot;interfaces&quot;: [
+#         {
+#             &quot;name&quot;: &quot;devops0&quot;,
+#             &quot;mac&quot;: &quot;5a:4e:aa:41:27:78&quot;
+#         },
+#         {
+#             &quot;name&quot;: &quot;veth568773e8&quot;,
+#             &quot;mac&quot;: &quot;b2:7f:9c:ad:76:10&quot;
+#         },
+#         {
+#             &quot;name&quot;: &quot;eth10&quot;,
+#             &quot;mac&quot;: &quot;4a:82:ea:14:6d:54&quot;,
+#             &quot;sandbox&quot;: &quot;/var/run/docker/netns/f0b18d774f4e&quot;
+#         }
+#     ],
+#     &quot;ips&quot;: [
+#         {
+#             &quot;interface&quot;: 2,
+#             &quot;address&quot;: &quot;10.0.0.2/24&quot;,
+#             &quot;gateway&quot;: &quot;10.0.0.1&quot;
+#         }
+#     ],
+#     &quot;routes&quot;: [
+#         {
+#             &quot;dst&quot;: &quot;0.0.0.0/0&quot;
+#         }
+#     ],
+#     &quot;dns&quot;: {
+#         &quot;nameservers&quot;: [
+#             &quot;1.1.1.1&quot;
+#         ]
+#     }
+# }
+
+########################## check container network
+ip a
+# 7: devops0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+#     link/ether 5a:4e:aa:41:27:78 brd ff:ff:ff:ff:ff:ff
+#     inet 10.0.0.1/24 brd 10.0.0.255 scope global devops0
+#        valid_lft forever preferred_lft forever
+#     inet6 fe80::584e:aaff:fe41:2778/64 scope link 
+#        valid_lft forever preferred_lft forever
+# 8: veth568773e8@if2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master devops0 state UP group default 
+#     link/ether e6:49:5f:a8:e8:85 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+#     inet6 fe80::b07f:9cff:fead:7610/64 scope link 
+#        valid_lft forever preferred_lft forever
+
+docker exec alpine1 ip a
+# 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
+#     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+#     inet 127.0.0.1/8 scope host lo
+#        valid_lft forever preferred_lft forever
+#     inet6 ::1/128 scope host 
+#        valid_lft forever preferred_lft forever
+# 2: eth10@if8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN&gt; mtu 1500 qdisc noqueue state UP 
+#     link/ether 4a:82:ea:14:6d:54 brd ff:ff:ff:ff:ff:ff
+#     inet 10.0.0.2/24 brd 10.0.0.255 scope global eth10
+#        valid_lft forever preferred_lft forever
+#     inet6 fe80::4882:eaff:fe14:6d54/64 scope link 
+#        valid_lft forever preferred_lft 
+
+docker exec alpine1 ip route show
+# default via 10.0.0.1 dev eth10 
+# 10.0.0.0/24 dev eth10 scope link  src 10.0.0.2
+
+iptables -S -t nat
+# -P PREROUTING ACCEPT
+# -P INPUT ACCEPT
+# -P OUTPUT ACCEPT
+# -P POSTROUTING ACCEPT
+# -N CNI-42e34ed26aeaeb1dcbad224f
+# -N DOCKER
+# -A PREROUTING -m addrtype --dst-type LOCAL -j DOCKER
+# -A OUTPUT ! -d 127.0.0.0/8 -m addrtype --dst-type LOCAL -j DOCKER
+# -A POSTROUTING -s 172.17.0.0/16 ! -o docker0 -j MASQUERADE
+# -A POSTROUTING -s 10.0.0.2/32 -m comment --comment &quot;name: \&quot;devops\&quot; id: \&quot;6bcebe665b31678906a5452fae78c1fd86a36a479c3054bb1c3e80aa05db826b\&quot;&quot; -j CNI-42e34ed26aeaeb1dcbad224f
+# -A CNI-42e34ed26aeaeb1dcbad224f -d 10.0.0.0/24 -m comment --comment &quot;name: \&quot;devops\&quot; id: \&quot;6bcebe665b31678906a5452fae78c1fd86a36a479c3054bb1c3e80aa05db826b\&quot;&quot; -j ACCEPT
+# -A CNI-42e34ed26aeaeb1dcbad224f ! -d 224.0.0.0/4 -m comment --comment &quot;name: \&quot;devops\&quot; id: \&quot;6bcebe665b31678906a5452fae78c1fd86a36a479c3054bb1c3e80aa05db826b\&quot;&quot; -j MASQUERADE
+# -A DOCKER -i docker0 -j RETURN
+
+docker exec alpine1 ping 1.1.1.1
+# should be reachable
+
+# cleanup
+CNI_PATH=$(pwd)/cni-bin \
+    CNI_COMMAND=DEL \
+    CNI_CONTAINERID=$container_id \
+    CNI_NETNS=$container_namespace \
+    CNI_IFNAME=eth10 \
+    ./cni-bin/bridge &lt;bridge.conf
+docker rm -f alpine1
+</code></pre>
+<h2 id="7-rootns-netnsdocker"><a class="header" href="#7-rootns-netnsdocker">7. rootns-netns(docker)</a></h2>
+<pre><code class="language-bash"># start with no network
+docker run -d --rm --network none --name alpine1 -t nginx:alpine
+container_id=$(docker inspect -f '{{.Id}}' alpine1)
+
+# get nstns hide in docker and link it
+pid=$(docker inspect -f '{{.State.Pid}}' ${container_id})
+echo $pid
+mkdir -p /var/run/netns/
+ln -sfT /proc/$pid/ns/net /var/run/netns/$container_id
+
+# add veth pair
+ip link add veth0 type veth peer name veth1
+ip link set veth1 netns $container_id
+
+# set an ip for pod
+ip netns exec $container_id ip addr add 11.0.0.99/24 dev veth1
+# default is route to interface veth1
+ip netns exec $container_id ip link set veth1 up
+ip netns exec $container_id ip route add 0.0.0.0/0 dev veth1 proto kernel scope link src 11.0.0.99
+ip netns exec $container_id ip a
+
+# add route to pod
+ip link set veth0 up
+ip route add 11.0.0.99 dev veth0 scope link
+
+# ping to outside
+ip netns exec $container_id ping 10.0.0.17
+## maybe by iptables drop ?
+iptables -P FORWARD ACCEPT
+## maybe by arp ?
+ip netns exec $container_id arp -n
+ip netns exec $container_id arp -s 10.0.0.17 06:96:1e:62:50:e7
+## should ping it now
+ip netns exec $container_id ping 10.0.0.17
+## must hold the real ip
+
+## outside to pod
+ping 11.0.0.99
+
+## clean
+docker remove -f alpine1
+ip netns del $container_id
+</code></pre>
+<h2 id="8-secondaryip---netnsdocker"><a class="header" href="#8-secondaryip---netnsdocker">8. secondaryIP - netns(docker)</a></h2>
+<pre><code class="language-bash">ndIP=10.0.0.5
+
+# start with no network
+docker run -d --rm --network none --name alpine1 -t nginx:alpine
+container_id=$(docker inspect -f '{{.Id}}' alpine1)
+
+# get nstns hide in docker and link it
+pid=$(docker inspect -f '{{.State.Pid}}' ${container_id})
+echo $pid
+mkdir -p /var/run/netns/
+ln -sfT /proc/$pid/ns/net /var/run/netns/$container_id
+# now container_id is also netns's name
+netID=$container_id
+
+# add veth pair
+ip link add veth0 type veth peer name veth1
+ip link set veth1 netns $netID
+ip netns exec $netID ip a
+
+# set an ip for pod
+ip netns exec $netID ip addr add $ndIP/32 dev veth1
+
+########### default is route to interface veth1
+########### ip netns exec $container_id ip link set veth1 up
+########### ip netns exec $container_id ip route add 0.0.0.0/0 dev veth1 proto kernel scope link src $ndIP
+########### ip netns exec $container_id ip a
+
+# set default arp
+veth0_mac_add=$(cat /sys/class/net/veth0/address)
+ip netns exec $netID arp -i veth1 -s 169.254.1.1 $veth0_mac_add
+# default is route with sample IP to interface veth1
+ip netns exec $netID ip link set veth1 up
+ip netns exec $netID ip route add 169.254.1.1 dev veth1 scope link
+ip netns exec $netID ip route add default via 169.254.1.1 dev veth1
+ip netns exec $netID ip a
+
+# add route to pod
+ip link set veth0 up
+ip route add $ndIP/32 dev veth0 scope link
+# add ip rule
+ip rule add from all to $ndIP/32 table main prio 512
+
+# test
+## ping to pod
+ping $ndIP
+## ping to host ns, ping to vpc
+ip netns exec $netID ping 10.0.0.18
+## ping to external
+ip netns exec $netID ping 1.1.1.1
+iptables -t nat -A POSTROUTING ! -d 10.0.0.0/16 -s 10.0.0.5/32 -o ens3 -j MASQUERADE
+
+
+
+# debug
+tcpdump -nn -i any icmp -l
+ip netns exec $netID tcpdump -nn -i any icmp -l
+
+
+
+# clean
+docker remove -f alpine1
+ip netns del $container_id
+ip rule del from all to $ndIP/32 table main prio 512
+ip route del $ndIP/32 dev veth0 scope link
+</code></pre>
+<h2 id="fqa"><a class="header" href="#fqa">FQA</a></h2>
+<ul>
+<li>
+<p>interface docker0 for what?</p>
+<ul>
+<li>docker0 is a bridge interface created by Docker to allow containers to communicate with each other and with the host machine. It is the default bridge network used by Docker.</li>
+</ul>
+</li>
+<li>
+<p>why <code>ip netns</code> not show network namespace of docker?</p>
+<ul>
+<li>
+<p>That's because docker is not creating the reqired symlink:</p>
+<pre><code class="language-bash">pid=$(docker inspect -f '{{.State.Pid}}' ${container_id})
+mkdir -p /var/run/netns/
+ln -sfT /proc/$pid/ns/net /var/run/netns/$container_id
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>debug with tcpdump</p>
+<ul>
+<li><code>tcpdump -i eth0 -nn icmp</code></li>
+<li><code>tcpdump -i any -nn icmp</code></li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../helm-charts/vngcloud-container-network-interface/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../helm-charts/vngcloud-container-network-interface/aws-network.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../helm-charts/vngcloud-container-network-interface/overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../helm-charts/vngcloud-container-network-interface/aws-network.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../../theme/pagetoc.js"></script>
+        
+        
+    </body>
+</html>

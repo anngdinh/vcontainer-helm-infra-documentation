@@ -1,0 +1,477 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>AWS network - vContainer Helm Infra Documentation</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="../../theme/pagetoc.css">
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">vContainer Helm Infa Repository</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/index.html"><strong aria-hidden="true">1.</strong> vContainer Storage Interface Chart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/overview.html"><strong aria-hidden="true">1.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example.html"><strong aria-hidden="true">1.3.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-type.html"><strong aria-hidden="true">1.3.1.</strong> StorageClass based on Volume Type</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/block-volume.html"><strong aria-hidden="true">1.3.2.</strong> Block volume</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-resizing.html"><strong aria-hidden="true">1.3.3.</strong> Volume resizing</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/nfs-server.html"><strong aria-hidden="true">1.3.4.</strong> NFS server</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/index.html"><strong aria-hidden="true">2.</strong> VNGCLOUD Ingress Controller</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/overview.html"><strong aria-hidden="true">2.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/annotations.html"><strong aria-hidden="true">2.3.</strong> Annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/index.html"><strong aria-hidden="true">3.</strong> VNG Cloud Controller Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/overview.html"><strong aria-hidden="true">3.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/installation.html"><strong aria-hidden="true">3.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/annotations.html"><strong aria-hidden="true">3.3.</strong> Annotations</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example.html"><strong aria-hidden="true">3.4.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/internal-loadbalancer.html"><strong aria-hidden="true">3.4.1.</strong> Internal LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/external-loadbalancer.html"><strong aria-hidden="true">3.4.2.</strong> External LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/upd-server.html"><strong aria-hidden="true">3.4.3.</strong> Support UDP protocol</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/http-application.html"><strong aria-hidden="true">3.4.4.</strong> HTTP Application</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.html"><strong aria-hidden="true">3.4.5.</strong> Reuse existing LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-ingress.html"><strong aria-hidden="true">3.4.6.</strong> Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/change-package.html"><strong aria-hidden="true">3.4.7.</strong> Change LoadBalancer package</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-proxy.html"><strong aria-hidden="true">3.4.8.</strong> Nginx Proxy</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/index.html"><strong aria-hidden="true">4.</strong> Migrate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/overview.html"><strong aria-hidden="true">4.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/planning-resource.html"><strong aria-hidden="true">4.2.</strong> Planning Resources for the Target Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-outside-resource.html"><strong aria-hidden="true">4.3.</strong> Migrating Resources Outside a Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/install-tool.html"><strong aria-hidden="true">4.4.</strong> Installing the Migration Tool</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-resource.html"><strong aria-hidden="true">4.5.</strong> Migrating Resources in a Cluster (Velero)</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/update-resource.html"><strong aria-hidden="true">4.6.</strong> Updating Resources Accordingly</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/additional-tasks.html"><strong aria-hidden="true">4.7.</strong> Performing Additional Tasks</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case.html"><strong aria-hidden="true">4.8.</strong> Usecase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vks-to-vks.html"><strong aria-hidden="true">4.8.1.</strong> VKS to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vcontainer-to-vks.html"><strong aria-hidden="true">4.8.2.</strong> vContainer to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/other-to-vks.html"><strong aria-hidden="true">4.8.3.</strong> Other cloud to VKS</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage.html"><strong aria-hidden="true">4.9.</strong> More usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/prepare-velero.html"><strong aria-hidden="true">4.9.1.</strong> Prepare Velero</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/deploy-sample-app.html"><strong aria-hidden="true">4.9.2.</strong> Deploy sample app</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/minio.html"><strong aria-hidden="true">4.9.3.</strong> Setup Minio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/troubleshooting.html"><strong aria-hidden="true">4.9.4.</strong> Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/index.html"><strong aria-hidden="true">5.</strong> CNI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/overview.html"><strong aria-hidden="true">5.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html"><strong aria-hidden="true">5.2.</strong> Container the Hard way</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-network.html" class="active"><strong aria-hidden="true">5.3.</strong> AWS network</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/cilium.html"><strong aria-hidden="true">5.4.</strong> Cilium</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/ops-the-hardway.html"><strong aria-hidden="true">5.5.</strong> OPS the hardway</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html"><strong aria-hidden="true">5.6.</strong> AWS trunk network</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/index.html"><strong aria-hidden="true">6.</strong> Fleet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/GKEVPN-strongswan.html"><strong aria-hidden="true">6.1.</strong> GKEVPN StrongSwan</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/istio.html"><strong aria-hidden="true">6.2.</strong> Istio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt.html"><strong aria-hidden="true">6.3.</strong> Cert Manager + Let's Encrypt + Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt-vngcloud.html"><strong aria-hidden="true">6.4.</strong> Cert Manager + Let's Encrypt + VNGCLOUD Ingress</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/english/index.html"><strong aria-hidden="true">7.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/english/speaking.html"><strong aria-hidden="true">7.1.</strong> Speaking</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing_1.html"><strong aria-hidden="true">7.2.</strong> Writing task 1</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing.html"><strong aria-hidden="true">7.3.</strong> Writing task 2</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/vocab.html"><strong aria-hidden="true">7.4.</strong> Vocabulary</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">vContainer Helm Infra Documentation</h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="aws-network"><a class="header" href="#aws-network">AWS network</a></h1>
+<pre><code class="language-bash"># k get pod -owide -A
+NAMESPACE     NAME                                READY   STATUS    RESTARTS   AGE     IP              NODE                                               NOMINATED NODE   READINESS GATES
+default       nsenter-5jrzw3                      1/1     Running   0          26m     172.31.23.106   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       nsenter-gvq1fj                      1/1     Running   0          26m     172.31.23.106   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-24fd2   1/1     Running   0          16s     172.31.9.248    ip-172-31-13-227.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-6bpvt   1/1     Running   0          16s     172.31.2.37     ip-172-31-13-227.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-864wk   1/1     Running   0          16s     172.31.16.74    ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-l9vvr   1/1     Running   0          16s     172.31.23.163   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-nhnh4   1/1     Running   0          16s     172.31.20.235   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-pcjns   1/1     Running   0          16s     172.31.10.237   ip-172-31-13-227.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-qbtvx   1/1     Running   0          16s     172.31.21.208   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-qqnzp   1/1     Running   0          16s     172.31.19.13    ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-sfsrf   1/1     Running   0          16s     172.31.10.85    ip-172-31-13-227.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+default       pause-pods-prefix-c4587fcb4-sttvn   1/1     Running   0          16s     172.31.12.39    ip-172-31-13-227.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+kube-system   aws-node-bx8hl                      2/2     Running   0          4m46s   172.31.13.227   ip-172-31-13-227.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+kube-system   aws-node-d8pc9                      2/2     Running   0          6h31m   172.31.23.106   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+kube-system   coredns-585d4c556b-47scf            1/1     Running   0          6h50m   172.31.20.89    ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+kube-system   coredns-585d4c556b-7sxzp            1/1     Running   0          6h50m   172.31.31.116   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+kube-system   eks-pod-identity-agent-89d5d        1/1     Running   0          6h31m   172.31.23.106   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+kube-system   eks-pod-identity-agent-prgbn        1/1     Running   0          4m46s   172.31.13.227   ip-172-31-13-227.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+kube-system   kube-proxy-n9l4h                    1/1     Running   0          6h31m   172.31.23.106   ip-172-31-23-106.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+kube-system   kube-proxy-t88cb                    1/1     Running   0          4m46s   172.31.13.227   ip-172-31-13-227.ap-southeast-2.compute.internal   &lt;none&gt;           &lt;none&gt;
+</code></pre>
+<h2 id="node-1"><a class="header" href="#node-1">Node 1</a></h2>
+<ul>
+<li>Public IPv4 address: 54.153.217.27</li>
+<li>Private IPv4 addresses
+<ul>
+<li>172.31.23.93</li>
+<li>172.31.23.106</li>
+</ul>
+</li>
+<li>Secondary private IPv4 addresses
+<ul>
+<li>172.31.19.13</li>
+<li>172.31.16.74</li>
+<li>172.31.26.201</li>
+<li>172.31.27.54</li>
+<li>172.31.29.4</li>
+<li>172.31.20.235</li>
+<li>172.31.20.89</li>
+<li>172.31.31.116</li>
+<li>172.31.23.163</li>
+<li>172.31.21.208</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash"># ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc mq state UP group default qlen 1000
+    link/ether 0a:9b:38:f3:3d:6d brd ff:ff:ff:ff:ff:ff
+    inet 172.31.23.106/20 brd 172.31.31.255 scope global dynamic eth0
+       valid_lft 2141sec preferred_lft 2141sec
+    inet6 fe80::89b:38ff:fef3:3d6d/64 scope link 
+       valid_lft forever preferred_lft forever
+3: dummy0: &lt;BROADCAST,NOARP&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 8e:f2:23:9c:a6:7c brd ff:ff:ff:ff:ff:ff
+4: pod-id-link0: &lt;BROADCAST,NOARP,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether 7a:09:8c:86:4a:33 brd ff:ff:ff:ff:ff:ff
+    inet 169.254.170.23/32 scope global pod-id-link0
+       valid_lft forever preferred_lft forever
+    inet6 fd00:ec2::23/128 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::7809:8cff:fe86:4a33/64 scope link 
+       valid_lft forever preferred_lft forever
+5: eni8ca2e41546c@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc noqueue state UP group default 
+    link/ether 3a:26:c2:5b:d2:11 brd ff:ff:ff:ff:ff:ff link-netns cni-985a4f52-28eb-4b08-8146-3b8bc14f6369
+    inet6 fe80::3826:c2ff:fe5b:d211/64 scope link 
+       valid_lft forever preferred_lft forever
+6: eni1b7730a1e08@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc noqueue state UP group default 
+    link/ether 5a:d3:e7:07:5a:3f brd ff:ff:ff:ff:ff:ff link-netns cni-4663c64a-2a03-30da-7b8b-71e2c5ae267a
+    inet6 fe80::58d3:e7ff:fe07:5a3f/64 scope link 
+       valid_lft forever preferred_lft forever
+7: eth1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc mq state UP group default qlen 1000
+    link/ether 0a:ba:0e:a0:e6:f3 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.23.93/20 brd 172.31.31.255 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::8ba:eff:fea0:e6f3/64 scope link 
+       valid_lft forever preferred_lft forever
+8: eni71f112c4c56@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc noqueue state UP group default 
+    link/ether 46:6b:03:e7:2a:17 brd ff:ff:ff:ff:ff:ff link-netns cni-29b5491c-f30d-09ca-de23-59ab24813625
+    inet6 fe80::446b:3ff:fee7:2a17/64 scope link 
+       valid_lft forever preferred_lft forever
+9: eni018c0830860@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc noqueue state UP group default 
+    link/ether 1a:ba:ae:72:a7:be brd ff:ff:ff:ff:ff:ff link-netns cni-b2df6e62-aa23-bb52-1b65-83e0198e3396
+    inet6 fe80::18ba:aeff:fe72:a7be/64 scope link 
+       valid_lft forever preferred_lft forever
+10: eni1964f948075@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc noqueue state UP group default 
+    link/ether 42:94:e3:c1:c1:a5 brd ff:ff:ff:ff:ff:ff link-netns cni-4e0ae6c8-39e2-c857-336b-be4ffa69663c
+    inet6 fe80::4094:e3ff:fec1:c1a5/64 scope link 
+       valid_lft forever preferred_lft forever
+11: enied57175cab5@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc noqueue state UP group default 
+    link/ether c6:67:46:2a:8c:f0 brd ff:ff:ff:ff:ff:ff link-netns cni-f8f930b0-0e97-b354-bcc8-b461f63b2191
+    inet6 fe80::c467:46ff:fe2a:8cf0/64 scope link 
+       valid_lft forever preferred_lft forever
+12: eni81b9597469c@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc noqueue state UP group default 
+    link/ether 9a:fe:73:f9:e9:15 brd ff:ff:ff:ff:ff:ff link-netns cni-74093a17-65aa-d6ab-3461-6e28f1d1c4ee
+    inet6 fe80::98fe:73ff:fef9:e915/64 scope link 
+       valid_lft forever preferred_lft forever
+13: eth2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc mq state UP group default qlen 1000
+    link/ether 0a:f0:85:1c:7e:8b brd ff:ff:ff:ff:ff:ff
+    inet 172.31.18.110/20 brd 172.31.31.255 scope global eth2
+       valid_lft forever preferred_lft forever
+    inet6 fe80::8f0:85ff:fe1c:7e8b/64 scope link 
+       valid_lft forever preferred_lft forever
+
+# ip route
+default via 172.31.16.1 dev eth0 
+169.254.169.254 dev eth0 
+169.254.170.23 dev pod-id-link0 
+172.31.16.0/20 dev eth0 proto kernel scope link src 172.31.23.106 
+172.31.16.74 dev eni81b9597469c scope link 
+172.31.19.13 dev eni1964f948075 scope link 
+172.31.20.89 dev eni8ca2e41546c scope link 
+172.31.20.235 dev eni71f112c4c56 scope link 
+172.31.21.208 dev enied57175cab5 scope link 
+172.31.23.163 dev eni018c0830860 scope link 
+172.31.31.116 dev eni1b7730a1e08 scope link
+
+# ip netns
+cni-74093a17-65aa-d6ab-3461-6e28f1d1c4ee (id: 6)
+cni-f8f930b0-0e97-b354-bcc8-b461f63b2191 (id: 5)
+cni-4e0ae6c8-39e2-c857-336b-be4ffa69663c (id: 4)
+cni-b2df6e62-aa23-bb52-1b65-83e0198e3396 (id: 3)
+cni-29b5491c-f30d-09ca-de23-59ab24813625 (id: 2)
+cni-4663c64a-2a03-30da-7b8b-71e2c5ae267a (id: 1)
+cni-985a4f52-28eb-4b08-8146-3b8bc14f6369 (id: 0)
+
+# iptables -S
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-N KUBE-EXTERNAL-SERVICES
+-N KUBE-FIREWALL
+-N KUBE-FORWARD
+-N KUBE-KUBELET-CANARY
+-N KUBE-NODEPORTS
+-N KUBE-PROXY-CANARY
+-N KUBE-PROXY-FIREWALL
+-N KUBE-SERVICES
+-A INPUT -m conntrack --ctstate NEW -m comment --comment &quot;kubernetes load balancer firewall&quot; -j KUBE-PROXY-FIREWALL
+-A INPUT -m comment --comment &quot;kubernetes health check service ports&quot; -j KUBE-NODEPORTS
+-A INPUT -m conntrack --ctstate NEW -m comment --comment &quot;kubernetes externally-visible service portals&quot; -j KUBE-EXTERNAL-SERVICES
+-A INPUT -j KUBE-FIREWALL
+-A FORWARD -m conntrack --ctstate NEW -m comment --comment &quot;kubernetes load balancer firewall&quot; -j KUBE-PROXY-FIREWALL
+-A FORWARD -m comment --comment &quot;kubernetes forwarding rules&quot; -j KUBE-FORWARD
+-A FORWARD -m conntrack --ctstate NEW -m comment --comment &quot;kubernetes service portals&quot; -j KUBE-SERVICES
+-A FORWARD -m conntrack --ctstate NEW -m comment --comment &quot;kubernetes externally-visible service portals&quot; -j KUBE-EXTERNAL-SERVICES
+-A OUTPUT -m conntrack --ctstate NEW -m comment --comment &quot;kubernetes load balancer firewall&quot; -j KUBE-PROXY-FIREWALL
+-A OUTPUT -m conntrack --ctstate NEW -m comment --comment &quot;kubernetes service portals&quot; -j KUBE-SERVICES
+-A OUTPUT -j KUBE-FIREWALL
+-A KUBE-FIREWALL ! -s 127.0.0.0/8 -d 127.0.0.0/8 -m comment --comment &quot;block incoming localnet connections&quot; -m conntrack ! --ctstate RELATED,ESTABLISHED,DNAT -j DROP
+-A KUBE-FORWARD -m conntrack --ctstate INVALID -j DROP
+-A KUBE-FORWARD -m comment --comment &quot;kubernetes forwarding rules&quot; -m mark --mark 0x4000/0x4000 -j ACCEPT
+-A KUBE-FORWARD -m comment --comment &quot;kubernetes forwarding conntrack rule&quot; -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+# iptables -S -t nat
+-P PREROUTING ACCEPT
+-P INPUT ACCEPT
+-P OUTPUT ACCEPT
+-P POSTROUTING ACCEPT
+-N AWS-CONNMARK-CHAIN-0
+-N AWS-SNAT-CHAIN-0
+-N KUBE-KUBELET-CANARY
+-N KUBE-MARK-MASQ
+-N KUBE-NODEPORTS
+-N KUBE-POSTROUTING
+-N KUBE-PROXY-CANARY
+-N KUBE-SEP-4Q7QKBPQIGERYJJG
+-N KUBE-SEP-5G5ZT6GHEYO6CPKS
+-N KUBE-SEP-A7FK4LHINPNK7Q5J
+-N KUBE-SEP-BSTQKTLB6FGFPDSM
+-N KUBE-SEP-D5RN5V5QF2KONWHX
+-N KUBE-SEP-GXZWWE44MTMMWHS2
+-N KUBE-SEP-J43VA3HIT5MEHOVJ
+-N KUBE-SEP-LJIAG6FIAF24EE5Y
+-N KUBE-SERVICES
+-N KUBE-SVC-ERIFXISQEP7F7OF4
+-N KUBE-SVC-JD5MR3NA4I4DYORP
+-N KUBE-SVC-NPX46M4PTMTKRN6Y
+-N KUBE-SVC-TCOU7JCQXEZGVUNU
+-A PREROUTING -m comment --comment &quot;kubernetes service portals&quot; -j KUBE-SERVICES
+-A PREROUTING -i eni+ -m comment --comment &quot;AWS, outbound connections&quot; -j AWS-CONNMARK-CHAIN-0
+-A PREROUTING -m comment --comment &quot;AWS, CONNMARK&quot; -j CONNMARK --restore-mark --nfmask 0x80 --ctmask 0x80
+-A OUTPUT -m comment --comment &quot;kubernetes service portals&quot; -j KUBE-SERVICES
+-A POSTROUTING -m comment --comment &quot;kubernetes postrouting rules&quot; -j KUBE-POSTROUTING
+-A POSTROUTING -m comment --comment &quot;AWS SNAT CHAIN&quot; -j AWS-SNAT-CHAIN-0
+-A AWS-CONNMARK-CHAIN-0 -d 172.31.0.0/16 -m comment --comment &quot;AWS CONNMARK CHAIN, VPC CIDR&quot; -j RETURN
+-A AWS-CONNMARK-CHAIN-0 -m comment --comment &quot;AWS, CONNMARK&quot; -j CONNMARK --set-xmark 0x80/0x80
+-A AWS-SNAT-CHAIN-0 -d 172.31.0.0/16 -m comment --comment &quot;AWS SNAT CHAIN&quot; -j RETURN
+-A AWS-SNAT-CHAIN-0 ! -o vlan+ -m comment --comment &quot;AWS, SNAT&quot; -m addrtype ! --dst-type LOCAL -j SNAT --to-source 172.31.23.106 --random-fully
+-A KUBE-MARK-MASQ -j MARK --set-xmark 0x4000/0x4000
+-A KUBE-POSTROUTING -m mark ! --mark 0x4000/0x4000 -j RETURN
+-A KUBE-POSTROUTING -j MARK --set-xmark 0x4000/0x0
+-A KUBE-POSTROUTING -m comment --comment &quot;kubernetes service traffic requiring SNAT&quot; -j MASQUERADE --random-fully
+-A KUBE-SEP-4Q7QKBPQIGERYJJG -s 172.31.31.116/32 -m comment --comment &quot;kube-system/kube-dns:dns-tcp&quot; -j KUBE-MARK-MASQ
+-A KUBE-SEP-4Q7QKBPQIGERYJJG -p tcp -m comment --comment &quot;kube-system/kube-dns:dns-tcp&quot; -m tcp -j DNAT --to-destination 172.31.31.116:53
+-A KUBE-SEP-5G5ZT6GHEYO6CPKS -s 172.31.20.89/32 -m comment --comment &quot;kube-system/kube-dns:dns&quot; -j KUBE-MARK-MASQ
+-A KUBE-SEP-5G5ZT6GHEYO6CPKS -p udp -m comment --comment &quot;kube-system/kube-dns:dns&quot; -m udp -j DNAT --to-destination 172.31.20.89:53
+-A KUBE-SEP-A7FK4LHINPNK7Q5J -s 172.31.14.42/32 -m comment --comment &quot;default/kubernetes:https&quot; -j KUBE-MARK-MASQ
+-A KUBE-SEP-A7FK4LHINPNK7Q5J -p tcp -m comment --comment &quot;default/kubernetes:https&quot; -m tcp -j DNAT --to-destination 172.31.14.42:443
+-A KUBE-SEP-BSTQKTLB6FGFPDSM -s 172.31.20.89/32 -m comment --comment &quot;kube-system/kube-dns:metrics&quot; -j KUBE-MARK-MASQ
+-A KUBE-SEP-BSTQKTLB6FGFPDSM -p tcp -m comment --comment &quot;kube-system/kube-dns:metrics&quot; -m tcp -j DNAT --to-destination 172.31.20.89:9153
+-A KUBE-SEP-D5RN5V5QF2KONWHX -s 172.31.20.89/32 -m comment --comment &quot;kube-system/kube-dns:dns-tcp&quot; -j KUBE-MARK-MASQ
+-A KUBE-SEP-D5RN5V5QF2KONWHX -p tcp -m comment --comment &quot;kube-system/kube-dns:dns-tcp&quot; -m tcp -j DNAT --to-destination 172.31.20.89:53
+-A KUBE-SEP-GXZWWE44MTMMWHS2 -s 172.31.31.116/32 -m comment --comment &quot;kube-system/kube-dns:metrics&quot; -j KUBE-MARK-MASQ
+-A KUBE-SEP-GXZWWE44MTMMWHS2 -p tcp -m comment --comment &quot;kube-system/kube-dns:metrics&quot; -m tcp -j DNAT --to-destination 172.31.31.116:9153
+-A KUBE-SEP-J43VA3HIT5MEHOVJ -s 172.31.31.116/32 -m comment --comment &quot;kube-system/kube-dns:dns&quot; -j KUBE-MARK-MASQ
+-A KUBE-SEP-J43VA3HIT5MEHOVJ -p udp -m comment --comment &quot;kube-system/kube-dns:dns&quot; -m udp -j DNAT --to-destination 172.31.31.116:53
+-A KUBE-SEP-LJIAG6FIAF24EE5Y -s 172.31.37.201/32 -m comment --comment &quot;default/kubernetes:https&quot; -j KUBE-MARK-MASQ
+-A KUBE-SEP-LJIAG6FIAF24EE5Y -p tcp -m comment --comment &quot;default/kubernetes:https&quot; -m tcp -j DNAT --to-destination 172.31.37.201:443
+-A KUBE-SERVICES -d 10.100.0.10/32 -p tcp -m comment --comment &quot;kube-system/kube-dns:metrics cluster IP&quot; -m tcp --dport 9153 -j KUBE-SVC-JD5MR3NA4I4DYORP
+-A KUBE-SERVICES -d 10.100.0.1/32 -p tcp -m comment --comment &quot;default/kubernetes:https cluster IP&quot; -m tcp --dport 443 -j KUBE-SVC-NPX46M4PTMTKRN6Y
+-A KUBE-SERVICES -d 10.100.0.10/32 -p udp -m comment --comment &quot;kube-system/kube-dns:dns cluster IP&quot; -m udp --dport 53 -j KUBE-SVC-TCOU7JCQXEZGVUNU
+-A KUBE-SERVICES -d 10.100.0.10/32 -p tcp -m comment --comment &quot;kube-system/kube-dns:dns-tcp cluster IP&quot; -m tcp --dport 53 -j KUBE-SVC-ERIFXISQEP7F7OF4
+-A KUBE-SERVICES -m comment --comment &quot;kubernetes service nodeports; NOTE: this must be the last rule in this chain&quot; -m addrtype --dst-type LOCAL -j KUBE-NODEPORTS
+-A KUBE-SVC-ERIFXISQEP7F7OF4 -m comment --comment &quot;kube-system/kube-dns:dns-tcp -&gt; 172.31.20.89:53&quot; -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-D5RN5V5QF2KONWHX
+-A KUBE-SVC-ERIFXISQEP7F7OF4 -m comment --comment &quot;kube-system/kube-dns:dns-tcp -&gt; 172.31.31.116:53&quot; -j KUBE-SEP-4Q7QKBPQIGERYJJG
+-A KUBE-SVC-JD5MR3NA4I4DYORP -m comment --comment &quot;kube-system/kube-dns:metrics -&gt; 172.31.20.89:9153&quot; -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-BSTQKTLB6FGFPDSM
+-A KUBE-SVC-JD5MR3NA4I4DYORP -m comment --comment &quot;kube-system/kube-dns:metrics -&gt; 172.31.31.116:9153&quot; -j KUBE-SEP-GXZWWE44MTMMWHS2
+-A KUBE-SVC-NPX46M4PTMTKRN6Y -m comment --comment &quot;default/kubernetes:https -&gt; 172.31.14.42:443&quot; -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-A7FK4LHINPNK7Q5J
+-A KUBE-SVC-NPX46M4PTMTKRN6Y -m comment --comment &quot;default/kubernetes:https -&gt; 172.31.37.201:443&quot; -j KUBE-SEP-LJIAG6FIAF24EE5Y
+-A KUBE-SVC-TCOU7JCQXEZGVUNU -m comment --comment &quot;kube-system/kube-dns:dns -&gt; 172.31.20.89:53&quot; -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-5G5ZT6GHEYO6CPKS
+-A KUBE-SVC-TCOU7JCQXEZGVUNU -m comment --comment &quot;kube-system/kube-dns:dns -&gt; 172.31.31.116:53&quot; -j KUBE-SEP-J43VA3HIT5MEHOVJ
+
+# arp -n
+Address                  HWtype  HWaddress           Flags Mask            Iface
+169.254.169.254          ether   0a:59:75:53:a7:1a   C                     eth0
+172.31.21.208            ether   fa:18:ad:51:c7:1b   C                     enied57175cab5
+172.31.20.89             ether   7e:66:05:68:72:3d   C                     eni8ca2e41546c
+172.31.31.116            ether   be:cd:2a:2f:74:94   C                     eni1b7730a1e08
+172.31.16.1              ether   0a:59:75:53:a7:1a   C                     eth0
+</code></pre>
+<pre><code class="language-bash"># ip netns exec cni-b2df6e62-aa23-bb52-1b65-83e0198e3396 ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+3: eth0@if9: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 9001 qdisc noqueue state UP group default 
+    link/ether 8e:c5:8b:36:64:f4 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 172.31.23.163/32 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::8cc5:8bff:fe36:64f4/64 scope link 
+       valid_lft forever preferred_lft forever
+
+# ip netns exec cni-b2df6e62-aa23-bb52-1b65-83e0198e3396 ip route
+default via 169.254.1.1 dev eth0 
+169.254.1.1 dev eth0 scope link
+
+# ip netns exec cni-b2df6e62-aa23-bb52-1b65-83e0198e3396 iptables -S
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+# ip netns exec cni-b2df6e62-aa23-bb52-1b65-83e0198e3396 iptables -S -t nat
+-P PREROUTING ACCEPT
+-P INPUT ACCEPT
+-P OUTPUT ACCEPT
+-P POSTROUTING ACCEPT
+
+# ip netns exec cni-b2df6e62-aa23-bb52-1b65-83e0198e3396 ping 172.31.16.1
+# ip netns exec cni-b2df6e62-aa23-bb52-1b65-83e0198e3396 arp -n
+Address                  HWtype  HWaddress           Flags Mask            Iface
+172.31.23.106            ether   1a:ba:ae:72:a7:be   C                     eth0
+169.254.1.1              ether   1a:ba:ae:72:a7:be   CM                    eth0
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../helm-charts/vngcloud-container-network-interface/cilium.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../helm-charts/vngcloud-container-network-interface/cilium.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../../theme/pagetoc.js"></script>
+        
+        
+    </body>
+</html>

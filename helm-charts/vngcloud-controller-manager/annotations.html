@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Annotations - vContainer Helm Infra Documentation</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="../../theme/pagetoc.css">
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">vContainer Helm Infa Repository</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/index.html"><strong aria-hidden="true">1.</strong> vContainer Storage Interface Chart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/overview.html"><strong aria-hidden="true">1.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example.html"><strong aria-hidden="true">1.3.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-type.html"><strong aria-hidden="true">1.3.1.</strong> StorageClass based on Volume Type</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/block-volume.html"><strong aria-hidden="true">1.3.2.</strong> Block volume</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-resizing.html"><strong aria-hidden="true">1.3.3.</strong> Volume resizing</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/nfs-server.html"><strong aria-hidden="true">1.3.4.</strong> NFS server</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/index.html"><strong aria-hidden="true">2.</strong> VNGCLOUD Ingress Controller</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/overview.html"><strong aria-hidden="true">2.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/annotations.html"><strong aria-hidden="true">2.3.</strong> Annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/index.html"><strong aria-hidden="true">3.</strong> VNG Cloud Controller Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/overview.html"><strong aria-hidden="true">3.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/installation.html"><strong aria-hidden="true">3.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/annotations.html" class="active"><strong aria-hidden="true">3.3.</strong> Annotations</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example.html"><strong aria-hidden="true">3.4.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/internal-loadbalancer.html"><strong aria-hidden="true">3.4.1.</strong> Internal LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/external-loadbalancer.html"><strong aria-hidden="true">3.4.2.</strong> External LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/upd-server.html"><strong aria-hidden="true">3.4.3.</strong> Support UDP protocol</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/http-application.html"><strong aria-hidden="true">3.4.4.</strong> HTTP Application</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.html"><strong aria-hidden="true">3.4.5.</strong> Reuse existing LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-ingress.html"><strong aria-hidden="true">3.4.6.</strong> Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/change-package.html"><strong aria-hidden="true">3.4.7.</strong> Change LoadBalancer package</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-proxy.html"><strong aria-hidden="true">3.4.8.</strong> Nginx Proxy</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/index.html"><strong aria-hidden="true">4.</strong> Migrate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/overview.html"><strong aria-hidden="true">4.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/planning-resource.html"><strong aria-hidden="true">4.2.</strong> Planning Resources for the Target Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-outside-resource.html"><strong aria-hidden="true">4.3.</strong> Migrating Resources Outside a Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/install-tool.html"><strong aria-hidden="true">4.4.</strong> Installing the Migration Tool</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-resource.html"><strong aria-hidden="true">4.5.</strong> Migrating Resources in a Cluster (Velero)</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/update-resource.html"><strong aria-hidden="true">4.6.</strong> Updating Resources Accordingly</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/additional-tasks.html"><strong aria-hidden="true">4.7.</strong> Performing Additional Tasks</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case.html"><strong aria-hidden="true">4.8.</strong> Usecase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vks-to-vks.html"><strong aria-hidden="true">4.8.1.</strong> VKS to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vcontainer-to-vks.html"><strong aria-hidden="true">4.8.2.</strong> vContainer to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/other-to-vks.html"><strong aria-hidden="true">4.8.3.</strong> Other cloud to VKS</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage.html"><strong aria-hidden="true">4.9.</strong> More usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/prepare-velero.html"><strong aria-hidden="true">4.9.1.</strong> Prepare Velero</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/deploy-sample-app.html"><strong aria-hidden="true">4.9.2.</strong> Deploy sample app</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/minio.html"><strong aria-hidden="true">4.9.3.</strong> Setup Minio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/troubleshooting.html"><strong aria-hidden="true">4.9.4.</strong> Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/index.html"><strong aria-hidden="true">5.</strong> CNI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/overview.html"><strong aria-hidden="true">5.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html"><strong aria-hidden="true">5.2.</strong> Container the Hard way</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-network.html"><strong aria-hidden="true">5.3.</strong> AWS network</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/cilium.html"><strong aria-hidden="true">5.4.</strong> Cilium</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/ops-the-hardway.html"><strong aria-hidden="true">5.5.</strong> OPS the hardway</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html"><strong aria-hidden="true">5.6.</strong> AWS trunk network</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/index.html"><strong aria-hidden="true">6.</strong> Fleet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/GKEVPN-strongswan.html"><strong aria-hidden="true">6.1.</strong> GKEVPN StrongSwan</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/istio.html"><strong aria-hidden="true">6.2.</strong> Istio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt.html"><strong aria-hidden="true">6.3.</strong> Cert Manager + Let's Encrypt + Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt-vngcloud.html"><strong aria-hidden="true">6.4.</strong> Cert Manager + Let's Encrypt + VNGCLOUD Ingress</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/english/index.html"><strong aria-hidden="true">7.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/english/speaking.html"><strong aria-hidden="true">7.1.</strong> Speaking</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing_1.html"><strong aria-hidden="true">7.2.</strong> Writing task 1</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing.html"><strong aria-hidden="true">7.3.</strong> Writing task 2</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/vocab.html"><strong aria-hidden="true">7.4.</strong> Vocabulary</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">vContainer Helm Infra Documentation</h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="annotations"><a class="header" href="#annotations">Annotations</a></h1>
+<table><thead><tr><th>VNGCLOUD</th><th>Type</th><th>Default</th></tr></thead><tbody>
+<tr><td><a href="#ignore">/ignore</a></td><td>boolean</td><td>false</td></tr>
+<tr><td><a href="#load-balancer-id">/load-balancer-id</a></td><td>string</td><td></td></tr>
+<tr><td><a href="#load-balancer-name">/load-balancer-name</a></td><td>string</td><td>auto generate with rule</td></tr>
+<tr><td><a href="#package-id">/package-id</a></td><td>string</td><td>lbp-f562b658-0fd4-4fa6-9c57-c1a803ccbf86</td></tr>
+<tr><td><a href="#tags">/tags</a></td><td>stringMap</td><td></td></tr>
+<tr><td><a href="#scheme">/scheme</a></td><td>internal / internet-facing</td><td>internet-facing</td></tr>
+<tr><td><a href="#security-groups">/security-groups</a></td><td>stringList</td><td></td></tr>
+<tr><td><a href="#inbound-cidrs">/inbound-cidrs</a></td><td>string</td><td>0.0.0.0/0</td></tr>
+<tr><td><a href="#healthy-threshold-count">/healthy-threshold-count</a></td><td>integer</td><td>'3'</td></tr>
+<tr><td><a href="#unhealthy-threshold-count">/unhealthy-threshold-count</a></td><td>integer</td><td>'3'</td></tr>
+<tr><td><a href="#healthcheck-interval-seconds">/healthcheck-interval-seconds</a></td><td>integer</td><td>'30'</td></tr>
+<tr><td><a href="#healthcheck-timeout-seconds">/healthcheck-timeout-seconds</a></td><td>integer</td><td>'5'</td></tr>
+<tr><td><a href="#healthcheck-protocol">/healthcheck-protocol</a></td><td>TCP / HTTP / HTTPS / PING-UDP</td><td>TCP</td></tr>
+<tr><td><a href="#healthcheck-http-method">/healthcheck-http-method</a></td><td>GET / POST / PUT</td><td>GET</td></tr>
+<tr><td><a href="#healthcheck-path">/healthcheck-path</a></td><td>string</td><td>&quot;/&quot;</td></tr>
+<tr><td><a href="#healthcheck-http-version">/healthcheck-http-version</a></td><td>1.0 / 1.1</td><td>1.0</td></tr>
+<tr><td><a href="#healthcheck-http-domain-name">/healthcheck-http-domain-name</a></td><td>string</td><td>&quot;&quot;</td></tr>
+<tr><td><a href="#healthcheck-port">/healthcheck-port</a></td><td>integer</td><td>traffic port</td></tr>
+<tr><td><a href="#success-codes">/success-codes</a></td><td>stringList</td><td>'200'</td></tr>
+<tr><td><a href="#idle-timeout-client">/idle-timeout-client</a></td><td>integer</td><td>50</td></tr>
+<tr><td><a href="#idle-timeout-member">/idle-timeout-member</a></td><td>integer</td><td>50</td></tr>
+<tr><td><a href="#idle-timeout-connection">/idle-timeout-connection</a></td><td>integer</td><td>5</td></tr>
+<tr><td><a href="#pool-algorithm">/pool-algorithm</a></td><td>ROUND_ROBIN / LEAST_CONNECTIONS / SOURCE_IP</td><td>ROUND_ROBIN</td></tr>
+<tr><td><a href="#target-node-labels">/target-node-labels</a></td><td>stringMap</td><td>N/A</td></tr>
+<tr><td><a href="#enable-proxy-protocol">/enable-proxy-protocol</a></td><td>stringList</td><td>N/A</td></tr>
+</tbody></table>
+<h2 id="traffic-routing"><a class="header" href="#traffic-routing">Traffic Routing</a></h2>
+<p>Traffic Routing can be controlled with following annotations:</p>
+<ul>
+<li>
+<p><a name="ignore"><code>vks.vngcloud.vn/ignore</code></a> specifies Service type Loadbalancer is ignored by controller.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/ignore: &quot;true&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="load-balancer-id"><code>vks.vngcloud.vn/load-balancer-id</code></a> specifies the id of the load balancer.</p>
+<blockquote>
+<p><strong>⚠️ Warnings</strong>: If you specify this annotation, load-balancer will not auto recreate when delete.</p>
+<p><strong>⚠️ Warnings</strong>: If you want many ingress use a same load-balancer, we highly recommended use annotation <a href="#load-balancer-name">vks.vngcloud.vn/load-balancer-name</a>.</p>
+</blockquote>
+<pre><code class="language-yaml">vks.vngcloud.vn/load-balancer-id: &quot;lb-xxxxxxxxxxxxxx&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="load-balancer-name"><code>vks.vngcloud.vn/load-balancer-name</code></a> specifies the custom name to use for the load balancer.</p>
+<blockquote>
+<p><strong>ℹ️ Info</strong>: Rule auto genearte load balancer name: <strong>**</strong>**<strong>**</strong>__<strong>**</strong>**<strong>**</strong></p>
+<p><strong>⚠️ Warnings</strong>: Name longer than 50 characters will be treated as an error.</p>
+<p><strong>⚠️ Warnings</strong>: Ingress with same this annotation value with use a same load-balancer.</p>
+<p><strong>⚠️ Warnings</strong>: Update this field will cause create/update another load-balancer and redundant resource (old load-balabncer).</p>
+</blockquote>
+<pre><code class="language-yaml">vks.vngcloud.vn/load-balancer-name: &quot;custom-name&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="package-id"><code>vks.vngcloud.vn/package-id</code></a> The ID of the network load-balancer package to be used for the service. If this annotation is not specified, the default package will be used.</p>
+<blockquote>
+<p><strong>⚠️ Warnings</strong>: Update this field after apply success will not effect.</p>
+</blockquote>
+<pre><code class="language-yaml">vks.vngcloud.vn/package-id: &quot;lbp-c531bc55-27d7-4a3e-be0b-eac265658a50&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="target-node-labels"><code>vks.vngcloud.vn/target-node-labels</code></a> specifies which nodes to include in the target group registration.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/target-node-labels: &quot;worker=vmonitor,kubernetes.io/os=linux&quot;
+vks.vngcloud.vn/target-node-labels: &quot;key=v1,key=v2&quot; # =&gt; &quot;key=v2&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="resource-tags"><a class="header" href="#resource-tags">Resource Tags</a></h2>
+<p>The VNGCLOUD Ingress Controller automatically applies following tags to the Load Balancer resources, it creates:</p>
+<ul>
+<li><code>vks-cluster-ids: ${clusterID}_${clusterID}_${clusterID}</code></li>
+</ul>
+<p>In addition, you can use annotations to specify additional tags</p>
+<ul>
+<li>
+<p><a name="tags"><code>vks.vngcloud.vn/tags</code></a> specifies additional tags that will be applied to vLB resources created.</p>
+<blockquote>
+<p><strong>⚠️ Warnings</strong>: When user update tags manual in portal, our agent will not sync the change (load balancer not update <code>updateAt</code> when update tags)</p>
+<p><strong>⚠️ Warnings</strong>: It'll update the config tag and append to the current tag.</p>
+</blockquote>
+<pre><code class="language-yaml">vks.vngcloud.vn/tags: &quot;Environment=dev,Team=test&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="access-control"><a class="header" href="#access-control">Access control</a></h2>
+<p>Access control for LoadBalancer can be controlled with following annotations:</p>
+<ul>
+<li>
+<p><a name="scheme"><code>vks.vngcloud.vn/scheme</code></a> specifies whether your LoadBalancer will be internet facing.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/scheme: &quot;internal&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="inbound-cidrs"><code>vks.vngcloud.vn/inbound-cidrs</code></a> specifies the CIDRs that are allowed to access LoadBalancer.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/inbound-cidrs: &quot;10.0.0.0/24&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="security-groups"><code>vks.vngcloud.vn/security-groups</code></a> specifies the securityGroups you want to attach to Node.</p>
+<blockquote>
+<p><strong>⚠️ Warnings</strong>: If you NOT specify this annotation, the controller will automatically create one security group, the security group will be attached to the Node and allow access from inbound-cidrs to the listen-ports.</p>
+<p><strong>⚠️ Warnings</strong>: If you specify this annotation, you need to ensure the security groups on your Node to allow inbound traffic from the load balancer.</p>
+<p><strong>⚠️ Warnings</strong>: If you specify this annotation, it'll configure only security group only include in this annotation. Ensure include them all here.</p>
+</blockquote>
+<pre><code class="language-yaml">vks.vngcloud.vn/security-groups: &quot;sg-xxxx,sg-yyyyy&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="idle-timeout-client"><code>vks.vngcloud.vn/idle-timeout-client</code></a> Connection idle timeout is the maximum time a connection can remain open without any data transfer, after which the load balancer will close the connection. Range: (1-3600).</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/idle-timeout-client: &quot;51&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="idle-timeout-member"><code>vks.vngcloud.vn/idle-timeout-member</code></a> Backend member inactivity timeout in seconds. Range: (1-3600).</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/idle-timeout-member: &quot;51&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="idle-timeout-connection"><code>vks.vngcloud.vn/idle-timeout-connection</code></a> Backend member connection timeout in seconds.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/idle-timeout-connection: &quot;5&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="health-check"><a class="header" href="#health-check">Health Check</a></h2>
+<p>Health check on target groups can be controlled with following annotations:</p>
+<ul>
+<li>
+<p><a name="healthcheck-port"><code>vks.vngcloud.vn/healthcheck-port</code></a> specifies the port used when performing health check on targets.</p>
+<blockquote>
+<p><strong>⚠️ Warnings</strong>: The healthcheck port can automatically point to the protocol port.</p>
+</blockquote>
+</li>
+<li>
+<p><a name="healthcheck-protocol"><code>vks.vngcloud.vn/healthcheck-protocol</code></a> specifies the protocol used when performing health check on targets.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/healthcheck-protocol: &quot;HTTP&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="healthcheck-path"><code>vks.vngcloud.vn/healthcheck-path</code></a> specifies the HTTP path when performing health check on targets.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/healthcheck-path: &quot;/ping&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="healthcheck-interval-seconds"><code>vks.vngcloud.vn/healthcheck-interval-seconds</code></a> specifies the interval(in seconds) between health check of an individual target.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/healthcheck-interval-seconds: '10'
+</code></pre>
+</li>
+<li>
+<p><a name="healthcheck-timeout-seconds"><code>vks.vngcloud.vn/healthcheck-timeout-seconds</code></a> specifies the timeout(in seconds) during which no response from a target means a failed health check</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/healthcheck-timeout-seconds: '8'
+</code></pre>
+</li>
+<li>
+<p><a name="healthy-threshold-count"><code>vks.vngcloud.vn/healthy-threshold-count</code></a> specifies the consecutive health checks successes required before considering an unhealthy target healthy.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/healthy-threshold-count: '2'
+</code></pre>
+</li>
+<li>
+<p><a name="unhealthy-threshold-count"><code>vks.vngcloud.vn/unhealthy-threshold-count</code></a> specifies the consecutive health check failures required before considering a target unhealthy.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/unhealthy-threshold-count: '2'
+</code></pre>
+</li>
+<li>
+<p><a name="success-codes"><code>vks.vngcloud.vn/success-codes</code></a> specifies the HTTP status code that should be expected when doing health checks against the specified health check path.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/success-codes: &quot;200,201&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="healthcheck-http-method"><code>vks.vngcloud.vn/healthcheck-http-method</code></a> Define the HTTP method used for sending health check requests to the backend servers.</p>
+<blockquote>
+<p><strong>⚠️ Warnings</strong>: This option is applicable only when the <a href="#healthcheck-protocol">vks.vngcloud.vn/healthcheck-protocol</a> is set to <code>http</code>.</p>
+</blockquote>
+<pre><code class="language-yaml">vks.vngcloud.vn/healthcheck-http-method: &quot;POST&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="healthcheck-http-version"><code>vks.vngcloud.vn/healthcheck-http-version</code></a> Define the HTTP version used for sending health check requests to the backend servers.</p>
+<blockquote>
+<p><strong>⚠️ Warnings</strong>: This option is applicable only when the <a href="#healthcheck-protocol">vks.vngcloud.vn/healthcheck-protocol</a> is set to <code>http</code>.</p>
+</blockquote>
+<pre><code class="language-yaml">vks.vngcloud.vn/healthcheck-http-version: &quot;1.1&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="healthcheck-http-domain-name"><code>vks.vngcloud.vn/healthcheck-http-domain-name</code></a> The domain name, which be injected into the HTTP Host Header to the backend server for HTTP health check.</p>
+<blockquote>
+<p><strong>⚠️ Warnings</strong>: This option is applicable only when the <a href="#healthcheck-protocol">vks.vngcloud.vn/healthcheck-protocol</a> is set to <code>http</code> and <a href="#healthcheck-http-version">vks.vngcloud.vn/healthcheck-http-version</a> is set to <code>1.1</code>.</p>
+</blockquote>
+<pre><code class="language-yaml">vks.vngcloud.vn/healthcheck-http-domain-name: &quot;example.com&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="pool-configuration"><a class="header" href="#pool-configuration">Pool configuration</a></h2>
+<ul>
+<li>
+<p><a name="pool-algorithm"><code>vks.vngcloud.vn/pool-algorithm</code></a> The load balancing algorithm used to determine which backend server to send a request to.</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/pool-algorithm: &quot;SOURCE_IP&quot;
+</code></pre>
+</li>
+<li>
+<p><a name="enable-proxy-protocol"><code>vks.vngcloud.vn/enable-proxy-protocol</code></a> Enable Proxy Protocol for the Load Balancer Pool.</p>
+<p>Assume you have a service nginx-ingress-controller:</p>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ingress-controller-controller
+  namespace: kube-system
+spec:
+  ports:
+  - name: http-service
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  - name: https-service
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  type: LoadBalancer
+</code></pre>
+<p>You can enable Proxy Protocol for the Load Balancer Pool by adding the following annotation:</p>
+<pre><code class="language-yaml">vks.vngcloud.vn/enable-proxy-protocol: &quot;http-service,https-service&quot;
+</code></pre>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../helm-charts/vngcloud-controller-manager/installation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../helm-charts/vngcloud-controller-manager/example.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../helm-charts/vngcloud-controller-manager/installation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../helm-charts/vngcloud-controller-manager/example.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../../theme/pagetoc.js"></script>
+        
+        
+    </body>
+</html>

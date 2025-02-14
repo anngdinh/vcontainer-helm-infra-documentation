@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Speaking - vContainer Helm Infra Documentation</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="../../theme/pagetoc.css">
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">vContainer Helm Infa Repository</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/index.html"><strong aria-hidden="true">1.</strong> vContainer Storage Interface Chart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/overview.html"><strong aria-hidden="true">1.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example.html"><strong aria-hidden="true">1.3.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-type.html"><strong aria-hidden="true">1.3.1.</strong> StorageClass based on Volume Type</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/block-volume.html"><strong aria-hidden="true">1.3.2.</strong> Block volume</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-resizing.html"><strong aria-hidden="true">1.3.3.</strong> Volume resizing</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/nfs-server.html"><strong aria-hidden="true">1.3.4.</strong> NFS server</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/index.html"><strong aria-hidden="true">2.</strong> VNGCLOUD Ingress Controller</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/overview.html"><strong aria-hidden="true">2.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/annotations.html"><strong aria-hidden="true">2.3.</strong> Annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/index.html"><strong aria-hidden="true">3.</strong> VNG Cloud Controller Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/overview.html"><strong aria-hidden="true">3.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/installation.html"><strong aria-hidden="true">3.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/annotations.html"><strong aria-hidden="true">3.3.</strong> Annotations</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example.html"><strong aria-hidden="true">3.4.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/internal-loadbalancer.html"><strong aria-hidden="true">3.4.1.</strong> Internal LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/external-loadbalancer.html"><strong aria-hidden="true">3.4.2.</strong> External LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/upd-server.html"><strong aria-hidden="true">3.4.3.</strong> Support UDP protocol</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/http-application.html"><strong aria-hidden="true">3.4.4.</strong> HTTP Application</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.html"><strong aria-hidden="true">3.4.5.</strong> Reuse existing LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-ingress.html"><strong aria-hidden="true">3.4.6.</strong> Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/change-package.html"><strong aria-hidden="true">3.4.7.</strong> Change LoadBalancer package</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-proxy.html"><strong aria-hidden="true">3.4.8.</strong> Nginx Proxy</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/index.html"><strong aria-hidden="true">4.</strong> Migrate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/overview.html"><strong aria-hidden="true">4.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/planning-resource.html"><strong aria-hidden="true">4.2.</strong> Planning Resources for the Target Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-outside-resource.html"><strong aria-hidden="true">4.3.</strong> Migrating Resources Outside a Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/install-tool.html"><strong aria-hidden="true">4.4.</strong> Installing the Migration Tool</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-resource.html"><strong aria-hidden="true">4.5.</strong> Migrating Resources in a Cluster (Velero)</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/update-resource.html"><strong aria-hidden="true">4.6.</strong> Updating Resources Accordingly</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/additional-tasks.html"><strong aria-hidden="true">4.7.</strong> Performing Additional Tasks</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case.html"><strong aria-hidden="true">4.8.</strong> Usecase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vks-to-vks.html"><strong aria-hidden="true">4.8.1.</strong> VKS to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vcontainer-to-vks.html"><strong aria-hidden="true">4.8.2.</strong> vContainer to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/other-to-vks.html"><strong aria-hidden="true">4.8.3.</strong> Other cloud to VKS</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage.html"><strong aria-hidden="true">4.9.</strong> More usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/prepare-velero.html"><strong aria-hidden="true">4.9.1.</strong> Prepare Velero</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/deploy-sample-app.html"><strong aria-hidden="true">4.9.2.</strong> Deploy sample app</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/minio.html"><strong aria-hidden="true">4.9.3.</strong> Setup Minio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/troubleshooting.html"><strong aria-hidden="true">4.9.4.</strong> Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/index.html"><strong aria-hidden="true">5.</strong> CNI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/overview.html"><strong aria-hidden="true">5.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html"><strong aria-hidden="true">5.2.</strong> Container the Hard way</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-network.html"><strong aria-hidden="true">5.3.</strong> AWS network</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/cilium.html"><strong aria-hidden="true">5.4.</strong> Cilium</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/ops-the-hardway.html"><strong aria-hidden="true">5.5.</strong> OPS the hardway</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html"><strong aria-hidden="true">5.6.</strong> AWS trunk network</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/index.html"><strong aria-hidden="true">6.</strong> Fleet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/GKEVPN-strongswan.html"><strong aria-hidden="true">6.1.</strong> GKEVPN StrongSwan</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/istio.html"><strong aria-hidden="true">6.2.</strong> Istio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt.html"><strong aria-hidden="true">6.3.</strong> Cert Manager + Let's Encrypt + Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt-vngcloud.html"><strong aria-hidden="true">6.4.</strong> Cert Manager + Let's Encrypt + VNGCLOUD Ingress</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/english/index.html"><strong aria-hidden="true">7.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/english/speaking.html" class="active"><strong aria-hidden="true">7.1.</strong> Speaking</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing_1.html"><strong aria-hidden="true">7.2.</strong> Writing task 1</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing.html"><strong aria-hidden="true">7.3.</strong> Writing task 2</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/vocab.html"><strong aria-hidden="true">7.4.</strong> Vocabulary</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">vContainer Helm Infra Documentation</h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="speaking"><a class="header" href="#speaking">Speaking</a></h1>
+<h2 id="catalogue"><a class="header" href="#catalogue">Catalogue</a></h2>
+<ul>
+<li><a href="#speaking">Speaking</a>
+<ul>
+<li><a href="#catalogue">Catalogue</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#some-questions">Some questions</a></li>
+<li><a href="#part-1">Part 1</a>
+<ul>
+<li><a href="#test-110">Test 1.10</a>
+<ul>
+<li><a href="#how-do-you-usually-spend-your-weekends">How do you usually spend your weekends?</a></li>
+<li><a href="#which-is-your-favourite-part-of-the-weekend">Which is your favourite part of the weekend?</a></li>
+<li><a href="#do-you-think-weekends-are-long-enough">Do you think weekends are long enough?</a></li>
+<li><a href="#how-important-do-you-think-it-is-to-have-free-time-at-the-weekends">How important do you think it is to have free time at the weekends?</a></li>
+</ul>
+</li>
+<li><a href="#test-111">Test 1.11</a>
+<ul>
+<li><a href="#what-sorts-of-food-do-you-like-eating-most-why">What sorts of food do you like eating most? (Why?)</a></li>
+<li><a href="#who-normally-does-the-cooking-in-your-home-whywhy-not">Who normally does the cooking in your home? (Why/Why not?)</a></li>
+<li><a href="#do-you-watch-cookery-programmes-on-tv-whywhy-not">Do you watch cookery programmes on TV? (Why/Why not?)</a></li>
+<li><a href="#in-general-do-you-prefer-eating-out-or-eating-at-home-why">In general, do you prefer eating out or eating at home? (Why?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#part-2">Part 2</a>
+<ul>
+<li><a href="#test-210-describe-someone-you-know-who-does-something-well">Test 2.10: Describe someone you know who does something well</a></li>
+<li><a href="#test-211-describe-a-houseapartment-that-someone-you-know-lives-in">Test 2.11: Describe a house/apartment that someone you know lives in</a></li>
+</ul>
+</li>
+<li><a href="#part-3">Part 3</a>
+<ul>
+<li><a href="#test-310">Test 3.10</a>
+<ul>
+<li><a href="#what-skills-and-abilities-do-people-most-want-to-learn-today-why">What skills and abilities do people most want to learn today? Why?</a></li>
+<li><a href="#which-skills-should-children-learn-at-school-are-there-any-skills-they-should-learn-at-home-what-are-they">Which skills should children learn at school? Are there any skills they should learn at home? What are they?</a></li>
+<li><a href="#which-skills-do-you-think-will-be-important-in-the-future-why">Which skills do you think will be important in the future? Why?</a></li>
+</ul>
+</li>
+<li><a href="#test-311">Test 3.11</a>
+<ul>
+<li><a href="#what-kinds-of-home-are-most-popular-in-your-country-why-is-this">What kinds Of home are most popular in your country? Why is this?</a></li>
+<li><a href="#what-do-you-think-are-the-advantages-of-living-in-a-house-rather-than-an-apartment">What do you think are the advantages of living in a house rather than an apartment?</a></li>
+<li><a href="#do-you-think-that-everyone-would-like-to-live-in-a-larger-home-why-is-that">Do you think that everyone would like to live in a larger home? Why is that?</a></li>
+<li><a href="#how-easy-is-it-to-find-a-place-to-live-in-your-country">How easy is it to find a place to live in your country?</a></li>
+<li><a href="#do-you-think-it-is-better-to-rent-or-buy-a-place-to-live-in-why">Do you think it is better to rent or buy a place to live in? Why?</a></li>
+<li><a href="#do-you-agree-that-there-is-a-right-age-for-young-adults-to-stop-living-with-their-parents-why-is-that">Do you agree that there is a right age for young adults to stop living with their parents? Why is that?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<ul>
+<li>My way of learning English speaking is to remmeber the questions and answers.</li>
+<li>You may not need to remember the answers, but you need vocabulary relate to the questions. And I expect all topics are covered here.</li>
+<li>I will try to answer all questions in a simple way first, then I will try to answer them in a more professional way.</li>
+<li>I will try to answer all questions in Cambridge English Test.</li>
+</ul>
+<h2 id="some-questions"><a class="header" href="#some-questions">Some questions</a></h2>
+<ul>
+<li>Do you prefer to live in the city center or in the suburbs?
+<blockquote>
+<p>I prefer to live in the suburbs because it's quieter and fresher. With advanced transportation, I can go to the city center easily. I also want to have a garden to plant some trees and flowers, which is hard to have in the city center.</p>
+</blockquote>
+</li>
+<li>Tell me about your daily routine.
+<blockquote>
+<p>I usually wake up at 8 AM, then I brush my teeth and wash my face. I have breakfast and prepare for work. I go to work at 9 AM and have lunch at 12 PM. I go home at 5 PM and make dinner. After dinner, I usually watch youtube or learn something new. I go to bed at 11 PM.</p>
+</blockquote>
+</li>
+<li>How was your daily routine changed since you were a child?
+<blockquote>
+<p>Well, I think my daily routine doesn't change much since I was a child. Instead of going to school, I go to work now. I also have more free time to do what I want.</p>
+</blockquote>
+</li>
+<li>Is your daily routine the same on weekends?
+<blockquote>
+<p>No, it's not. I have a lot of things to do on weekends. Almost about relaxing and recharging for the week ahead. I usually do some hard workouts, make some dishes that I <strong>have never done before</strong>, or just hang out with my friends.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="part-1"><a class="header" href="#part-1">Part 1</a></h2>
+<h3 id="test-110"><a class="header" href="#test-110">Test 1.10</a></h3>
+<h4 id="how-do-you-usually-spend-your-weekends"><a class="header" href="#how-do-you-usually-spend-your-weekends">How do you usually spend your weekends?</a></h4>
+<blockquote>
+<p><strong>ChatGPT:</strong> I usually spend my weekends relaxing and recharging for the week ahead. In the mornings, I like to sleep in a bit, then enjoy a leisurely breakfast. I often spend time with family or friends, either going out for a meal, watching a movie, or just chatting at home. Sometimes, I use the time to catch up on hobbies like reading or exercising. If the weather is nice, I might go for a walk or explore new places nearby. It's all about finding a balance between relaxation and productivity.</p>
+<p>I usually spend my weekends for leisure activities. There are many things I like to do at the weekends such as hanging out with friends or family, doing hard work out, travelling to some places, or just staying at home. <strong>It's all about</strong> having a work-life balance.</p>
+</blockquote>
+<h4 id="which-is-your-favourite-part-of-the-weekend"><a class="header" href="#which-is-your-favourite-part-of-the-weekend">Which is your favourite part of the weekend?</a></h4>
+<blockquote>
+<p>Well, I don't have a favourite part of the weekend because I like all parts of the weekend. I have many relaxing activities for each part and I enjoy them all. But if I have to choose one, it would be the evenings. I like to have big dinners with my family or friends. I enjoy being arround them and talking about our week. It's a great way to relax and unwind after a busy week.</p>
+</blockquote>
+<h4 id="do-you-think-weekends-are-long-enough"><a class="header" href="#do-you-think-weekends-are-long-enough">Do you think weekends are long enough?</a></h4>
+<blockquote>
+<p>I think 2 days are enough for weekends. I can relax, do my hobbies, or even have a short trip. That is enough for me to recharge my energy for the next week. I think if weekends are longer, I will get bored and my leisure activities will be less interesting.</p>
+</blockquote>
+<h4 id="how-important-do-you-think-it-is-to-have-free-time-at-the-weekends"><a class="header" href="#how-important-do-you-think-it-is-to-have-free-time-at-the-weekends">How important do you think it is to have free time at the weekends?</a></h4>
+<blockquote>
+<p>I think it's very important to have free time at the weekends. It's a time when our relatives may be free the most. It's the most suitable time to gather with family or friends because they usually so busy in the weekdays. So I find it very important to have free time at the weekends.</p>
+</blockquote>
+<h3 id="test-111"><a class="header" href="#test-111">Test 1.11</a></h3>
+<h4 id="what-sorts-of-food-do-you-like-eating-most-why"><a class="header" href="#what-sorts-of-food-do-you-like-eating-most-why">What sorts of food do you like eating most? (Why?)</a></h4>
+<h4 id="who-normally-does-the-cooking-in-your-home-whywhy-not"><a class="header" href="#who-normally-does-the-cooking-in-your-home-whywhy-not">Who normally does the cooking in your home? (Why/Why not?)</a></h4>
+<h4 id="do-you-watch-cookery-programmes-on-tv-whywhy-not"><a class="header" href="#do-you-watch-cookery-programmes-on-tv-whywhy-not">Do you watch cookery programmes on TV? (Why/Why not?)</a></h4>
+<h4 id="in-general-do-you-prefer-eating-out-or-eating-at-home-why"><a class="header" href="#in-general-do-you-prefer-eating-out-or-eating-at-home-why">In general, do you prefer eating out or eating at home? (Why?)</a></h4>
+<h2 id="part-2"><a class="header" href="#part-2">Part 2</a></h2>
+<h3 id="test-210-describe-someone-you-know-who-does-something-well"><a class="header" href="#test-210-describe-someone-you-know-who-does-something-well">Test 2.10: Describe someone you know who does something well</a></h3>
+<ul>
+<li>You should say:
+<ul>
+<li>Who this person is</li>
+<li>What this person does well</li>
+<li>How you know this person</li>
+<li>And explain why you think this person is good at doing this thing</li>
+</ul>
+</li>
+</ul>
+<p>`
+My best friend is a fitness nut - she's always doing something related to fitness in her spare time. In fact some people might even say she's obsessed with it. But, she's also very good at it because she has won competitions for her physique and physical fitness.</p>
+<p>We've been best friends for many years, since elementary school when we first met. She was always good at sports and things like that at school and she played on the soccer team, she also did gymnastics and athletics as well.</p>
+<p>I remember thinking at the time that she would probably go on to do something fitness or sport related in her adult life - maybe even compete in the Olympics or something similar.</p>
+<p>When we were at university together she began to get interested in weight training and physique conditioning. It was actually something we did together for a while, but although I personally like to stay fit I'm not as disciplined or serious about it as she is.</p>
+<p>I still workout with her regularly - but she's at a completely different level from me now of course.</p>
+<p>Last year she decided to compete in her first physique competition and spent a few months training and preparing for it really hard.</p>
+<p>She was so disciplined and dedicated to it I was quite amazed - but in the end she won first place in the competition against many other girls who entered - and they were all in great shape. Her 'obsession' and passion for what she does is what I think makes her really good at it.</p>
+<p>Clearly she had found something she excelled at - and most importantly - thoroughly enjoyed as well.</p>
+<p>Now that we've finished studying she's talking about doing it professionally if she can find a sponsor and she now wants to become certified as a personal trainer and nutritionist rather than pursue a career in business administration, which is what we both majored in at university.</p>
+<p>I'm sure she'll be successful at it because that's the type of person she is - when she wants something she just goes out and gets it or does it - she is so determined it's incredible.</p>
+<p>I'm extremely proud of what she's achieved in the last couple of years because I know it hasn't been easy and I think many people would've given up - but she didn't, she never does.
+`</p>
+<h3 id="test-211-describe-a-houseapartment-that-someone-you-know-lives-in"><a class="header" href="#test-211-describe-a-houseapartment-that-someone-you-know-lives-in">Test 2.11: Describe a house/apartment that someone you know lives in</a></h3>
+<ul>
+<li>You should say:
+<ul>
+<li>Whose house/apartment this is</li>
+<li>where the house/apartment is</li>
+<li>what it looks like inside</li>
+<li>and explain what you like or dislike about this person's house/apartment.</li>
+</ul>
+</li>
+</ul>
+<p><code></code></p>
+<h2 id="part-3"><a class="header" href="#part-3">Part 3</a></h2>
+<h3 id="test-310"><a class="header" href="#test-310">Test 3.10</a></h3>
+<h4 id="what-skills-and-abilities-do-people-most-want-to-learn-today-why"><a class="header" href="#what-skills-and-abilities-do-people-most-want-to-learn-today-why">What skills and abilities do people most want to learn today? Why?</a></h4>
+<blockquote>
+<p>I suppose the most popular skills people want to learn today are technology skills. In this digital age, technology is changing rapidly and people need to <strong>keep up</strong> with the latest trends otherwise they might be left behind. Taking advantage of technology can make our lives easier and more efficient. For example, using social media as a marketing tool can help businesses reach a wider audience. Moreover, with the rise of artificial intelligence, learning how to use AI tools can help them more valuable in the labor market. So, I think technology skills are the most <strong>sought</strong> (san don, find) after today. Additionally, communication and leadership abilities are in demand, as companies look for employees who can collaborate effectively and lead teams.</p>
+</blockquote>
+<h4 id="which-skills-should-children-learn-at-school-are-there-any-skills-they-should-learn-at-home-what-are-they"><a class="header" href="#which-skills-should-children-learn-at-school-are-there-any-skills-they-should-learn-at-home-what-are-they">Which skills should children learn at school? Are there any skills they should learn at home? What are they?</a></h4>
+<blockquote>
+<p>At school, in addition to the academic skills such as reading, writing, and math, children should learn other skills like <strong>teamwork, problem-solving, and critical thinking</strong> (tư duy phản biện). These skills are essential for their future success in education and career.</p>
+<p>At home, children should learn life skills such as <strong>cooking, cleaning, and managing finances</strong>. These skills are required for personal development to become <strong>independent and well-rounded</strong> (độc lập và toàn diện) individuals.</p>
+<p>Both school and home play a vital role in shaping a child's skills and character.</p>
+</blockquote>
+<h4 id="which-skills-do-you-think-will-be-important-in-the-future-why"><a class="header" href="#which-skills-do-you-think-will-be-important-in-the-future-why">Which skills do you think will be important in the future? Why?</a></h4>
+<blockquote>
+<p>That's difficult to say, but as we all see in recent years, technology is advancing rapidly and offer ...</p>
+</blockquote>
+<h3 id="test-311"><a class="header" href="#test-311">Test 3.11</a></h3>
+<h4 id="what-kinds-of-home-are-most-popular-in-your-country-why-is-this"><a class="header" href="#what-kinds-of-home-are-most-popular-in-your-country-why-is-this">What kinds Of home are most popular in your country? Why is this?</a></h4>
+<h4 id="what-do-you-think-are-the-advantages-of-living-in-a-house-rather-than-an-apartment"><a class="header" href="#what-do-you-think-are-the-advantages-of-living-in-a-house-rather-than-an-apartment">What do you think are the advantages of living in a house rather than an apartment?</a></h4>
+<h4 id="do-you-think-that-everyone-would-like-to-live-in-a-larger-home-why-is-that"><a class="header" href="#do-you-think-that-everyone-would-like-to-live-in-a-larger-home-why-is-that">Do you think that everyone would like to live in a larger home? Why is that?</a></h4>
+<h4 id="how-easy-is-it-to-find-a-place-to-live-in-your-country"><a class="header" href="#how-easy-is-it-to-find-a-place-to-live-in-your-country">How easy is it to find a place to live in your country?</a></h4>
+<h4 id="do-you-think-it-is-better-to-rent-or-buy-a-place-to-live-in-why"><a class="header" href="#do-you-think-it-is-better-to-rent-or-buy-a-place-to-live-in-why">Do you think it is better to rent or buy a place to live in? Why?</a></h4>
+<h4 id="do-you-agree-that-there-is-a-right-age-for-young-adults-to-stop-living-with-their-parents-why-is-that"><a class="header" href="#do-you-agree-that-there-is-a-right-age-for-young-adults-to-stop-living-with-their-parents-why-is-that">Do you agree that there is a right age for young adults to stop living with their parents? Why is that?</a></h4>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../helm-charts/english/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../helm-charts/english/writing_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../helm-charts/english/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../helm-charts/english/writing_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../../theme/pagetoc.js"></script>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Writing task 2 - vContainer Helm Infra Documentation</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="../../theme/pagetoc.css">
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">vContainer Helm Infa Repository</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/index.html"><strong aria-hidden="true">1.</strong> vContainer Storage Interface Chart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/overview.html"><strong aria-hidden="true">1.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example.html"><strong aria-hidden="true">1.3.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-type.html"><strong aria-hidden="true">1.3.1.</strong> StorageClass based on Volume Type</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/block-volume.html"><strong aria-hidden="true">1.3.2.</strong> Block volume</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/volume-resizing.html"><strong aria-hidden="true">1.3.3.</strong> Volume resizing</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vcontainer-storage-interface/example/nfs-server.html"><strong aria-hidden="true">1.3.4.</strong> NFS server</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/index.html"><strong aria-hidden="true">2.</strong> VNGCLOUD Ingress Controller</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/overview.html"><strong aria-hidden="true">2.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-ingress-controller/annotations.html"><strong aria-hidden="true">2.3.</strong> Annotations</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/index.html"><strong aria-hidden="true">3.</strong> VNG Cloud Controller Manager</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/overview.html"><strong aria-hidden="true">3.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/installation.html"><strong aria-hidden="true">3.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/annotations.html"><strong aria-hidden="true">3.3.</strong> Annotations</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example.html"><strong aria-hidden="true">3.4.</strong> For usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/internal-loadbalancer.html"><strong aria-hidden="true">3.4.1.</strong> Internal LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/external-loadbalancer.html"><strong aria-hidden="true">3.4.2.</strong> External LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/upd-server.html"><strong aria-hidden="true">3.4.3.</strong> Support UDP protocol</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/http-application.html"><strong aria-hidden="true">3.4.4.</strong> HTTP Application</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/reuse-loadbalancer.html"><strong aria-hidden="true">3.4.5.</strong> Reuse existing LoadBalancer</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-ingress.html"><strong aria-hidden="true">3.4.6.</strong> Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/change-package.html"><strong aria-hidden="true">3.4.7.</strong> Change LoadBalancer package</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-controller-manager/example/nginx-proxy.html"><strong aria-hidden="true">3.4.8.</strong> Nginx Proxy</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/index.html"><strong aria-hidden="true">4.</strong> Migrate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/overview.html"><strong aria-hidden="true">4.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/planning-resource.html"><strong aria-hidden="true">4.2.</strong> Planning Resources for the Target Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-outside-resource.html"><strong aria-hidden="true">4.3.</strong> Migrating Resources Outside a Cluster</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/install-tool.html"><strong aria-hidden="true">4.4.</strong> Installing the Migration Tool</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/migrate-resource.html"><strong aria-hidden="true">4.5.</strong> Migrating Resources in a Cluster (Velero)</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/update-resource.html"><strong aria-hidden="true">4.6.</strong> Updating Resources Accordingly</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/additional-tasks.html"><strong aria-hidden="true">4.7.</strong> Performing Additional Tasks</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case.html"><strong aria-hidden="true">4.8.</strong> Usecase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vks-to-vks.html"><strong aria-hidden="true">4.8.1.</strong> VKS to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/vcontainer-to-vks.html"><strong aria-hidden="true">4.8.2.</strong> vContainer to VKS</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/use-case/other-to-vks.html"><strong aria-hidden="true">4.8.3.</strong> Other cloud to VKS</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage.html"><strong aria-hidden="true">4.9.</strong> More usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/prepare-velero.html"><strong aria-hidden="true">4.9.1.</strong> Prepare Velero</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/deploy-sample-app.html"><strong aria-hidden="true">4.9.2.</strong> Deploy sample app</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/minio.html"><strong aria-hidden="true">4.9.3.</strong> Setup Minio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/migrate/more-usage/troubleshooting.html"><strong aria-hidden="true">4.9.4.</strong> Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/index.html"><strong aria-hidden="true">5.</strong> CNI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/overview.html"><strong aria-hidden="true">5.1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/container-the-hardway-networking.html"><strong aria-hidden="true">5.2.</strong> Container the Hard way</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-network.html"><strong aria-hidden="true">5.3.</strong> AWS network</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/cilium.html"><strong aria-hidden="true">5.4.</strong> Cilium</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/ops-the-hardway.html"><strong aria-hidden="true">5.5.</strong> OPS the hardway</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vngcloud-container-network-interface/aws-trunk.html"><strong aria-hidden="true">5.6.</strong> AWS trunk network</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/index.html"><strong aria-hidden="true">6.</strong> Fleet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/GKEVPN-strongswan.html"><strong aria-hidden="true">6.1.</strong> GKEVPN StrongSwan</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/istio.html"><strong aria-hidden="true">6.2.</strong> Istio</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt.html"><strong aria-hidden="true">6.3.</strong> Cert Manager + Let's Encrypt + Nginx Ingress</a></li><li class="chapter-item expanded "><a href="../../helm-charts/vks-fleet/cert-manager-let-encrypt-vngcloud.html"><strong aria-hidden="true">6.4.</strong> Cert Manager + Let's Encrypt + VNGCLOUD Ingress</a></li></ol></li><li class="chapter-item expanded "><a href="../../helm-charts/english/index.html"><strong aria-hidden="true">7.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../helm-charts/english/speaking.html"><strong aria-hidden="true">7.1.</strong> Speaking</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing_1.html"><strong aria-hidden="true">7.2.</strong> Writing task 1</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/writing.html" class="active"><strong aria-hidden="true">7.3.</strong> Writing task 2</a></li><li class="chapter-item expanded "><a href="../../helm-charts/english/vocab.html"><strong aria-hidden="true">7.4.</strong> Vocabulary</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">vContainer Helm Infra Documentation</h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="writing"><a class="header" href="#writing">Writing</a></h1>
+<h2 id="catalogue"><a class="header" href="#catalogue">Catalogue</a></h2>
+<ul>
+<li><a href="#writing">Writing</a>
+<ul>
+<li><a href="#catalogue">Catalogue</a></li>
+<li><a href="#summary">Summary</a>
+<ul>
+<li><a href="#argumentativeopinionagree-or-disagree-essay">Argumentative/Opinion/Agree or Disagree Essay</a></li>
+<li><a href="#advantages-and-disadvantages-essay">Advantages and Disadvantages Essay</a></li>
+<li><a href="#discussion-essaydiscuss-both-views">Discussion Essay/Discuss both views</a></li>
+<li><a href="#causes-and-effectscauses-and-solutionsproblems-and-solutions-essay">Causes and Effects/Causes and Solutions/Problems and Solutions Essay</a></li>
+<li><a href="#two-part-question-essay">Two-Part Question Essay</a></li>
+</ul>
+</li>
+<li><a href="#part-1">Part 1</a></li>
+<li><a href="#part-2">Part 2</a>
+<ul>
+<li><a href="#young-people-are-now-spending-more-and-more-time-and-money-following-fashion-trends-is-this-a-positive-or-negative-development">Young people are now spending more and more time and money following fashion trends. Is this a positive or negative development?</a></li>
+<li><a href="#employers-should-give-longer-holidays-to-employees-to-encourage-them-to-do-their-job-well-to-what-extent-do-you-agree-or-disagree">Employers should give longer holidays to employees to encourage them to do their job well. To what extent do you agree or disagree?</a></li>
+<li><a href="#people-nowadays-sleep-less-than-they-used-to-in-the-past-what-do-you-think-is-the-reason-for-this-what-are-the-effects-of-this-habit">People nowadays sleep less than they used to in the past. What do you think is the reason for this? What are the effects of this habit?</a></li>
+<li><a href="#goverments-should-spend-money-on-railways-rather-than-roads-to-what-extent-do-you-agree-or-disagree-with-this-statement">Goverments should spend money on railways rather than roads. To what extent do you agree or disagree with this statement?</a></li>
+<li><a href="#nowadays-people-depend-on-technology-for-leisure-activities-is-this-a-positive-or-negative-development">Nowadays people depend on technology for leisure activities. Is this a positive or negative development?</a></li>
+<li><a href="#while-many-people-go-to-university-for-academic-study-more-people-should-be-encouraged-to-do-vocational-training-because-there-is-a-lack-of-qualified-workers-such-as-electricians-and-plumbers-agree-or-disagree">While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. Agree or disagree?</a></li>
+<li><a href="#many-people-want-their-country-to-host-an-international-sporting-event-others-believe-that-international-sporting-events-bring-more-problems-than-benefits-discuss-both-views-and-give-your-opinion">Many people want their country to host an international sporting event. Others believe that international sporting events bring more problems than benefits. Discuss both views and give your opinion</a></li>
+<li><a href="#nowadays-there-is-a-growing-trend-for-men-to-stay-at-home-and-take-care-of-their-children-while-their-spouses-go-out-to-work-there-are-some-reasons-for-this-tendency-to-become-more-popular-and-i-believe-this-trend-is-beneficial-in-many-ways">Nowadays, there is a growing trend for men to stay at home and take care of their children while their spouses go out to work. There are some reasons for this tendency to become more popular and I believe this trend is beneficial in many ways</a></li>
+<li><a href="#it-is-observed-that-in-many-countries-not-enough-students-are-choosing-to-study-science-as-a-subject-what-are-the-causes-and-what-will-be-the-effects-on-society">It is observed that in many countries not enough students are choosing to study science as a subject. What are the causes? And what will be the effects on society?</a></li>
+<li><a href="#once-children-start-school-teachers-have-more-influence-on-their-intellectual-and-social-development-to-what-extent-do-you-agree-or-disagree">Once children start school, teachers have more influence on their intellectual and social development. To what extent do you agree or disagree?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>IELTS Writing Task 2 includes 5 types of essays:</p>
+<ul>
+<li><strong>Argumentative/Opinion/Agree or Disagree Essay</strong>
+<ul>
+<li>Give you 1 opinion and you need to discuss it. You also need to give your opinion.</li>
+<li>Do you agree or disagree?</li>
+<li>To what extent do you agree or disagree?</li>
+<li>Is this a positive or negative development?</li>
+<li>Some people think that all teenagers should be required to do unpaid work in their free time to help the local community. They believe this would benefit both the individual teenager and society as a whole. Do you agree or disagree?</li>
+</ul>
+</li>
+<li><strong>Discussion Essay/Discuss both views</strong>
+<ul>
+<li>It'll give you 2 opinions and you need to discuss both of them, including your opinion.</li>
+<li>Discuss both these views and give your opinion.</li>
+</ul>
+</li>
+<li><strong>Advantages and Disadvantages Essay</strong>
+<ul>
+<li>It'll give you 1 topic and you need to discuss the advantages and disadvantages of it.</li>
+<li>&quot;Do the advantages of this outweigh the disadvantages?&quot; -&gt; <strong>GIVE YOUR OPINION</strong></li>
+<li>&quot;Discuss the advantages and disadvantages of this?&quot; -&gt; <strong>DO NOT GIVE YOUR OPINION</strong></li>
+</ul>
+</li>
+<li><strong>Causes and Effects/Causes and Solutions/Problems and Solutions Essay</strong>
+<ul>
+<li>The easiest type of essay in this test.</li>
+<li>The internet has transformed the way information is shared and consumed, but it has also created problems that did not exist before. What are the most serious problems associated with the Internet and what solutions can you suggest?</li>
+</ul>
+</li>
+<li><strong>Two-Part Question Essay</strong>
+<ul>
+<li>Many people decide on a career path early in their lives and keep to it. This, they argue, leads to a more satisfying working life. To what extent do you agree with this view? What other things can people do in order to have a satisfying working life?</li>
+</ul>
+</li>
+</ul>
+<h3 id="argumentativeopinionagree-or-disagree-essay"><a class="header" href="#argumentativeopinionagree-or-disagree-essay">Argumentative/Opinion/Agree or Disagree Essay</a></h3>
+<ul>
+<li>Introduction (Mở bài)
+<ul>
+<li>Background Sentence (Paraphrase lại câu hỏi)
+<ul>
+<li>
+<blockquote>
+<p>It is believed that ...</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>Thesis Statement (Nêu quan điểm của bạn)
+<ul>
+<li>
+<blockquote>
+<p>I completely agree/disagree with this idea ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>In my opinion, I disagree with this view.</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>From my point of view, I partly agree/disagree with this view.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>Outline Statement (Nếu lý do bạn ủng hộ quan điểm này)</li>
+</ul>
+</li>
+<li>Main body - Paragraph 1 (Đoạn thân bài 1)
+<ul>
+<li>Topic Sentence (Câu chủ đề, nêu luận điểm 1)</li>
+<li>Explain Topic Sentence (Giải thích)</li>
+<li>Example (Cung cấp ví dụ chứng minh)</li>
+</ul>
+</li>
+<li>Main body - Paragraph 2 (Đoạn thân bài 2)
+<ul>
+<li>Topic Sentence (Câu chủ đề, nêu luận điểm 1)</li>
+<li>Explain Topic Sentence (Giải thích)</li>
+<li>Example (Cung cấp ví dụ chứng minh)</li>
+</ul>
+</li>
+<li>Conclusion (Kết luận)
+<ul>
+<li>Summary and reiteration of your opinion. (Tóm tắt các luận điểm đã nêu bên trên)</li>
+</ul>
+</li>
+</ul>
+<h3 id="advantages-and-disadvantages-essay"><a class="header" href="#advantages-and-disadvantages-essay">Advantages and Disadvantages Essay</a></h3>
+<ul>
+<li>You shoud base on 40/60 approach
+<ul>
+<li>40% for the opposite side</li>
+<li>60% for your side</li>
+</ul>
+</li>
+<li>You should have 4 ideas in total
+<ul>
+<li>2 ideas for the opposite side</li>
+<li>2 ideas for your side</li>
+</ul>
+</li>
+<li><strong>MUST</strong> have a clear opinion and express it in the introduction and conclusion</li>
+</ul>
+<p><strong>Structure:</strong></p>
+<ul>
+<li>
+<p><strong>Introduction</strong> (about 2-3 sentences)</p>
+<ul>
+<li>
+<blockquote>
+<p>Nowadays, there is a growing concern about ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Opinions are divided on whether ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>I completely agree/disagree with the idea of ... due to two main reasons.</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Although it may breing about certain negative impacts, the benefits outweigh them.</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>There are several advantages/disadvantages to doing STH</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>It’s beneficial/advantages/disadvantages for SB to do STH</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>DOING STH is more beneficial to SB for reasons related to/regarding OPPORTUNITIES and FINANCIAL BENEFITS.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Body Paragraph 1</strong></p>
+<ul>
+<li>
+<p>Topic Sentence</p>
+<ul>
+<li>
+<blockquote>
+<p>Admittedly, ... may bring certain ... to ... related to ... and ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>On the one hand...</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>Core Idea 1</p>
+<ul>
+<li>
+<blockquote>
+<p>One of them is that, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Regarding the former, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Firstly, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Regarding (N), ...</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>Supporting Idea 1</p>
+<ul>
+<li>
+<blockquote>
+<p>For example, ...</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>Core Idea 2</p>
+<ul>
+<li>
+<blockquote>
+<p>Moreover, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Another reason is that ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Furthermore, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>In addition, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>In addition to this, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Secondly, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Regarding the latter, ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Regarding (N), ...</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Additionally,</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Furthermore,</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>With regard to the latter,...</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>Supporting Idea 2</p>
+<ul>
+<li>
+<blockquote>
+<p>This is because ...</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Body Paragraph 2</strong> (Same as Body Paragraph 1)</p>
+<ul>
+<li>Topic Sentence
+<ul>
+<li>
+<blockquote>
+<p>On the other hand, ...</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Conclusion</strong> (about 2-3 sentences)</p>
+<ul>
+<li>
+<blockquote>
+<p>In conclusion, even though there are some drawbacks to ..., the benefits of ... outweigh them.</p>
+</blockquote>
+</li>
+<li>...</li>
+<li>
+<blockquote>
+<p>Based on the aforementioned arguments, I completely agree with the proposed idea.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="discussion-essaydiscuss-both-views"><a class="header" href="#discussion-essaydiscuss-both-views">Discussion Essay/Discuss both views</a></h3>
+<ul>
+<li>You must give your opinion if required</li>
+<li>Each body paragraph should discuss one view</li>
+</ul>
+<h3 id="causes-and-effectscauses-and-solutionsproblems-and-solutions-essay"><a class="header" href="#causes-and-effectscauses-and-solutionsproblems-and-solutions-essay">Causes and Effects/Causes and Solutions/Problems and Solutions Essay</a></h3>
+<ul>
+<li>Problem + Reason + Solution</li>
+<li>It'll ask you to discuss 2 of them
+<ul>
+<li>What problems are associated with this, and what are some possible solutions? (Problem + Solution)</li>
+</ul>
+</li>
+<li>You must prepare 2 problems and 2 solutions
+<ul>
+<li>each body have 1 problem and 1 solution</li>
+<li><strong>or</strong> 2 problems in one body and 2 solutions in the other body</li>
+</ul>
+</li>
+</ul>
+<h3 id="two-part-question-essay"><a class="header" href="#two-part-question-essay">Two-Part Question Essay</a></h3>
+<ul>
+<li>Each body part is a separate question</li>
+</ul>
+<h2 id="part-1"><a class="header" href="#part-1">Part 1</a></h2>
+<h2 id="part-2"><a class="header" href="#part-2">Part 2</a></h2>
+<h3 id="young-people-are-now-spending-more-and-more-time-and-money-following-fashion-trends-is-this-a-positive-or-negative-development"><a class="header" href="#young-people-are-now-spending-more-and-more-time-and-money-following-fashion-trends-is-this-a-positive-or-negative-development">Young people are now spending more and more time and money following fashion trends. Is this a positive or negative development?</a></h3>
+<blockquote>
+<p>Admittedly, there are several advantages to spending a lot of time and money following fashion trends related to quality of life and creation in work. For some people who have a passion for fashion, updating the latest trends every day helps them become more confident, which becomes a kind of entertainment for a large part of the young generation nowadays. This is because these newest models usually help their owners feel that they are the most attractive ones among the crowd, making these people produce more happiness hormones in their brains when they wear them. Additionally, these works of art are usually creative with strange shapes or have eye-catching looks, inspiring a lot of people, especially those who work in the art field. With them, creation is the most important thing and they are willing to pay any price as long as it can bring more creativity and productivity to their work.</p>
+<p>On the other hand, trying to own the latest fashion trends is having potential drawbacks for many people, especially the young generation. These good-looking items just have temporary value for their owners' appearance, which will be outdated soon when the trend is over. When the time has come, they are no more than normal things, which causes a big loss. Furthermore, spending a lot of time and money on fashion will make you lose the opportunity to invest in the things that make people more valuable in today's life. These resources are supposed to be used to learn new knowledge and practice necessary skills, which are more useful and long-term valuable than a good-looking appearance.</p>
+</blockquote>
+<h3 id="employers-should-give-longer-holidays-to-employees-to-encourage-them-to-do-their-job-well-to-what-extent-do-you-agree-or-disagree"><a class="header" href="#employers-should-give-longer-holidays-to-employees-to-encourage-them-to-do-their-job-well-to-what-extent-do-you-agree-or-disagree">Employers should give longer holidays to employees to encourage them to do their job well. To what extent do you agree or disagree?</a></h3>
+<p>`
+Opinions are divided on whether employers should give longer holidays to employees to encourage them to do their job well or not. Although it may bring about certain negative impacts, the benefits outweigh them.</p>
+<p>Admittedly, giving longer holidays to employees may be disadvantageous in a few different ways related to short-term performance and increasing workload when returning. Regarding the former, a longer holiday almost certainly causes delays in short-term plans. This is because the frequency of absence of staff will make the current project slow down, which will even slow down others who work with them. With regard to the latter, a huge stack workload, the result after many days of holidays may cause not a little pressure and stress. Then they have to work more and more to catch up with the plans, so these long breaks are not bringing about effective or even counterproductive.</p>
+<p>On the other hand, the benefits of extended breaks far outweigh the drawbacks to employees. Firstly, longer holidays can offer they more options such as a long journey to a foreign country or many days of healing in a mountain, which is usually limited by short breaks. These new experiences offer many benefits such as releasing stress and increasing mental and physical health, which results in more productivity. Secondly, this policy brings about the feeling of job satisfaction, and the balance between life and work, making them want a long-term commitment, reducing the cost when employers have to recruit and train new staff.</p>
+<p>In conclusion, the benefits of giving longer holidays to employees outweigh its potential drawbacks. Based on the aforementioned arguments, I completely agree with the proposed idea.
+`</p>
+<h3 id="people-nowadays-sleep-less-than-they-used-to-in-the-past-what-do-you-think-is-the-reason-for-this-what-are-the-effects-of-this-habit"><a class="header" href="#people-nowadays-sleep-less-than-they-used-to-in-the-past-what-do-you-think-is-the-reason-for-this-what-are-the-effects-of-this-habit">People nowadays sleep less than they used to in the past. What do you think is the reason for this? What are the effects of this habit?</a></h3>
+<ul>
+<li>Reason:
+<ul>
+<li>The development of technology make people connected than ever before</li>
+<li>The increasing pressure of life - work harder and longer hours - less time to sleep</li>
+<li>abuse of stimulants such as coffee, alcohol, energy drinks</li>
+</ul>
+</li>
+</ul>
+<p>`
+Nowadays, it's increasingly common for people to sleep less than they used to in the past. This tendency is the result of several factors, which could lead to many negative impacts.</p>
+<p>There are several factors bringing about this tendency in today's society.
+`</p>
+<h3 id="goverments-should-spend-money-on-railways-rather-than-roads-to-what-extent-do-you-agree-or-disagree-with-this-statement"><a class="header" href="#goverments-should-spend-money-on-railways-rather-than-roads-to-what-extent-do-you-agree-or-disagree-with-this-statement">Goverments should spend money on railways rather than roads. To what extent do you agree or disagree with this statement?</a></h3>
+<ul>
+<li>Agree:
+<ul>
+<li>Safer + example</li>
+<li>environmentally friendly + example</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Opinions are divided on whether governments should spend money on railways rather than roads or not. Although it may bring about certain negative impacts, the benefits outweigh them.</p>
+<p>Admittedly, spending money on railways may be disadvantageous in a few different ways related to wasted resources and ability to utilize. Regarding the former,</p>
+</blockquote>
+<ul>
+<li>Partial Agreement</li>
+</ul>
+<p>`</p>
+<p>In conclusion, while both railways and roads are important, I think governments should prioritize railways because they are better for the environment and can solve issues like traffic congestion in urban areas. At the same time, maintaining roads for local transportation is also essential.
+`</p>
+<h3 id="nowadays-people-depend-on-technology-for-leisure-activities-is-this-a-positive-or-negative-development"><a class="header" href="#nowadays-people-depend-on-technology-for-leisure-activities-is-this-a-positive-or-negative-development">Nowadays people depend on technology for leisure activities. Is this a positive or negative development?</a></h3>
+<blockquote>
+<p>Nowadays, there is a growing concern about people depending on technology for leisure activities. Although it may have certain negative impacts, the benefits outweigh them.</p>
+<p>Admittedly, using tech devices for entertainment may bring certain negative to individuals related to health and lifestyle. Regarding the former, using phones, monitors, and laptops to relax causes increased screen time for users. Many people in this modern life already spend many hours a day with these devices for work, which is the main reason for some popular health problems such as short-sightedness or insomnia. With regard to the latter, time spent on outdoor leisure activities decreases when people use technology for their entertainment. Reduced physical activity affects both physical and mental health because it is the main reason for obesity and depression in many people.</p>
+<p>On the other hand, the benefits of using technology for entertainment far outweigh the drawbacks to individuals. One of them is that it offers a convenient way for many people with various topics. For instance, with only a phone or a laptop, we easily have many ways to relax or chill such as playing some games, watching movies, or suffering news on social media. Furthermore, one of the most valuable leisure activities that technology offers is the ability to connect with others. Social media allows people to interact with family, colleagues, and friends or join some community, and open new personal and business relationships.</p>
+<p>In conclusion, even though there are some drawbacks to depending on technology for leisure activities, the benefits of this practice outweigh them. Based on the aforementioned arguments, I completely agree with the proposed idea.</p>
+</blockquote>
+<h3 id="while-many-people-go-to-university-for-academic-study-more-people-should-be-encouraged-to-do-vocational-training-because-there-is-a-lack-of-qualified-workers-such-as-electricians-and-plumbers-agree-or-disagree"><a class="header" href="#while-many-people-go-to-university-for-academic-study-more-people-should-be-encouraged-to-do-vocational-training-because-there-is-a-lack-of-qualified-workers-such-as-electricians-and-plumbers-agree-or-disagree">While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. Agree or disagree?</a></h3>
+<blockquote>
+<p>Nowadays, there is a growing concern about the lack of qualified workers because many people go to university for academic study. Some people think that doing vocational training should be encouraged to meet the demands of highly qualified employees. Personally, I completely agree with this idea because of some reasons related to resources and the demands of society.</p>
+<p>Admittedly, choosing a career path as a skilled worker may bring certain negatives to individuals related to opportunities and sustainability in the future. Regarding the former, it's obvious that academic study offers a wide range of career options that are limited to vocational training. For instance, this kind of career path only offers common jobs and does not require high-level knowledge such as electricians and plumbers, which is not suitable for someone whose dream is to become a doctor or engineer. Furthermore, in the digital age, while everything is changing to become automatically, many manual laborers in this field may become unemployed. This is because a robot is cheaper, more accurate, and smart enough to do some manual jobs at a certain skill level that directly affects the jobs of these individuals sooner or later.</p>
+<p>On the other hand, the benefits of becoming a skilled worker far outweigh the drawbacks to individuals. Firstly, this practice <strong>saves significant time and financial resources for individuals</strong>. Unlike academic study, vocational training is hands-on skills and could meet the requirements of the labor market in a short period. Secondly, this approach also provides high-paying jobs when employees have enough experience and become well-skilled workers. For example, in many countries like Germany or Japan, electricians and plumbers are always in high demand, and they can earn a lot of money for their work.</p>
+<p>In conclusion, even though there are some drawbacks to doing vocational training instead of going to university, the benefits of this practice outweigh them. Based on the aforementioned arguments, I completely agree with the proposed idea.</p>
+</blockquote>
+<h3 id="many-people-want-their-country-to-host-an-international-sporting-event-others-believe-that-international-sporting-events-bring-more-problems-than-benefits-discuss-both-views-and-give-your-opinion"><a class="header" href="#many-people-want-their-country-to-host-an-international-sporting-event-others-believe-that-international-sporting-events-bring-more-problems-than-benefits-discuss-both-views-and-give-your-opinion">Many people want their country to host an international sporting event. Others believe that international sporting events bring more problems than benefits. Discuss both views and give your opinion</a></h3>
+<blockquote>
+<p>Nowadays, there is growing concern about whether a country should host an international sporting event or not. Although it may bring about certain negative impacts, the benefits outweigh them.</p>
+<p>Admittedly, the decision to host an international sporting event may cause a few different problems. One of them is that the cost of such events is exorbitantly expensive and requires the government to spend a large amount of investment. As a result, the resources spent on the others like healthcare system or education may be decreased or even not enough whenever such events take place. Another problem is affecting the locals' quality of life. This is because those who live near the stadium have to face the constant noise during the games or matches. Beyond that, their commutes were also impacted because the traffic volume increased dramatically when the event took place.</p>
+<p>On the other hand, I think we should hold events at this scope. Firstly, it's a chance to promote the host's culture. Visitors, and audiences from corners of the world can enjoy their cultural heritage and understand more about the host country. Beyond that, during these events, people tend to flock to the cities hosting them, creating many job opportunities for the locals. This is because visitors require accommodation, food, beverages, and services, which enable people in these fields to earn more money and raise their living standards.</p>
+<p>In conclusion, even though there are some drawbacks to hosting an international sporting event, I believe the benefits outweigh them.</p>
+</blockquote>
+<h3 id="nowadays-there-is-a-growing-trend-for-men-to-stay-at-home-and-take-care-of-their-children-while-their-spouses-go-out-to-work-there-are-some-reasons-for-this-tendency-to-become-more-popular-and-i-believe-this-trend-is-beneficial-in-many-ways"><a class="header" href="#nowadays-there-is-a-growing-trend-for-men-to-stay-at-home-and-take-care-of-their-children-while-their-spouses-go-out-to-work-there-are-some-reasons-for-this-tendency-to-become-more-popular-and-i-believe-this-trend-is-beneficial-in-many-ways">Nowadays, there is a growing trend for men to stay at home and take care of their children while their spouses go out to work. There are some reasons for this tendency to become more popular and I believe this trend is beneficial in many ways</a></h3>
+<blockquote>
+<p>Nowadays, there is a growing trend for men to stay at home and take care of their children while their spouses go out to work. There are some reasons for this tendency to become more popular and I believe this trend is beneficial in many ways.</p>
+<p>The shift of parental roles occurs more in today's life because of some understandable reasons related to the ability of women and the awareness of the importance of child-raising in modern life. Regarding the former, many women nowadays are <strong>holding high positions in their companies and have high salaries</strong> or even become the <strong>primary household earners</strong>. This enables their husband to stay at home and take care of their children, which is not common in the past. With regarding the latter, many couples are aware of the importance of the development of their children and one of them has to take this responsibility while the other can focus on the career path to support the family. As a result, many fathers <strong>voluntarily</strong> give up their careers to support their spouses if they find it is the best choice for their future.</p>
+<p>On the other hand, I believe this practice is beneficial in many ways. One of them is that the cost of external childcare is very expensive and this arrangement can save a lot of money for parents. Beyond that, when the father takes the primary responsibility for child raising, which is not typical in the past, could create a new environment for the <strong>well-rounded development</strong> of the child. This not only strengthens emotional bonds within the family but also creates a model of the father in modern life.</p>
+<p>In conclusion, while a father staying at home and taking care of their children is not common in the past and may have some drawbacks, I believe the benefits of this practice outweigh them.</p>
+</blockquote>
+<h3 id="it-is-observed-that-in-many-countries-not-enough-students-are-choosing-to-study-science-as-a-subject-what-are-the-causes-and-what-will-be-the-effects-on-society"><a class="header" href="#it-is-observed-that-in-many-countries-not-enough-students-are-choosing-to-study-science-as-a-subject-what-are-the-causes-and-what-will-be-the-effects-on-society">It is observed that in many countries not enough students are choosing to study science as a subject. What are the causes? And what will be the effects on society?</a></h3>
+<p><img src="./../../images/ielts/1.png" alt="1.png" /></p>
+<ul>
+<li><code>hands-on labs or practical activities to apply knowledge</code></li>
+<li><code>to capture students' interest</code> - to attract students</li>
+<li><code>pursue higher education for an extended period</code> - have to study for a long time</li>
+<li><code>a shortage in the (ADJ) workforce</code> - a lack of (qualified) workers</li>
+<li><code>The more developed a country is, the higher its scientific power</code></li>
+<li><code>unprecedented challenges</code> - challenges that have never been faced before</li>
+</ul>
+<h3 id="once-children-start-school-teachers-have-more-influence-on-their-intellectual-and-social-development-to-what-extent-do-you-agree-or-disagree"><a class="header" href="#once-children-start-school-teachers-have-more-influence-on-their-intellectual-and-social-development-to-what-extent-do-you-agree-or-disagree">Once children start school, teachers have more influence on their intellectual and social development. To what extent do you agree or disagree?</a></h3>
+<p><img src="./../../images/ielts/2.png" alt="2.png" /></p>
+<ul>
+<li><code>teachers are the most suitable FOR KEEPING a close eye on students' progress</code></li>
+<li><code>spending most of THEIR time V_ing</code></li>
+<li><code>strengths and weaknesses of each student</code> - not studentS</li>
+<li><code>respond appropriately</code> - respond in a suitable way</li>
+<li><code>imitating</code> - copying</li>
+<li><code>By exposing children to a wide range of activities and guiding them step by step,...</code> - by giving children a lot of different activities and helping them to do them</li>
+<li><code>parents are the most suitable to SHAPE their children's personality</code> - parents are the most suitable people to influence their children's character</li>
+<li><code>suitable</code> - <code>better positioned</code> - <code>more appropriate</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../helm-charts/english/writing_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../helm-charts/english/vocab.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../helm-charts/english/writing_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../helm-charts/english/vocab.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../../theme/pagetoc.js"></script>
+        
+        
+    </body>
+</html>
