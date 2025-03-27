@@ -58,6 +58,7 @@
   - [Istio](helm-charts/vks-fleet/istio.md)
   - [Cert Manager + Let's Encrypt + Nginx Ingress](helm-charts/vks-fleet/cert-manager-let-encrypt.md)
   - [Cert Manager + Let's Encrypt + VNGCLOUD Ingress](helm-charts/vks-fleet/cert-manager-let-encrypt-vngcloud.md)
+  - [CORS](helm-charts/vks-fleet/cors.md)
 - [English](helm-charts/english/README.md)
   - [Speaking](helm-charts/english/speaking.md)
   - [Writing task 1](helm-charts/english/writing_1.md)
