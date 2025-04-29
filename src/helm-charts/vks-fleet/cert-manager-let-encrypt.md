@@ -228,3 +228,93 @@ spec:
             port:
               number: 80
 ```
+
+## Advanced
+
+### Use DNS01 Challenge for Wildcard Certificate
+
+- docs
+  - [https://cert-manager.io/docs/configuration/acme/dns01/#delegated-domains-for-dns01](https://cert-manager.io/docs/configuration/acme/dns01/#delegated-domains-for-dns01)
+- Prerequisites:
+  - DNS provider or DNS providers using an external webhook
+- Example with Porkbun
+  - Configure your DNS provider to use `cert-manager` as a webhook
+  - Enable API access [https://kb.porkbun.com/article/190-getting-started-with-the-porkbun-api](https://kb.porkbun.com/article/190-getting-started-with-the-porkbun-api)
+  - [Webhook repo](https://github.com/mdonoughe/porkbun-webhook)
+  - Create an API key and secret key in Porkbun
+
+```bash
+git clone git@github.com:mdonoughe/porkbun-webhook.git
+
+cd porkbun-webhook
+
+helm install porkbun-webhook ./deploy/porkbun-webhook \
+    --set groupName=annd2.pro
+
+kubectl create secret generic porkbun-key \
+    --from-literal=api-key=pk1_xxxxxxxxxxxxxx \
+    --from-literal=secret-key=sk1_xxxxxxxxxxxxxxx
+
+kubectl apply -f rbac.yaml
+
+kubectl apply -f - <<EOF
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: annd2@gmail.com                                 # Change to your email
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    solvers:
+      - dns01:
+          webhook:
+            groupName: annd2.pro
+            solverName: porkbun
+            config:
+              apiKeySecretRef:
+                name: porkbun-key
+                key: api-key
+              secretKeySecretRef:
+                name: porkbun-key
+                key: secret-key
+        # selector:
+        #   dnsZones:
+        #     - annd2.pro
+EOF
+
+kubectl apply -f - <<EOF
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: go-httpbin
+  annotations:
+    cert-manager.io/issuer: "letsencrypt-prod"  # Change to letsencrypt-prod
+    acme.cert-manager.io/http01-edit-in-place: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - '*.annd2.pro'                   # Change to your domain
+    secretName: quickstart-example-tls
+  rules:
+  - host: '*.annd2.pro'               # Change to your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: clusterip
+            port:
+              number: 80
+EOF
+```
+
+Check logs:
+
+```bash
+k -n cert-manager logs -l app.kubernetes.io/name=cert-manager -f
+```
